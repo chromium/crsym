@@ -31,7 +31,7 @@ import (
 
 	"flag"
 	"github.com/chromium/crsym/breakpad"
-	"log"
+	log "github.com/golang/glog"
 )
 
 var (

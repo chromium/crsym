@@ -1,0 +1,175 @@
+/* Copyright 2013 Google Inc. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+*/
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 1em;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 1em;
+}
+
+h1 {
+  margin-bottom: .3em;
+}
+
+h2, h3 {
+  margin: 1em 0;
+}
+
+p {
+  margin-bottom: .5em;
+}
+
+dd {
+  margin: .3em .5em;
+}
+
+li {
+  margin: .5em 2em;
+}
+
+form div {
+  margin-bottom: .5em;
+}
+
+label {
+  font-weight: bold;
+}
+
+select {
+  display: block;
+  font-size: 1em;
+}
+
+input, textarea {
+  font-family: monospace;
+  font-size: 1em;
+  display: block;
+
+  padding: .3em;
+}
+
+form div input {
+  width: 30em;
+}
+
+button {
+  font-size: 1em;
+  font-weight: bold;
+  padding: .3em;
+
+  border: .1em solid #CCC;
+  border-radius: .2em;
+  background-color: #DDD;
+}
+button:active {
+  background-color: #999;
+}
+
+textarea {
+  width: 100%;
+  border: none;
+  padding: .3em;
+  margin: 0;
+  height: 36em;
+  box-sizing: border-box;
+  white-space: pre;
+}
+
+textarea.in_progress {
+  background-color: rgb(230, 230, 255);
+}
+textarea.error {
+  background-color: rgb(255, 230, 230);
+}
+
+img {
+  border: .1em dashed #AAA;
+  clear: left;
+}
+
+#links {
+  font-size: .9em;
+  float: right;
+}
+
+.input_option {
+  display: inline-block;
+
+  width: 15em;
+  height: 9em;
+  vertical-align: top;
+  padding: .5em;
+
+  background-color: #DDD;
+  border: 1px solid gray;
+}
+
+.input_option.active {
+  background-color: #AAA;
+}
+
+.input_option input[type=radio] {
+  width: auto;
+  display: inline;
+}
+
+.input_option p {
+  margin-top: .5em;
+}
+
+#tabs {
+  margin-bottom: 0;
+}
+
+#tabs > label {
+  display: inline-block;
+
+  border: .1em solid #CCC;
+  background-color: #DDD;
+
+  padding: .3em .5em;
+}
+
+#tabs label.active {
+  background-color: #999;
+  border-bottom-color: #999;
+}
+
+#tab_contents {
+  width: 100%;
+  border: .1em solid #CCC;
+}
+
+#tab_contents > * {
+  display: none;
+}
+
+#tab_contents > .active {
+  display: block;
+}
+
+.code {
+  font-family: monospace;
+  padding: .2em;
+  background-color: #EEE;
+  border: .1em dashed #CCC;
+
+  overflow: scroll;
+}

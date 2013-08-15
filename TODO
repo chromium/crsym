@@ -1,4 +1,3 @@
-* Write implementations for testutils.
 * Write implementation of breakpad.Supplier interface.
 * Write a server main routine for the frontend package.
 * Split the frontend module into the input parser and HTTP server.

@@ -1,0 +1,896 @@
+--------- beginning of /dev/log/system
+D/PicasaUploaderSyncManager(14960): battery info: true
+I/iu.UploadsManager(12745): num queued entries: 0
+I/iu.UploadsManager(12745): num updated entries: 0
+I/iu.UploadsManager(12745): num queued entries: 0
+I/iu.UploadsManager(12745): num updated entries: 0
+I/iu.SyncManager(12745): NEXT; no task
+D/dalvikvm(27700): Late-enabling CheckJNI
+D/dalvikvm( 4820): GC_CONCURRENT freed 437K, 6% free 9408K/9924K, paused 1ms+2ms, total 22ms
+I/ActivityManager(  533): Start proc com.google.android.apps.chrome for broadcast com.google.android.apps.chrome/org.chromium.base.PowerStatusReceiver: pid=27700 uid=10072 gids={50072, 1006, 3003, 1015, 1028}
+I/ActivityManager(  533): No longer want com.android.providers.calendar (pid 22995): empty #17
+D/dalvikvm(  786): GC_CONCURRENT freed 324K, 7% free 10288K/11016K, paused 2ms+4ms, total 31ms
+D/dalvikvm(  659): GC_CONCURRENT freed 486K, 13% free 12636K/14432K, paused 3ms+4ms, total 22ms
+D/MtpService(12559): updating state; isCurrentUser=true, mMtpLocked=false
+D/MtpService(12559): addStorageLocked 65537 /storage/emulated/0
+D/dalvikvm(12559): GC_FOR_ALLOC freed 354K, 7% free 9183K/9856K, paused 14ms, total 14ms
+D/MtpService(12559): updating state; isCurrentUser=true, mMtpLocked=false
+D/MtpService(12559): starting MTP server in MTP mode
+D/MtpService(12559): addStorageLocked 65537 /storage/emulated/0
+W/ContextImpl(  533): Calling a method in the system process without a qualified user: android.app.ContextImpl.startActivity:939 com.android.server.usb.UsbDebuggingManager.showConfirmationDialog:259 com.android.server.usb.UsbDebuggingManager.access$900:46 com.android.server.usb.UsbDebuggingManager$UsbDebuggingHandler.handleMessage:215 android.os.Handler.dispatchMessage:99 
+W/ContextImpl(  533): Calling a method in the system process without a qualified user: android.app.ContextImpl.startActivity:951 android.app.ContextImpl.startActivity:940 com.android.server.usb.UsbDebuggingManager.showConfirmationDialog:259 com.android.server.usb.UsbDebuggingManager.access$900:46 com.android.server.usb.UsbDebuggingManager$UsbDebuggingHandler.handleMessage:215 
+I/ActivityManager(  533): START u0 {flg=0x10000000 cmp=com.android.systemui/.usb.UsbDebuggingActivity (has extras)} from pid 533
+D/dalvikvm(  533): GC_CONCURRENT freed 4274K, 19% free 22959K/28316K, paused 7ms+9ms, total 109ms
+I/ActivityManager(  533): Displayed com.android.systemui/.usb.UsbDebuggingActivity: +115ms
+D/Mms:app (14974): cancelNotification
+D/PhoneStatusBar(  659): disable: < expand icons alerts ticker system_info BACK HOME recent* CLOCK search >
+D/Mms     (14974): [1] mDeleteObsoleteThreadsRunnable calling asyncDeleteObsoleteThreads
+D/NfcService(  843): NFC-C ON
+I/USERIAL_LINUX(  843): USERIAL_Open(): enter
+I/USERIAL_LINUX(  843): USERIAL_Open() device: /dev/bcm2079x-i2c port=5, uart_port=0 WAKE_DELAY(20) WRITE_DELAY(20) POWER_ON_DELAY(300) PRE_POWER_OFF_DELAY(10) POST_POWER_OFF_DELAY(0)
+D/PhoneStatusBar(  659): disable: < expand icons alerts ticker system_info back* home* recent clock* search >
+D/Mms     (14974): [1] onQueryComplete finished DELETE_OBSOLETE_THREADS_TOKEN
+D/Mms:app (14974): cancelNotification
+D/Mms:app (14974): cancelNotification
+D/Mms:app (14974): cancelNotification
+D/dalvikvm(  832): GC_CONCURRENT freed 387K, 5% free 9229K/9648K, paused 1ms+1ms, total 16ms
+V/TAG     (  533): bug 7643792: fitSystemWindows([0,50][0,0])
+I/USERIAL_LINUX(  843): USERIAL_Open(): exit
+D/audio_hw_primary(  174): start_output_stream: enter: usecase(1: low-latency-playback) devices(0x2)
+D/audio_hw_primary(  174): select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+D/audio_hw_primary(  174): enable_snd_device: sending audio calibration for snd_device(2) acdb_id(14)
+D/ACDB-LOADER(  174): ACDB -> send_afe_cal
+D/audio_hw_primary(  174): enable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): enable_audio_route: apply mixer path: low-latency-playback
+W/InputMethodManagerService(  533): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4247b1a8 attribute=android.view.inputmethod.EditorInfo@4245fcb8, token = android.os.BinderProxy@4252bcb0
+D/audio_hw_primary(  174): start_output_stream: exit
+D/dalvikvm(  533): JIT code cache reset in 1 ms (1048480 bytes 35/1)
+D/dalvikvm(  533): GC_FOR_ALLOC freed 2956K, 24% free 21767K/28316K, paused 75ms, total 75ms
+D/dalvikvm(  533): GC_FOR_ALLOC freed 44K, 22% free 22097K/28316K, paused 63ms, total 63ms
+I/dalvikvm-heap(  533): Grow heap (frag case) to 21.969MB for 380496-byte allocation
+D/dalvikvm(  533): GC_FOR_ALLOC freed <1K, 22% free 22468K/28688K, paused 59ms, total 59ms
+D/dalvikvm(  533): GC_FOR_ALLOC freed 743K, 25% free 21725K/28688K, paused 58ms, total 59ms
+D/dalvikvm(  659): GC_FOR_ALLOC freed 716K, 16% free 12240K/14432K, paused 18ms, total 18ms
+I/dalvikvm-heap(  659): Grow heap (frag case) to 12.340MB for 380496-byte allocation
+D/dalvikvm(  659): GC_FOR_ALLOC freed 9K, 15% free 12602K/14804K, paused 16ms, total 16ms
+D/dalvikvm(  659): GC_FOR_ALLOC freed 84K, 16% free 12561K/14804K, paused 16ms, total 16ms
+I/dalvikvm-heap(  659): Grow heap (frag case) to 12.654MB for 380496-byte allocation
+D/dalvikvm(  659): GC_FOR_ALLOC freed 0K, 15% free 12932K/15176K, paused 16ms, total 16ms
+D/dalvikvm(  533): GC_FOR_ALLOC freed 748K, 25% free 21724K/28688K, paused 65ms, total 66ms
+D/dalvikvm(  659): GC_FOR_ALLOC freed 378K, 18% free 12560K/15176K, paused 16ms, total 16ms
+I/ActivityManager(  533): START u0 {act=com.android.systemui.recent.action.TOGGLE_RECENTS flg=0x10800000 cmp=com.android.systemui/.recent.RecentsActivity (has extras)} from pid 659
+D/dalvikvm(  533): GC_FOR_ALLOC freed 375K, 23% free 22100K/28688K, paused 58ms, total 59ms
+I/ActivityManager(  533): Displayed com.android.systemui/.recent.RecentsActivity: +89ms
+D/dalvikvm(  533): GC_FOR_ALLOC freed 1170K, 26% free 21368K/28688K, paused 76ms, total 77ms
+I/ActivityManager(  533): Killing 14974:com.android.mms/u0a10044: remove task
+D/CountryDetector(  533): No listener is left
+I/WindowState(  533): WIN DEATH: Window{42226cb0 u0 com.android.mms/com.android.mms.ui.ConversationList}
+W/ResourceType(  533): Skipping entry 0x7f05000e in package table 0 because it is not complex!
+W/ResourceType(  533): Skipping entry 0x7f05000f in package table 0 because it is not complex!
+I/ActivityManager(  533): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.android.launcher/com.android.launcher2.Launcher} from pid 533
+D/android.widget.GridLayout(  862): horizontal constraints: x1-x0>=350, x2-x1>=390, x2-x0<=736 are inconsistent; permanently removing: x2-x0<=736. 
+D/android.widget.GridLayout(  862): horizontal constraints: x1-x0>=350, x2-x1>=390, x2-x0<=736 are inconsistent; permanently removing: x2-x0<=736. 
+D/android.widget.GridLayout(  862): horizontal constraints: x1-x0>=350, x2-x1>=390, x2-x0<=736 are inconsistent; permanently removing: x2-x0<=736. 
+I/ActivityManager(  533): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.chrome/com.google.android.apps.chrome.Main} from pid 862
+D/dalvikvm(  533): GC_FOR_ALLOC freed 1197K, 26% free 21433K/28688K, paused 62ms, total 62ms
+W/ResourceType(27670): Failure getting entry for 0x7f040041 (t=3 e=65) in package 0 (error -75)
+W/ResourceType(27670): Failure getting entry for 0x7f040015 (t=3 e=21) in package 0 (error -75)
+D/libEGL  (27670): loaded /system/lib/egl/libEGL_adreno200.so
+D/libEGL  (27670): loaded /system/lib/egl/libGLESv1_CM_adreno200.so
+D/libEGL  (27670): loaded /system/lib/egl/libGLESv2_adreno200.so
+I/Adreno200-EGL(27670): <qeglDrvAPI_eglInitialize:265>: EGL 1.4 QUALCOMM Build: Iabe52cfaeae4c5fab1acacfe6f056ba15fa93274
+D/dalvikvm(27670): GC_CONCURRENT freed 233K, 3% free 9083K/9340K, paused 2ms+9ms, total 36ms
+W/GLPreLoader(27670): eglCreateWindowSurface EGL_SUCCESS
+D/OpenGLRenderer(27670): Enabling debug mode 0
+I/Adreno200-ES20(27670): <validate_vertex_attrib_state:53>: validate_vertex_attrib_state: No vertex attrib is enabled in a draw call!
+I/LibraryLoader(27670): loading: chromeview
+I/ActivityManager(  533): Start proc com.android.chrome:sandboxed_process0 for service com.android.chrome/org.chromium.content.app.SandboxedProcessService0: pid=27786 uid=99108 gids={}
+I/ChildProcessService(27786): Creating new ChildProcessService pid=27786
+I/LibraryLoader(27786): loading: chromeview
+I/ActivityManager(  533): Displayed com.android.chrome/com.google.android.apps.chrome.Main: +239ms
+I/LibraryLoader(27670): loaded: chromeview
+I/LibraryLoader(27786): loaded: chromeview
+I/chromium(27670): [INFO:library_loader_hooks.cc(70)] Chromium logging enabled: level = 0, default verbosity = 0
+E/TraceEvent(27670): setEnabledToMatchNative
+E/TraceEvent(27670): java.lang.NoSuchFieldException: PROPERTY_TRACE_TAG_ENABLEFLAGS
+E/TraceEvent(27670): 	at java.lang.Class.getField(Class.java:673)
+E/TraceEvent(27670): 	at org.chromium.content.common.TraceEvent.setEnabledToMatchNative(Unknown Source)
+E/TraceEvent(27670): 	at org.chromium.content.app.LibraryLoader.initializeAlreadyLocked(Unknown Source)
+E/TraceEvent(27670): 	at org.chromium.content.app.LibraryLoader.ensureInitialized(Unknown Source)
+E/TraceEvent(27670): 	at com.google.android.apps.chrome.Main$InitializerContinuation$1.run(Unknown Source)
+E/TraceEvent(27670): 	at android.os.Handler.handleCallback(Handler.java:730)
+E/TraceEvent(27670): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+E/TraceEvent(27670): 	at android.os.Looper.loop(Looper.java:137)
+E/TraceEvent(27670): 	at android.os.HandlerThread.run(HandlerThread.java:61)
+D/dalvikvm(27670): GC_CONCURRENT freed 98K, 2% free 9371K/9496K, paused 3ms+2ms, total 16ms
+I/MemoryUsageMonitor(27670): Max active tabs = 24
+W/BrowserProcessMain(27670): Excessive maxRendererProcesses value: 23
+I/BrowserProcessMain(27670): Initializing chromium process, renderers=3
+E/chromium(27670): [ERROR:content_main.cc(44)] Browser waiting for GDB because flag wait-for-debugger was supplied.
+D/audio_hw_primary(  174): out_standby: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): stop_output_stream: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): disable_audio_route: reset mixer path: low-latency-playback
+D/audio_hw_primary(  174): disable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): stop_output_stream: exit: status(0)
+D/audio_hw_primary(  174): out_standby: exit
+W/ActivityManager(  533): Launch timeout has expired, giving up wake lock!
+W/ActivityManager(  533): Activity idle timeout for ActivityRecord{422a1fe8 u0 com.android.chrome/com.google.android.apps.chrome.Main}
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+W/InputDispatcher(  533): Asynchronous input event injection failed.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+W/InputDispatcher(  533): Asynchronous input event injection failed.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+W/InputDispatcher(  533): Asynchronous input event injection failed.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+W/InputDispatcher(  533): Asynchronous input event injection failed.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+W/InputDispatcher(  533): Asynchronous input event injection failed.
+I/InputDispatcher(  533): Dropped event because the current application is not responding and the user has started interacting with a different application.
+D/dalvikvm(  659): GC_FOR_ALLOC freed 310K, 12% free 13216K/14992K, paused 20ms, total 20ms
+I/dalvikvm-heap(  659): Grow heap (frag case) to 13.117MB for 195380-byte allocation
+D/dalvikvm(  659): GC_FOR_ALLOC freed 2K, 12% free 13404K/15184K, paused 19ms, total 19ms
+I/ActivityManager(  533): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.HOME] flg=0x10200000 cmp=com.android.launcher/com.android.launcher2.Launcher} from pid 533
+D/audio_hw_primary(  174): start_output_stream: enter: usecase(1: low-latency-playback) devices(0x2)
+D/audio_hw_primary(  174): select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+D/audio_hw_primary(  174): enable_snd_device: sending audio calibration for snd_device(2) acdb_id(14)
+D/ACDB-LOADER(  174): ACDB -> send_afe_cal
+D/audio_hw_primary(  174): enable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): enable_audio_route: apply mixer path: low-latency-playback
+D/audio_hw_primary(  174): start_output_stream: exit
+D/dalvikvm(  533): GC_FOR_ALLOC freed 1240K, 26% free 21433K/28688K, paused 83ms, total 83ms
+D/dalvikvm(  659): GC_FOR_ALLOC freed 1289K, 20% free 12164K/15184K, paused 19ms, total 19ms
+D/dalvikvm(  659): GC_FOR_ALLOC freed 830K, 20% free 12158K/15184K, paused 22ms, total 22ms
+I/ActivityManager(  533): START u0 {act=com.android.systemui.recent.action.TOGGLE_RECENTS flg=0x10800000 cmp=com.android.systemui/.recent.RecentsActivity (has extras)} from pid 659
+D/dalvikvm(  533): GC_FOR_ALLOC freed 858K, 25% free 21735K/28688K, paused 62ms, total 62ms
+W/ActivityManager(  533): Activity pause timeout for ActivityRecord{422a1fe8 u0 com.android.chrome/com.google.android.apps.chrome.Main}
+I/ActivityManager(  533): Displayed com.android.systemui/.recent.RecentsActivity: +120ms
+D/dalvikvm(  659): GC_CONCURRENT freed 71K, 14% free 13062K/15184K, paused 3ms+3ms, total 39ms
+D/dalvikvm(  533): GC_FOR_ALLOC freed 780K, 25% free 21739K/28688K, paused 84ms, total 84ms
+I/ActivityManager(  533): Killing 27786:com.android.chrome:sandboxed_process0/u0a10010i108: remove task
+I/ActivityManager(  533): Killing 27670:com.android.chrome/u0a10010: remove task
+I/WindowState(  533): WIN DEATH: Window{422d5988 u0 com.android.chrome/com.google.android.apps.chrome.Main}
+W/WindowManager(  533): Force-removing child win Window{422f1368 u0 SurfaceView} from container Window{422d5988 u0 com.android.chrome/com.google.android.apps.chrome.Main}
+W/WindowManager(  533): Failed looking up window
+W/WindowManager(  533): java.lang.IllegalArgumentException: Requested window android.os.BinderProxy@4267a090 does not exist
+W/WindowManager(  533): 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:7608)
+W/WindowManager(  533): 	at com.android.server.wm.WindowManagerService.windowForClientLocked(WindowManagerService.java:7599)
+W/WindowManager(  533): 	at com.android.server.wm.WindowState$DeathRecipient.binderDied(WindowState.java:1000)
+W/WindowManager(  533): 	at android.os.BinderProxy.sendDeathNotice(Binder.java:470)
+W/WindowManager(  533): 	at dalvik.system.NativeStart.run(Native Method)
+I/WindowState(  533): WIN DEATH: null
+D/audio_hw_primary(  174): out_standby: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): stop_output_stream: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): disable_audio_route: reset mixer path: low-latency-playback
+D/audio_hw_primary(  174): disable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): stop_output_stream: exit: status(0)
+D/audio_hw_primary(  174): out_standby: exit
+D/audio_hw_primary(  174): start_output_stream: enter: usecase(1: low-latency-playback) devices(0x2)
+D/audio_hw_primary(  174): select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+D/audio_hw_primary(  174): enable_snd_device: sending audio calibration for snd_device(2) acdb_id(14)
+D/ACDB-LOADER(  174): ACDB -> send_afe_cal
+D/audio_hw_primary(  174): enable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): enable_audio_route: apply mixer path: low-latency-playback
+D/audio_hw_primary(  174): start_output_stream: exit
+I/ActivityManager(  533): START u0 {act=android.intent.action.MAIN cat=[android.intent.category.LAUNCHER] flg=0x10200000 cmp=com.android.chrome/com.google.android.apps.chrome.Main} from pid 862
+D/dalvikvm(  533): GC_FOR_ALLOC freed 1216K, 26% free 21408K/28688K, paused 61ms, total 61ms
+I/ActivityManager(  533): Start proc com.android.chrome for activity com.android.chrome/com.google.android.apps.chrome.Main: pid=27859 uid=10010 gids={50010, 1006, 3003, 1015, 1028}
+D/dalvikvm(  172): GC_EXPLICIT freed 40K, 1% free 8867K/8936K, paused 1ms+2ms, total 35ms
+D/dalvikvm(  172): GC_EXPLICIT freed <1K, 1% free 8867K/8936K, paused 1ms+2ms, total 18ms
+D/dalvikvm(  172): GC_EXPLICIT freed <1K, 1% free 8867K/8936K, paused 1ms+2ms, total 17ms
+W/ResourceType(27859): Failure getting entry for 0x7f040041 (t=3 e=65) in package 0 (error -75)
+W/ResourceType(27859): Failure getting entry for 0x7f040015 (t=3 e=21) in package 0 (error -75)
+D/libEGL  (27859): loaded /system/lib/egl/libEGL_adreno200.so
+D/libEGL  (27859): loaded /system/lib/egl/libGLESv1_CM_adreno200.so
+D/libEGL  (27859): loaded /system/lib/egl/libGLESv2_adreno200.so
+I/Adreno200-EGL(27859): <qeglDrvAPI_eglInitialize:265>: EGL 1.4 QUALCOMM Build: Iabe52cfaeae4c5fab1acacfe6f056ba15fa93274
+D/dalvikvm(27859): GC_CONCURRENT freed 238K, 3% free 9078K/9340K, paused 2ms+2ms, total 22ms
+W/GLPreLoader(27859): eglCreateWindowSurface EGL_SUCCESS
+D/OpenGLRenderer(27859): Enabling debug mode 0
+I/Adreno200-ES20(27859): <validate_vertex_attrib_state:53>: validate_vertex_attrib_state: No vertex attrib is enabled in a draw call!
+I/LibraryLoader(27859): loading: chromeview
+I/ActivityManager(  533): Start proc com.android.chrome:sandboxed_process0 for service com.android.chrome/org.chromium.content.app.SandboxedProcessService0: pid=27887 uid=99109 gids={}
+I/ChildProcessService(27887): Creating new ChildProcessService pid=27887
+I/LibraryLoader(27887): loading: chromeview
+I/ActivityManager(  533): Displayed com.android.chrome/com.google.android.apps.chrome.Main: +255ms
+I/LibraryLoader(27859): loaded: chromeview
+I/chromium(27859): [INFO:library_loader_hooks.cc(70)] Chromium logging enabled: level = 0, default verbosity = 0
+E/TraceEvent(27859): setEnabledToMatchNative
+E/TraceEvent(27859): java.lang.NoSuchFieldException: PROPERTY_TRACE_TAG_ENABLEFLAGS
+E/TraceEvent(27859): 	at java.lang.Class.getField(Class.java:673)
+E/TraceEvent(27859): 	at org.chromium.content.common.TraceEvent.setEnabledToMatchNative(Unknown Source)
+E/TraceEvent(27859): 	at org.chromium.content.app.LibraryLoader.initializeAlreadyLocked(Unknown Source)
+E/TraceEvent(27859): 	at org.chromium.content.app.LibraryLoader.ensureInitialized(Unknown Source)
+E/TraceEvent(27859): 	at com.google.android.apps.chrome.Main$InitializerContinuation$1.run(Unknown Source)
+E/TraceEvent(27859): 	at android.os.Handler.handleCallback(Handler.java:730)
+E/TraceEvent(27859): 	at android.os.Handler.dispatchMessage(Handler.java:92)
+E/TraceEvent(27859): 	at android.os.Looper.loop(Looper.java:137)
+E/TraceEvent(27859): 	at android.os.HandlerThread.run(HandlerThread.java:61)
+I/LibraryLoader(27887): loaded: chromeview
+I/MemoryUsageMonitor(27859): Max active tabs = 24
+W/BrowserProcessMain(27859): Excessive maxRendererProcesses value: 23
+I/BrowserProcessMain(27859): Initializing chromium process, renderers=3
+D/dalvikvm(27859): GC_CONCURRENT freed 106K, 2% free 9376K/9508K, paused 2ms+1ms, total 13ms
+D/dalvikvm(27859): GC_CONCURRENT freed 473K, 6% free 9414K/9912K, paused 1ms+2ms, total 13ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 9ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 8ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 8ms
+D/dalvikvm(27859): GC_CONCURRENT freed 468K, 6% free 9410K/9944K, paused 1ms+2ms, total 14ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 11ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 11ms
+D/dalvikvm(27859): GC_CONCURRENT freed 474K, 6% free 9415K/9944K, paused 1ms+1ms, total 13ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 12ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 12ms
+D/dalvikvm(27859): GC_CONCURRENT freed 468K, 6% free 9418K/9952K, paused 2ms+2ms, total 14ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 10ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 4ms
+D/dalvikvm(27859): GC_CONCURRENT freed 517K, 6% free 9412K/9956K, paused 2ms+3ms, total 23ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 11ms
+D/dalvikvm(27859): GC_CONCURRENT freed 475K, 6% free 9431K/9956K, paused 3ms+1ms, total 17ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 12ms
+D/ChildProcessLauncher(27859): Setting up connection to process: slot=0
+D/ChildProcessLauncher(27859): on connect callback, pid=27887 context=1945466592
+I/chromium(27887): [INFO:library_loader_hooks.cc(70)] Chromium logging enabled: level = 0, default verbosity = 0
+E/TraceEvent(27887): setEnabledToMatchNative
+E/TraceEvent(27887): java.lang.NoSuchFieldException: PROPERTY_TRACE_TAG_ENABLEFLAGS
+E/TraceEvent(27887): 	at java.lang.Class.getField(Class.java:673)
+E/TraceEvent(27887): 	at org.chromium.content.common.TraceEvent.setEnabledToMatchNative(Unknown Source)
+E/TraceEvent(27887): 	at org.chromium.content.app.LibraryLoader.initializeAlreadyLocked(Unknown Source)
+E/TraceEvent(27887): 	at org.chromium.content.app.LibraryLoader.initialize(Unknown Source)
+E/TraceEvent(27887): 	at org.chromium.content.app.ChildProcessService$2.run(Unknown Source)
+E/TraceEvent(27887): 	at java.lang.Thread.run(Thread.java:841)
+D/GoogleServicesManager(27859): setState: sync = true, wantedSyncState = true
+D/GoogleServicesManager(27859): Enabling sync
+D/dalvikvm(27859): GC_CONCURRENT freed 318K, 4% free 9568K/9956K, paused 3ms+1ms, total 16ms
+D/GoogleServicesManager(27859): Already registered with GCM
+I/Choreographer(27859): Skipped 38 frames!  The application may be doing too much work on its main thread.
+D/dalvikvm(27859): GC_FOR_ALLOC freed 249K, 5% free 9533K/10004K, paused 14ms, total 14ms
+I/dalvikvm-heap(27859): Grow heap (frag case) to 9.758MB for 447576-byte allocation
+D/dalvikvm(27859): GC_CONCURRENT freed <1K, 5% free 9969K/10444K, paused 2ms+2ms, total 15ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 13ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 11ms
+D/dalvikvm(27859): GC_FOR_ALLOC freed 438K, 9% free 9532K/10444K, paused 13ms, total 13ms
+D/dalvikvm(27859): GC_CONCURRENT freed <1K, 5% free 9962K/10444K, paused 3ms+1ms, total 17ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 13ms
+I/dalvikvm-heap(27859): Grow heap (frag case) to 10.079MB for 344080-byte allocation
+D/dalvikvm(27859): GC_FOR_ALLOC freed 430K, 9% free 9867K/10784K, paused 15ms, total 15ms
+I/chromium(27859): [INFO:gpu_command_buffer_stub.cc(470)] Created virtual GL context.
+I/chromium(27859): [INFO:gpu_command_buffer_stub.cc(470)] Created virtual GL context.
+I/chromium(27859): [INFO:gpu_command_buffer_stub.cc(470)] Created virtual GL context.
+D/ProfileSyncService(27859): Successfully retrieved sync auth token.
+D/dalvikvm(27859): GC_FOR_ALLOC freed 12K, 9% free 9873K/10784K, paused 14ms, total 14ms
+I/dalvikvm-heap(27859): Grow heap (frag case) to 10.664MB for 1048592-byte allocation
+D/dalvikvm(27859): GC_FOR_ALLOC freed 0K, 8% free 10897K/11812K, paused 15ms, total 15ms
+D/dalvikvm(27859): GC_CONCURRENT freed 5K, 8% free 10898K/11812K, paused 2ms+1ms, total 18ms
+D/dalvikvm(27859): GC_CONCURRENT freed 449K, 6% free 11131K/11812K, paused 1ms+13ms, total 75ms
+D/dalvikvm(  752): GC_CONCURRENT freed 2680K, 28% free 10678K/14752K, paused 1ms+3ms, total 35ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+D/dalvikvm(27859): GC_CONCURRENT freed 659K, 6% free 11147K/11812K, paused 2ms+3ms, total 26ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+D/dalvikvm(  786): GC_CONCURRENT freed 492K, 8% free 10225K/11016K, paused 2ms+3ms, total 31ms
+I/com.google.android.apps.chrome.crash.MinidumpUploadService(27859): Attempting to upload accumulated crash dumps.
+D/dalvikvm(27859): GC_CONCURRENT freed 735K, 7% free 11149K/11908K, paused 2ms+5ms, total 34ms
+I/ActivityManager(  533): Start proc com.google.android.partnersetup for content provider com.google.android.partnersetup/.RlzAppProvider: pid=27977 uid=10029 gids={50029, 3003, 1028}
+D/CloudPrintService(27859): Syncing state with Cloud Print server
+I/ActivityManager(  533): Start proc com.android.providers.partnerbookmarks for content provider com.android.providers.partnerbookmarks/.PartnerBookmarksProvider: pid=28003 uid=10051 gids={50051, 1028}
+E/PartnerBookmarksReader(27859): ATTENTION: not using partner bookmarks as none were provided
+W/chromium(27859): [WARNING:spdy_session.cc(1843)] Could not find "SpdyCwnd" in FieldTrialList
+D/audio_hw_primary(  174): out_standby: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): stop_output_stream: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): disable_audio_route: reset mixer path: low-latency-playback
+D/audio_hw_primary(  174): disable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): stop_output_stream: exit: status(0)
+D/audio_hw_primary(  174): out_standby: exit
+D/dalvikvm(27859): GC_CONCURRENT freed 518K, 6% free 11268K/11908K, paused 5ms+2ms, total 23ms
+D/CloudPrintService(27859): Synchronization of state with Cloud Print server complete.
+V/CloudPrintService(27859): Fetching external print jobs
+E/CloudPrintClient(27859): Fetch print jobs failed: request failed: No print job available on specified printer.
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+D/dalvikvm(  752): GC_FOR_ALLOC freed 580K, 31% free 10214K/14752K, paused 20ms, total 20ms
+I/dalvikvm-heap(  752): Grow heap (frag case) to 11.732MB for 1818640-byte allocation
+D/dalvikvm(  752): GC_CONCURRENT freed 20K, 19% free 11969K/14752K, paused 3ms+2ms, total 18ms
+D/dalvikvm(  752): WAIT_FOR_CONCURRENT_GC blocked 13ms
+D/dalvikvm(  752): WAIT_FOR_CONCURRENT_GC blocked 12ms
+D/dalvikvm(27859): GC_CONCURRENT freed 661K, 6% free 11284K/11976K, paused 7ms+2ms, total 26ms
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMRegistrar(27859): Setting the name of retry receiver class to com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener$GCMReceiver
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-1
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/chromium(27859): [WARNING:spdy_session.cc(1843)] Could not find "SpdyCwnd" in FieldTrialList
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+D/ChromeBrowserSyncAdapter(27859): handling delayed sync
+D/dalvikvm(27859): GC_CONCURRENT freed 749K, 7% free 11321K/12104K, paused 3ms+4ms, total 34ms
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for all types in ChromeBrowserSyncAdapter
+D/ChildProcessLauncher(27859): Setting up connection to process: slot=1
+I/ActivityManager(  533): Start proc com.android.chrome:sandboxed_process1 for service com.android.chrome/org.chromium.content.app.SandboxedProcessService1: pid=28070 uid=99110 gids={}
+I/ChildProcessService(28070): Creating new ChildProcessService pid=28070
+I/LibraryLoader(28070): loading: chromeview
+D/ChildProcessLauncher(27859): on connect callback, pid=28070 context=2103850256
+I/LibraryLoader(28070): loaded: chromeview
+I/chromium(28070): [INFO:library_loader_hooks.cc(70)] Chromium logging enabled: level = 0, default verbosity = 0
+E/TraceEvent(28070): setEnabledToMatchNative
+E/TraceEvent(28070): java.lang.NoSuchFieldException: PROPERTY_TRACE_TAG_ENABLEFLAGS
+E/TraceEvent(28070): 	at java.lang.Class.getField(Class.java:673)
+E/TraceEvent(28070): 	at org.chromium.content.common.TraceEvent.setEnabledToMatchNative(Unknown Source)
+E/TraceEvent(28070): 	at org.chromium.content.app.LibraryLoader.initializeAlreadyLocked(Unknown Source)
+E/TraceEvent(28070): 	at org.chromium.content.app.LibraryLoader.initialize(Unknown Source)
+E/TraceEvent(28070): 	at org.chromium.content.app.ChildProcessService$2.run(Unknown Source)
+E/TraceEvent(28070): 	at java.lang.Thread.run(Thread.java:841)
+I/chromium(28070): [INFO:child_process_service.cc(132)] ChildProcessService: Exiting child process.
+W/ChildProcessConnection(27859): onServiceDisconnected (crash?): pid=28070
+D/ChildProcessLauncher(27859): stopping child connection: pid=28070
+I/ActivityManager(  533): Process com.android.chrome:sandboxed_process1 (pid 28070) has died.
+W/ActivityManager(  533): Scheduling restart of crashed service com.android.chrome/org.chromium.content.app.SandboxedProcessService1 in 5000ms
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-2
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/dalvikvm(  533): GC_EXPLICIT freed 2362K, 25% free 21535K/28688K, paused 3ms+8ms, total 82ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+D/dalvikvm(27859): GC_CONCURRENT freed 715K, 7% free 11322K/12104K, paused 1ms+2ms, total 20ms
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-3
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/InvalidationService(27859): Registration failure on Oid: <1004, NULL> ; transient = false: Could not translate object: source: 1004
+W/InvalidationService(27859): name: "NULL"
+D/dalvikvm(  786): GC_CONCURRENT freed 401K, 8% free 10210K/11016K, paused 2ms+3ms, total 33ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+D/dalvikvm(27859): GC_CONCURRENT freed 725K, 7% free 11305K/12096K, paused 2ms+2ms, total 45ms
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-4
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-5
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+D/InvalidationService(27859): Registration status for Oid: <1004, AUTOFILL>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, FAVICON_IMAGE>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, DEVICE_INFO>: REGISTERED
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, SESSION>: REGISTERED
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-6
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/dalvikvm(27859): GC_CONCURRENT freed 715K, 7% free 11331K/12096K, paused 3ms+2ms, total 22ms
+D/InvalidationService(27859): Registration status for Oid: <1004, NIGORI>: REGISTERED
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, FAVICON_TRACKING>: REGISTERED
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-7
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, EXPERIMENTS>: REGISTERED
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+D/InvalidationService(27859): Registration status for Oid: <1004, HISTORY_DELETE_DIRECTIVE>: REGISTERED
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, PASSWORD>: REGISTERED
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-8
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, BOOKMARK>: REGISTERED
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, AUTOFILL_PROFILE>: REGISTERED
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-9
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, TYPED_URL>: REGISTERED
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+D/dalvikvm(27859): GC_CONCURRENT freed 797K, 7% free 11341K/12164K, paused 3ms+3ms, total 23ms
+D/InvalidationService(27859): Registration status for Oid: <1004, DEVICE_INFO>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, FAVICON_TRACKING>: REGISTERED
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, AUTOFILL>: REGISTERED
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-10
+D/InvalidationService(27859): Registration status for Oid: <1004, EXPERIMENTS>: REGISTERED
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/InvalidationService(27859): Registration status for Oid: <1004, PASSWORD>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, HISTORY_DELETE_DIRECTIVE>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, BOOKMARK>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, TYPED_URL>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, FAVICON_IMAGE>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, AUTOFILL_PROFILE>: REGISTERED
+D/InvalidationService(27859): Registration status for Oid: <1004, NIGORI>: REGISTERED
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+D/InvalidationService(27859): Registration status for Oid: <1004, SESSION>: REGISTERED
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-11
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for NIGORI in ChromeBrowserSyncAdapter
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-12
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for PASSWORD in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for DEVICE_INFO in ChromeBrowserSyncAdapter
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-13
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+D/dalvikvm(27859): GC_CONCURRENT freed 798K, 7% free 11355K/12164K, paused 1ms+2ms, total 23ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for AUTOFILL_PROFILE in ChromeBrowserSyncAdapter
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-14
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/dalvikvm(  533): GC_EXPLICIT freed 1279K, 25% free 21538K/28688K, paused 3ms+8ms, total 87ms
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-15
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for FAVICON_TRACKING in ChromeBrowserSyncAdapter
+V/GCMBaseIntentService(27859): Releasing wakelock
+V/GCMBaseIntentService(27859): Releasing wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for AUTOFILL in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/GCMBaseIntentService(27859): Intent service name: GCMIntentService-DynamicSenderIds-16
+V/GCMBroadcastReceiver(27859): onReceive: com.google.android.c2dm.intent.RECEIVE
+V/GCMBroadcastReceiver(27859): GCM IntentService class: com.google.ipc.invalidation.external.client.contrib.MultiplexingGcmListener
+V/GCMBaseIntentService(27859): Acquiring wakelock
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/GCMBaseIntentService(27859): Releasing wakelock
+V/GCMBaseIntentService(27859): Releasing wakelock
+D/dalvikvm(27859): GC_CONCURRENT freed 775K, 7% free 11367K/12164K, paused 2ms+3ms, total 26ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for HISTORY_DELETE_DIRECTIVE in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for EXPERIMENTS in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for TYPED_URL in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for BOOKMARK in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+W/l       (27859): [TiclService] Skipping unknown enum class name ag
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for FAVICON_IMAGE in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+D/dalvikvm(27859): GC_CONCURRENT freed 857K, 8% free 11347K/12228K, paused 1ms+2ms, total 22ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 10ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 8ms
+D/dalvikvm(27859): WAIT_FOR_CONCURRENT_GC blocked 8ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+V/ChromeBrowserSyncAdapter(27859): Received sync tickle for SESSION in ChromeBrowserSyncAdapter
+W/l       (27859): [TiclService] Skipping unknown enum class name ae
+D/dalvikvm(17519): GC_CONCURRENT freed 397K, 5% free 9410K/9832K, paused 3ms+2ms, total 27ms
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+W/l       (27859): [TiclService] Skipping unknown enum class name ah
+D/dalvikvm(27859): GC_FOR_ALLOC freed 497K, 8% free 11338K/12228K, paused 22ms, total 23ms
+I/dalvikvm-heap(27859): Grow heap (frag case) to 11.129MB for 36880-byte allocation
+D/dalvikvm(27859): GC_FOR_ALLOC freed 1K, 8% free 11372K/12268K, paused 24ms, total 24ms
+I/dalvikvm(27859): Jit: resizing JitTable from 4096 to 8192
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://version/
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://version/
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://c/
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://cr/
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://cra/
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://cras/
+I/chromium(27859): [INFO:tab_android_impl.cc(1207)] Failed to prerender chrome://crash/
+W/IInputConnectionWrapper(27859): endBatchEdit on inactive InputConnection
+W/google-breakpad(27887): ### ### ### ### ### ### ### ### ### ### ### ### ###
+W/google-breakpad(27887): Chrome build fingerprint:
+W/google-breakpad(27887): 27.0.1453.105
+W/google-breakpad(27887): 1453106
+W/google-breakpad(27887): b7247ee2-5177-40fd-8959-33bc2f793db9
+W/google-breakpad(27887): ### ### ### ### ### ### ### ### ### ### ### ### ###
+F/libc    (27887): Fatal signal 11 (SIGSEGV) at 0x00000000 (code=1), thread 27900 (ChildProcessMai)
+I/DEBUG   ( 2636): *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ***
+I/DEBUG   ( 2636): Build fingerprint: 'google/occam/mako:4.3/JWR53F/688492:userdebug/dev-keys'
+I/DEBUG   ( 2636): Revision: '11'
+I/DEBUG   ( 2636): pid: 27887, tid: 27900, name: ChildProcessMai  >>> com.android.chrome:sandboxed_process0 <<<
+I/DEBUG   ( 2636): signal 11 (SIGSEGV), code 1 (SEGV_MAPERR), fault addr 00000000
+I/DEBUG   ( 2636):     r0 7358874c  r1 00000000  r2 00000001  r3 00000000
+I/DEBUG   ( 2636):     r4 73588980  r5 00000001  r6 401021f4  r7 73588990
+I/DEBUG   ( 2636):     r8 7550eabc  r9 75d4c008  sl 71fde968  fp 401021f4
+I/DEBUG   ( 2636):     ip 00000001  sp 735884b0  lr 747f20ad  pc 73c85e5a  cpsr 600b0030
+I/DEBUG   ( 2636):     d0  2f3a656d6f72682f  d1  0000000000000063
+I/DEBUG   ( 2636):     d2  0000000000000072  d3  0000000000000061
+I/DEBUG   ( 2636):     d4  00010000676e702e  d5  0000005900000000
+I/DEBUG   ( 2636):     d6  41d46dd3a330a44c  d7  4273f340ad5d8072
+I/DEBUG   ( 2636):     d8  0000000000000000  d9  0000000000000000
+I/DEBUG   ( 2636):     d10 0000000000000000  d11 0000000000000000
+I/DEBUG   ( 2636):     d12 0000000000000000  d13 0000000000000000
+I/DEBUG   ( 2636):     d14 0000000000000000  d15 0000000000000000
+I/DEBUG   ( 2636):     d16 4000000000000000  d17 3fe62e42fee00000
+I/DEBUG   ( 2636):     d18 4000000000000000  d19 bfce530efd08b9e0
+I/DEBUG   ( 2636):     d20 3fc5503b3e20ba3d  d21 bf66b9a5fd0b0c53
+I/DEBUG   ( 2636):     d22 bfcf854bd9268560  d23 4060000000000000
+I/DEBUG   ( 2636):     d24 3f9a9877ff388083  d25 bf9a9877e845cf34
+I/DEBUG   ( 2636):     d26 4012616719161d2b  d27 4000000000000000
+I/DEBUG   ( 2636):     d28 4001f854bd926856  d29 3fcafffffffffffa
+I/DEBUG   ( 2636):     d30 3ff0000000000000  d31 4059400000000002
+I/DEBUG   ( 2636):     scr 60000011
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): backtrace:
+I/DEBUG   ( 2636):     #00  pc 006fbe5a  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #01  pc 012680ab  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #02  pc 01267e35  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #03  pc 012642ab  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #04  pc 01180725  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #05  pc 011f5995  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #06  pc 011796a7  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #07  pc 0117953d  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #08  pc 01179481  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #09  pc 01131c5d  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #10  pc 01131adf  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #11  pc 011319e1  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #12  pc 011b5a57  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #13  pc 011317df  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #14  pc 011317bb  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #15  pc 011317a1  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #16  pc 01181903  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #17  pc 011116a9  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #18  pc 0111163f  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #19  pc 0110fdd1  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):     #20  pc 0001dc4c  /system/lib/libdvm.so (dvmPlatformInvoke+112)
+I/DEBUG   ( 2636):     #21  pc 0004decf  /system/lib/libdvm.so (dvmCallJNIMethod(unsigned int const*, JValue*, Method const*, Thread*)+398)
+I/DEBUG   ( 2636):     #22  pc 00027060  /system/lib/libdvm.so
+I/DEBUG   ( 2636):     #23  pc 0002b5ec  /system/lib/libdvm.so (dvmInterpret(Thread*, Method const*, JValue*)+184)
+I/DEBUG   ( 2636):     #24  pc 0005ff21  /system/lib/libdvm.so (dvmCallMethodV(Thread*, Method const*, Object*, bool, JValue*, std::__va_list)+292)
+I/DEBUG   ( 2636):     #25  pc 0005ff4b  /system/lib/libdvm.so (dvmCallMethod(Thread*, Method const*, Object*, JValue*, ...)+20)
+I/DEBUG   ( 2636):     #26  pc 00054ccb  /system/lib/libdvm.so
+I/DEBUG   ( 2636):     #27  pc 0000ca58  /system/lib/libc.so (__thread_entry+72)
+I/DEBUG   ( 2636):     #28  pc 0000cbd4  /system/lib/libc.so (pthread_create+208)
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): stack:
+I/DEBUG   ( 2636):          73588470  73588904  [stack:27900]
+I/DEBUG   ( 2636):          73588474  746b7361  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):          73588478  75573008  
+I/DEBUG   ( 2636):          7358847c  75e82698  
+I/DEBUG   ( 2636):          73588480  00000005  
+I/DEBUG   ( 2636):          73588484  73588990  [stack:27900]
+I/DEBUG   ( 2636):          73588488  7550eabc  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):          7358848c  7468770c  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):          73588490  735888e8  [stack:27900]
+I/DEBUG   ( 2636):          73588494  00000000  
+I/DEBUG   ( 2636):          73588498  401021f4  
+I/DEBUG   ( 2636):          7358849c  746b2ed9  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):          735884a0  00000063  
+I/DEBUG   ( 2636):          735884a4  73588980  [stack:27900]
+I/DEBUG   ( 2636):          735884a8  df0027ad  
+I/DEBUG   ( 2636):          735884ac  00000000  
+I/DEBUG   ( 2636):     #00  735884b0  00000000  
+I/DEBUG   ( 2636):          ........  ........
+I/DEBUG   ( 2636):     #01  735884b0  00000000  
+I/DEBUG   ( 2636):          735884b4  00000000  
+I/DEBUG   ( 2636):          735884b8  00000000  
+I/DEBUG   ( 2636):          735884bc  00000000  
+I/DEBUG   ( 2636):          735884c0  00000000  
+I/DEBUG   ( 2636):          735884c4  00000000  
+I/DEBUG   ( 2636):          735884c8  00000000  
+I/DEBUG   ( 2636):          735884cc  00000000  
+I/DEBUG   ( 2636):          735884d0  00000000  
+I/DEBUG   ( 2636):          735884d4  00000000  
+I/DEBUG   ( 2636):          735884d8  00000000  
+I/DEBUG   ( 2636):          735884dc  00000000  
+I/DEBUG   ( 2636):          735884e0  00000000  
+I/DEBUG   ( 2636):          735884e4  00000000  
+I/DEBUG   ( 2636):          735884e8  00000000  
+I/DEBUG   ( 2636):          735884ec  00000000  
+I/DEBUG   ( 2636):          ........  ........
+I/DEBUG   ( 2636):     #02  73588978  747f2041  /system/lib/libchromeview.so
+I/DEBUG   ( 2636):          7358897c  00000000  
+I/DEBUG   ( 2636):          73588980  ffffffff  
+I/DEBUG   ( 2636):          73588984  ffffffff  
+I/DEBUG   ( 2636):          73588988  00000001  
+I/DEBUG   ( 2636):          7358898c  00000002  
+I/DEBUG   ( 2636):          73588990  6f726863  /data/dalvik-cache/system@framework@android.policy.jar@classes.dex
+I/DEBUG   ( 2636):          73588994  2f3a656d  
+I/DEBUG   ( 2636):          73588998  6172632f  /dev/ashmem/dalvik-bitmap-1 (deleted)
+I/DEBUG   ( 2636):          7358899c  002f6873  
+I/DEBUG   ( 2636):          735889a0  7358899f  [stack:27900]
+I/DEBUG   ( 2636):          735889a4  73588990  [stack:27900]
+I/DEBUG   ( 2636):          735889a8  00000001  
+I/DEBUG   ( 2636):          735889ac  00000000  
+I/DEBUG   ( 2636):          735889b0  00000006  
+I/DEBUG   ( 2636):          735889b4  00000000  
+I/DEBUG   ( 2636):          ........  ........
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near r0:
+I/DEBUG   ( 2636):     7358872c 00000000 00000000 735887e4 73588814  
+I/DEBUG   ( 2636):     7358873c 00000000 735887e4 00000000 73588814  
+I/DEBUG   ( 2636):     7358874c 6f726863 2f3a656d 6172632f 75006873  
+I/DEBUG   ( 2636):     7358875c 7358875a 7358874c 74687900 73588794  
+I/DEBUG   ( 2636):     7358876c 73588794 73588878 735887e0 00000000  
+I/DEBUG   ( 2636):     7358877c 73789e6f 00000021 449e07c5 75e827a0  
+I/DEBUG   ( 2636):     7358878c 7358885c 73588878 735887b4 73588878  
+I/DEBUG   ( 2636):     7358879c 746b874f 7358885c 746b7353 75573008  
+I/DEBUG   ( 2636):     735887ac 75e827a0 00000004 401021f4 747080e9  
+I/DEBUG   ( 2636):     735887bc 7468770c 7358885c 00000000 73588960  
+I/DEBUG   ( 2636):     735887cc 746b2ed9 00000000 73588abc 401021f4  
+I/DEBUG   ( 2636):     735887dc 74707c45 00000000 73588a58 401021f4  
+I/DEBUG   ( 2636):     735887ec 74707c45 735887e0 735887e0 6172632f  
+I/DEBUG   ( 2636):     735887fc 002f6873 735887f0 735887f0 00000001  
+I/DEBUG   ( 2636):     7358880c 747b9b79 00000001 747f562f 75f249b8  
+I/DEBUG   ( 2636):     7358881c 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near r4:
+I/DEBUG   ( 2636):     73588960 401021f4 747080e9 75d91750 71fde968  
+I/DEBUG   ( 2636):     73588970 73589c84 747f1e37 747f2041 00000000  
+I/DEBUG   ( 2636):     73588980 ffffffff ffffffff 00000001 00000002  
+I/DEBUG   ( 2636):     73588990 6f726863 2f3a656d 6172632f 002f6873  
+I/DEBUG   ( 2636):     735889a0 7358899f 73588990 00000001 00000000  
+I/DEBUG   ( 2636):     735889b0 00000006 00000000 ffffffff 00000000  
+I/DEBUG   ( 2636):     735889c0 ffffffff 00000009 00000005 00000000  
+I/DEBUG   ( 2636):     735889d0 ffffffff 0000000e 00000001 00000000  
+I/DEBUG   ( 2636):     735889e0 ffffffff 00000000 ffffffff 00000000  
+I/DEBUG   ( 2636):     735889f0 00000000 0ff22f00 00000001 7554e491  
+I/DEBUG   ( 2636):     73588a00 73588ab8 735889f4 735889f4 00000000  
+I/DEBUG   ( 2636):     73588a10 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a20 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a30 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a40 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a50 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near r6:
+I/DEBUG   ( 2636):     401021d4 04e77548 00001000 00001000 00040000  
+I/DEBUG   ( 2636):     401021e4 00200000 00000003 be805b90 be805c41  
+I/DEBUG   ( 2636):     401021f4 449e07c5 be805b4c 00000000 00000000  
+I/DEBUG   ( 2636):     40102204 400a0cc8 00000007 00000008 75dbcc98  
+I/DEBUG   ( 2636):     40102214 00000000 4109f000 00000009 0000000a  
+I/DEBUG   ( 2636):     40102224 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102234 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102244 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102254 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102264 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102274 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102284 00000000 00425d22 00000000 00000000  
+I/DEBUG   ( 2636):     40102294 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636):     401022a4 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636):     401022b4 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636):     401022c4 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near r7:
+I/DEBUG   ( 2636):     73588970 73589c84 747f1e37 747f2041 00000000  
+I/DEBUG   ( 2636):     73588980 ffffffff ffffffff 00000001 00000002  
+I/DEBUG   ( 2636):     73588990 6f726863 2f3a656d 6172632f 002f6873  
+I/DEBUG   ( 2636):     735889a0 7358899f 73588990 00000001 00000000  
+I/DEBUG   ( 2636):     735889b0 00000006 00000000 ffffffff 00000000  
+I/DEBUG   ( 2636):     735889c0 ffffffff 00000009 00000005 00000000  
+I/DEBUG   ( 2636):     735889d0 ffffffff 0000000e 00000001 00000000  
+I/DEBUG   ( 2636):     735889e0 ffffffff 00000000 ffffffff 00000000  
+I/DEBUG   ( 2636):     735889f0 00000000 0ff22f00 00000001 7554e491  
+I/DEBUG   ( 2636):     73588a00 73588ab8 735889f4 735889f4 00000000  
+I/DEBUG   ( 2636):     73588a10 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a20 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a30 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a40 00000000 ffffffff 00000000 ffffffff  
+I/DEBUG   ( 2636):     73588a50 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588a60 00000000 00000000 73588a58 73588a58  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near r8:
+I/DEBUG   ( 2636):     7550ea9c 753d6b38 400c5875 74994fec 748a0acc  
+I/DEBUG   ( 2636):     7550eaac 7469242c 74692424 7469241c 00000000  
+I/DEBUG   ( 2636):     7550eabc 00000000 00000000 00000000 400db055  
+I/DEBUG   ( 2636):     7550eacc 400daf61 400d3e94 400ddfe1 400c86a5  
+I/DEBUG   ( 2636):     7550eadc 400d3d88 400dde45 400d3c1c 400d8395  
+I/DEBUG   ( 2636):     7550eaec 400db3a3 4010f931 400d41b4 400d2bd0  
+I/DEBUG   ( 2636):     7550eafc 400d87f7 400c49a1 400c49b5 4011af90  
+I/DEBUG   ( 2636):     7550eb0c 4011bbb8 400db4f1 400c49c9 400d51d4  
+I/DEBUG   ( 2636):     7550eb1c 400d383c 400d350c 400ef395 401258f8  
+I/DEBUG   ( 2636):     7550eb2c 40123500 4011fae8 4011d65c 401175d0  
+I/DEBUG   ( 2636):     7550eb3c 401161a8 4011d854 400c419c 400c4178  
+I/DEBUG   ( 2636):     7550eb4c 400c3f24 401268d8 40123fdc 401260d0  
+I/DEBUG   ( 2636):     7550eb5c 40120320 4011fee0 40125c80 40123398  
+I/DEBUG   ( 2636):     7550eb6c 40117238 400d1585 400d8271 400ef2f5  
+I/DEBUG   ( 2636):     7550eb7c 400d73f1 4011f988 400d7451 400d6c29  
+I/DEBUG   ( 2636):     7550eb8c 400dad3d 400d3ef1 7208a085 40123fc8  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near r9:
+I/DEBUG   ( 2636):     75d4bfe8 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4bff8 00000000 00000000 00000000 00000b13  
+I/DEBUG   ( 2636):     75d4c008 754aab84 754aaf4c 754aaf60 00000001  
+I/DEBUG   ( 2636):     75d4c018 00000001 00000003 75cf8710 75da9e40  
+I/DEBUG   ( 2636):     75d4c028 fffffffe 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c038 00000000 e3a0c001 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c048 00000000 00000000 00000000 3f800000  
+I/DEBUG   ( 2636):     75d4c058 00000000 00000000 00000000 00000180  
+I/DEBUG   ( 2636):     75d4c068 00000207 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c078 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c088 00000000 00000000 00000000 00000300  
+I/DEBUG   ( 2636):     75d4c098 0000046e 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c0a8 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c0b8 00000000 00000000 00000001 00000000  
+I/DEBUG   ( 2636):     75d4c0c8 e52d0000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     75d4c0d8 00000000 ffffffff ffffffff 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near sl:
+I/DEBUG   ( 2636):     71fde948 71fde928 00000000 65636976 00000453  
+I/DEBUG   ( 2636):     71fde958 6e4c61ca 72084f84 6d723360 72051000  
+I/DEBUG   ( 2636):     71fde968 000007ff 00000000 73589da0 00000000  
+I/DEBUG   ( 2636):     71fde978 73589dd4 0000000b 00000000 408fddc0  
+I/DEBUG   ( 2636):     71fde988 00000000 00000000 6c7da570 72081300  
+I/DEBUG   ( 2636):     71fde998 00000000 00000000 00000001 00004000  
+I/DEBUG   ( 2636):     71fde9a8 00000000 6eaa33d8 408fddc0 40902c80  
+I/DEBUG   ( 2636):     71fde9b8 00000000 40906d7c 40906df0 40906ca0  
+I/DEBUG   ( 2636):     71fde9c8 40906cc0 40906d1c 00000000 00000000  
+I/DEBUG   ( 2636):     71fde9d8 6eaa3b70 00000028 00000000 00000000  
+I/DEBUG   ( 2636):     71fde9e8 00000000 00000000 00002000 4098e8c4  
+I/DEBUG   ( 2636):     71fde9f8 00000000 6d46bfe8 00000001 71fdeda8  
+I/DEBUG   ( 2636):     71fdea08 00000001 00000040 00000200 00000004  
+I/DEBUG   ( 2636):     71fdea18 00000003 6ee2aa14 6ee2aa1e 00000001  
+I/DEBUG   ( 2636):     71fdea28 6ee2aa1e 6d46cf40 00000000 00000000  
+I/DEBUG   ( 2636):     71fdea38 b506f5e6 00000000 b516370a 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near fp:
+I/DEBUG   ( 2636):     401021d4 04e77548 00001000 00001000 00040000  
+I/DEBUG   ( 2636):     401021e4 00200000 00000003 be805b90 be805c41  
+I/DEBUG   ( 2636):     401021f4 449e07c5 be805b4c 00000000 00000000  
+I/DEBUG   ( 2636):     40102204 400a0cc8 00000007 00000008 75dbcc98  
+I/DEBUG   ( 2636):     40102214 00000000 4109f000 00000009 0000000a  
+I/DEBUG   ( 2636):     40102224 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102234 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102244 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102254 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102264 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102274 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     40102284 00000000 00425d22 00000000 00000000  
+I/DEBUG   ( 2636):     40102294 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636):     401022a4 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636):     401022b4 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636):     401022c4 00000000 00004000 00000000 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): memory near sp:
+I/DEBUG   ( 2636):     73588490 735888e8 00000000 401021f4 746b2ed9  
+I/DEBUG   ( 2636):     735884a0 00000063 73588980 df0027ad 00000000  
+I/DEBUG   ( 2636):     735884b0 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     735884c0 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     735884d0 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     735884e0 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     735884f0 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588500 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588510 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588520 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588530 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588540 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588550 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588560 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588570 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636):     73588580 00000000 00000000 00000000 00000000  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): code around pc:
+I/DEBUG   ( 2636):     73c85e38 bf00bd38 01824a64 01824998 47704770  
+I/DEBUG   ( 2636):     73c85e48 447b4b02 60033308 bf004770 01824cd2  
+I/DEBUG   ( 2636):     73c85e58 601b2300 b5084770 68036840 309cf8d3  
+I/DEBUG   ( 2636):     73c85e68 bd084798 47702000 6980b507 e88d6803  
+I/DEBUG   ( 2636):     73c85e78 46690006 3190f8d3 bd0e4798 6980b508  
+I/DEBUG   ( 2636):     73c85e88 6803b118 3110f8d3 bd084798 7043f5a0  
+I/DEBUG   ( 2636):     73c85e98 b800f000 09a4f8d0 3010b100 f5a04770  
+I/DEBUG   ( 2636):     73c85ea8 f0007043 b508b800 680a4603 f5034608  
+I/DEBUG   ( 2636):     73c85eb8 f8d27144 479830a8 f5a0bd08 f6eb7043  
+I/DEBUG   ( 2636):     73c85ec8 f5a0b157 f0007043 f890b800 47700540  
+I/DEBUG   ( 2636):     73c85ed8 7043f5a0 b800f000 071cf8d0 70e0ea20  
+I/DEBUG   ( 2636):     73c85ee8 f5a04770 f0007043 b510b800 f8d06803  
+I/DEBUG   ( 2636):     73c85ef8 f8d34720 479831e0 38011a20 f5a0bd10  
+I/DEBUG   ( 2636):     73c85f08 f0007043 b508b800 09ccf8d0 6803b118  
+I/DEBUG   ( 2636):     73c85f18 30a8f8d3 bd084798 7044f5a0 b800f000  
+I/DEBUG   ( 2636):     73c85f28 6018f500 4770301c 7044f5a0 b120f6eb  
+I/DEBUG   ( 2636): 
+I/DEBUG   ( 2636): code around lr:
+I/DEBUG   ( 2636):     747f208c 6187f50d f6a84638 4605fccd 6087f50d  
+I/DEBUG   ( 2636):     747f209c ff0bf6c0 f6a3a8a7 b115f9a7 ded6f493  
+I/DEBUG   ( 2636):     747f20ac 4bade052 f858a8a1 f0ad1003 a9a1ef8c  
+I/DEBUG   ( 2636):     747f20bc f6c5a8f5 a9f5f923 f6a84638 4606fcb3  
+I/DEBUG   ( 2636):     747f20cc f6c0a8f5 a8a1fef2 f98ef6a3 f6a5b136  
+I/DEBUG   ( 2636):     747f20dc 2101f9f6 f70f462a e035d7bc a89b4b9f  
+I/DEBUG   ( 2636):     747f20ec 1003f858 ef6ef0ad a8dca99b f906f6c5  
+I/DEBUG   ( 2636):     747f20fc 4638a9dc fc96f6a8 a8dc4605 fed5f6c0  
+I/DEBUG   ( 2636):     747f210c f6a3a89b b125f971 2100488e d182f714  
+I/DEBUG   ( 2636):     747f211c 4b93e7fa f858a895 f0ad1003 a995ef54  
+I/DEBUG   ( 2636):     747f212c f6c5a8c3 a9c3f8eb f6a84638 4605fc7b  
+I/DEBUG   ( 2636):     747f213c f6c0a8c3 a895feba f956f6a3 a17fb125  
+I/DEBUG   ( 2636):     747f214c 0100e9d1 d166f714 3018f8d9 f0002b00  
+I/DEBUG   ( 2636):     747f215c f509822a 36186626 f6f54630 b190ff93  
+I/DEBUG   ( 2636):     747f216c 4631ad14 f41e4628 e004d3a3 46396803  
+I/DEBUG   ( 2636):     747f217c 309cf8d3 46284798 d3daf41e d1f52800  
+I/BootReceiver(  533): Copying /data/tombstones/tombstone_01 to DropBox (SYSTEM_TOMBSTONE)
+W/ChildProcessConnection(27859): onServiceDisconnected (crash?): pid=27887
+D/Zygote  (  172): Process 27887 terminated by signal (11)
+D/ChildProcessLauncher(27859): stopping child connection: pid=27887
+I/chromium(27859): [INFO:crash_dump_manager.cc(121)] Crash minidump successfully generated: /data/data/com.android.chrome/cache/Crash Reports/chromium-renderer-minidump-e47959cbf6ff7428.dmp0
+I/ActivityManager(  533): Process com.android.chrome:sandboxed_process0 (pid 27887) has died.
+W/ActivityManager(  533): Scheduling restart of crashed service com.android.chrome/org.chromium.content.app.SandboxedProcessService0 in 5000ms
+I/com.google.android.apps.chrome.crash.MinidumpUploadCallable(27859): Minidump upload is not permitted
+I/com.google.android.apps.chrome.crash.MinidumpUploadCallable(27859): Minidump upload is not permitted
+I/com.google.android.apps.chrome.crash.MinidumpUploadCallable(27859): Minidump upload is not permitted
+D/com.google.android.apps.chrome.crash.MinidumpUploadService(27859): Giving up on trying to upload /data/data/com.android.chrome/cache/Crash Reports/chromium-renderer-minidump-e47959cbf6ff7428.dmp0 after 3 attempts
+D/dalvikvm(27859): GC_CONCURRENT freed 571K, 7% free 11531K/12268K, paused 2ms+3ms, total 27ms
+D/audio_hw_primary(  174): start_output_stream: enter: usecase(1: low-latency-playback) devices(0x2)
+D/audio_hw_primary(  174): select_devices: out_snd_device(2: speaker) in_snd_device(0: none)
+D/audio_hw_primary(  174): enable_snd_device: sending audio calibration for snd_device(2) acdb_id(14)
+D/ACDB-LOADER(  174): ACDB -> send_afe_cal
+D/audio_hw_primary(  174): enable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): enable_audio_route: apply mixer path: low-latency-playback
+W/InputMethodManagerService(  533): Window already focused, ignoring focus gain of: com.android.internal.view.IInputMethodClient$Stub$Proxy@4289e990 attribute=null, token = android.os.BinderProxy@4265f608
+D/audio_hw_primary(  174): start_output_stream: exit
+D/dalvikvm(  533): GC_CONCURRENT freed 3054K, 25% free 21530K/28688K, paused 3ms+7ms, total 75ms
+D/audio_hw_primary(  174): out_standby: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): stop_output_stream: enter: usecase(1: low-latency-playback)
+D/audio_hw_primary(  174): disable_audio_route: reset mixer path: low-latency-playback
+D/audio_hw_primary(  174): disable_snd_device: snd_device(2: speaker)
+D/audio_hw_primary(  174): stop_output_stream: exit: status(0)
+D/audio_hw_primary(  174): out_standby: exit
+I/ActivityManager(  533): No longer want com.google.android.apps.magazines (pid 22587): empty for 1803s
+W/ActivityManager(  533): Scheduling restart of crashed service com.google.android.apps.magazines/com.google.apps.dots.android.app.service.DotsSyncService in 5000ms

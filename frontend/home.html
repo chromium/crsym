@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Chrome Symbolizer</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="/static/style.css" />
+  </head>
+  <body>
+    <div id="links">
+      <a href="/static/docs.html">Documentation</a>
+      {{range .StatusData}}
+      | {{.}}
+      {{end}}
+    </div>
+
+    <h1>Chrome Symbolizer</h1>
+
+    <form id="form">
+      <div>
+        <div class="input_option" data-input-type="crash_key">
+          <input type="radio" name="input_type" id="input_type_crash_key" />
+          <label for="input_type_crash_key">Crash Key</label>
+          <p>
+            Symbolize the value of a Breakpad upload "product data" key. These
+            appear on the crash server in the blue metadata at the top of the report.
+            Example: <code>zombie_dealloc_bt</code>.
+          </p>
+        </div>
+
+        <div class="input_option" data-input-type="apple">
+          <input type="radio" name="input_type" id="input_type_apple" />
+          <label for="input_type_apple">Apple Crash/Hang/Sample</label>
+          <p>
+            Symbolize an Apple crash or hang report from
+            <code>~/Library/Diagnostic Reports</code>, or the output from running
+            the Sample command in Activity Monitor or at the command line.
+          </p>
+        </div>
+
+        <div class="input_option" data-input-type="stackwalk">
+          <input type="radio" name="input_type" id="input_type_stackwalk" />
+          <label for="input_type_stackwalk">Minidump Stackwalk</label>
+          <p>
+            Symbolize the machine-format output of Breakpad's
+            <code>minidump_stackwalk&nbsp;-m</code> command.
+          </p>
+        </div>
+
+        <div class="input_option" data-input-type="module_info">
+          <input type="radio" name="input_type" id="input_type_module_info" />
+          <label for="input_type_module_info">Look Up Module Info</label>
+          <p>
+            Look up the Breakpad module names and identifiers for a product and
+            version. Product names are the crash reporting ones, e.g. <code>Chrome_Mac</code>.
+          </p>
+        </div>
+
+        <div class="input_option" data-input-type="fragment">
+          <input type="radio" name="input_type" id="input_type_fragment" />
+          <label for="input_type_fragment">Stack Fragment</label>
+          <p>
+            Symbolize arbitrary addresses of a stack fragment. It is often useful
+            to get the Module Name and Module Identifier from the
+            "Look Up Module Info" option.
+          </p>
+        </div>
+
+        <div class="input_option" data-input-type="android">
+          <input type="radio" name="input_type" id="input_type_android" />
+          <label for="input_type_android">Android Log</label>
+          <p>
+	    Symbolize the crash from an android log.  The log is obtained with the command 
+	    <code>adb logcat</code>.
+          </p>
+        </div>
+      </div>
+
+      <div id="fragment_data">
+        <div>
+          <label for="module">Module Name <a href="/static/docs.html#fragment_name">[?]</a></label>
+          <input type="text" name="module" id="module" />
+        </div>
+
+        <div>
+          <label for="ident">Module Identifier <a href="/static/docs.html#fragment_identifier">[?]</a></label>
+          <input type="text" name="ident" id="ident" />
+        </div>
+
+        <div>
+          <label for="load_address">Load Address/Module Base Address <a href="/static/docs.html#fragment_load_address">[?]</a></label>
+          <input type="text" name="load_address" id="load_address" />
+        </div>
+      </div>
+
+      <div id="crash_key_data">
+        <div>
+          <label for="report_id">Crash Report ID</label>
+          <input type="text" name="report_id" id="report_id" />
+        </div>
+
+        <div>
+          <label for="crash_key">Crash Key Name</label>
+          <input type="text" name="crash_key" id="crash_key" />
+        </div>
+      </div>
+
+      <div id="module_info_data">
+        <div>
+          <label for="product_name">Product Name</label>
+          <input type="text" name="product_name" id="product_name" />
+        </div>
+
+        <div>
+          <label for="product_version">Product Version</label>
+          <input type="text" name="product_version" id="product_version" />
+        </div>
+      </div>
+
+      <div id="android_data">
+        <div>
+          <label for="android_chrome_version">Android Chrome Version (Optional)</label>
+          <input type="text" name="android_chrome_version" id="android_chrome_version" />
+        </div>
+      </div>
+
+      <div id="tabs">
+        <label for="input">Input</label>
+        <label for="output">Output</label>
+        <label for="scratch">Scratch</label>
+      </div>
+      <div id="tab_contents">
+        <textarea name="input" id="input" wrap="off"></textarea>
+        <textarea id="output" wrap="off"></textarea>
+        <textarea id="scratch" wrap="off"></textarea>
+      </div>
+
+      <button type="button" id="symbolize">Symbolize</button>
+    </form>
+
+    <script src="/static/symbolizer.js"></script>
+  </body>
+</html>

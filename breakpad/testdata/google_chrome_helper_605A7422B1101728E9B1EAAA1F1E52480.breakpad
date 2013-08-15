@@ -1,0 +1,18 @@
+MODULE mac x86 605A7422B1101728E9B1EAAA1F1E52480 Google Chrome Helper
+FILE 0 /b/build/slave/chrome-official-mac/build/src/chrome/app/chrome_exe_main_mac.mm
+FUNC f40 20 0 main
+f40 6 15 0
+f46 12 16 0
+f58 8 20 0
+PUBLIC ee0 0 start
+PUBLIC f20 0 dyld_stub_binding_helper
+PUBLIC f40 0 main
+PUBLIC f6c 0  stub helpers
+PUBLIC 102c 0 __progname
+PUBLIC 1030 0 environ
+PUBLIC 1034 0 NXArgv
+PUBLIC 1038 0 NXArgc
+PUBLIC 103c 0 dyld__mach_header
+STACK CFI INIT f40 20 .cfa: $esp 4 + .ra: .cfa -4 + ^
+STACK CFI f41 $ebp: .cfa -8 + ^ .cfa: $esp 8 +
+STACK CFI f43 .cfa: $ebp 8 +

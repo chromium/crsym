@@ -17,6 +17,7 @@ package frontend
 
 import (
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 )
 
 // NewCrashKeyInputParser returns an InputParser that connects to a
@@ -24,9 +25,9 @@ import (
 // ID, and it extracts a stack trace (a string of whitespace-separated
 // addresses) from the report. This stack trace is then symbolized using the
 // module list provided by the crash report, via the FrameService.
-func NewCrashKeyInputParser(service breakpad.AnnotatedFrameService, reportID, key string) InputParser {
+func NewCrashKeyInputParser(ctx context.Context, service breakpad.AnnotatedFrameService, reportID, key string) InputParser {
 	return NewGeneratorInputParser(func(parser *GeneratorInputParser, input string) error {
-		frames, err := service.GetAnnotatedFrames(reportID, key)
+		frames, err := service.GetAnnotatedFrames(ctx, reportID, key)
 		if err != nil {
 			return err
 		}

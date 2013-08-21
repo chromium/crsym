@@ -25,6 +25,7 @@ import (
 	"strings"
 
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 )
 
 // androidFrame comes from parsing stack trace in the logcat.
@@ -36,6 +37,8 @@ type androidFrame struct {
 }
 
 type androidInputParser struct {
+	context context.Context
+
 	// The breakpad service we use to query the module info.
 	service breakpad.ModuleInfoService
 
@@ -49,10 +52,11 @@ type androidInputParser struct {
 // NewAndroidInputParse creates an InputParser that symbolizes the log of the
 // android chrome stack trace.  Only works when version number of the build is
 // included in the log (i.e. only for Official Release builds).
-func NewAndroidInputParser(service breakpad.ModuleInfoService, version string) InputParser {
+func NewAndroidInputParser(ctx context.Context, service breakpad.ModuleInfoService, version string) InputParser {
 	return &androidInputParser{
 		service: service,
 		version: version,
+		context: ctx,
 	}
 }
 
@@ -90,7 +94,7 @@ func (p *androidInputParser) ParseInput(data string) error {
 // retrieveChromeModule retrives the chrome module info given a version of this build
 // of android chrome.
 func (p *androidInputParser) retrieveChromeModule(version string) (breakpad.SupplierRequest, error) {
-	modules, err := p.service.GetModulesForProduct("Chrome_Android", version)
+	modules, err := p.service.GetModulesForProduct(p.context, "Chrome_Android", version)
 	const modErrorStr = "Failed to retrieve module for Chrome_Android (%s) from the crash server: %v"
 	var retmodule breakpad.SupplierRequest
 

@@ -15,6 +15,10 @@ limitations under the License.
 
 package breakpad
 
+import (
+	"github.com/chromium/crsym/context"
+)
+
 // Supplier is an interface that can take a SymbolRequest and furnish a SymbolTable
 // in response, via a SupplierResponse.
 type Supplier interface {
@@ -22,11 +26,11 @@ type Supplier interface {
 	// if it has apriori knowledge of which SymbolTables it can return. This
 	// potentially eliminates unnecessary queries to a backend. If the Supplier does
 	// not have this feature, just return the input slice.
-	FilterAvailableModules(modules []SupplierRequest) []SupplierRequest
+	FilterAvailableModules(ctx context.Context, modules []SupplierRequest) []SupplierRequest
 
 	// TableForModule queries the Supplier for a given SymbolTable asynchronously.
 	// Returns a channel on which the caller can receive the response.
-	TableForModule(request SupplierRequest) <-chan SupplierResponse
+	TableForModule(ctx context.Context, request SupplierRequest) <-chan SupplierResponse
 }
 
 // SupplierRequest is sent to a Supplier to get a SymbolTable, via a SupplierResponse.
@@ -61,12 +65,12 @@ type AnnotatedFrame struct {
 type AnnotatedFrameService interface {
 	// Returns a callstack of AnnotatedFrames for a given metadata key in
 	// the specified crash report.
-	GetAnnotatedFrames(reportID, key string) ([]AnnotatedFrame, error)
+	GetAnnotatedFrames(ctx context.Context, reportID, key string) ([]AnnotatedFrame, error)
 }
 
 // ModuleInfoService is an interface that describes a way to look up module
 // information for a specific product and version.
 type ModuleInfoService interface {
 	// Returns a list of modules a specific product and version.
-	GetModulesForProduct(product, version string) ([]SupplierRequest, error)
+	GetModulesForProduct(ctx context.Context, product, version string) ([]SupplierRequest, error)
 }

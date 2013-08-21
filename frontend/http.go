@@ -31,6 +31,7 @@ import (
 
 	"flag"
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 	log "github.com/golang/glog"
 )
 
@@ -55,6 +56,13 @@ func SetHomePageStatus(status []string) {
 	for i, s := range status {
 		statusData[i] = template.HTML(s)
 	}
+}
+
+// ContextForRequest is a function that vends a context object based on the HTTP
+// request. This is passed to the various services defined by the interfaces in
+// the breakpad library.
+var ContextForRequest = func(req *http.Request) context.Context {
+	return nil
 }
 
 // RegisterHandlers adds the frontend endpoints to the provided ServeMux and
@@ -141,22 +149,24 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	input := req.FormValue("input")
 	inputRequired := true
 
+	ctx := ContextForRequest(req)
+
 	var parser InputParser
 	switch req.FormValue("input_type") {
 	case "fragment":
-		parser = h.handleFragment(rw, req)
+		parser = h.handleFragment(ctx, rw, req)
 	case "apple":
 		parser = new(AppleInputParser)
 	case "stackwalk":
 		parser = NewStackwalkInputParser()
 	case "crash_key":
-		parser = h.handleCrashKey(rw, req)
+		parser = h.handleCrashKey(ctx, rw, req)
 		inputRequired = false
 	case "module_info":
-		parser = h.handleModuleInfo(rw, req)
+		parser = h.handleModuleInfo(ctx, rw, req)
 		inputRequired = false
 	case "android":
-		parser = h.handleAndroid(rw, req)
+		parser = h.handleAndroid(ctx, rw, req)
 	default:
 		replyError(req, rw, http.StatusNotImplemented, "Unknown input_type")
 	}
@@ -176,12 +186,12 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 
 	requiredModules := parser.RequiredModules()
 	if parser.FilterModules() {
-		requiredModules = h.supplier.FilterAvailableModules(requiredModules)
+		requiredModules = h.supplier.FilterAvailableModules(ctx, requiredModules)
 	}
 
 	var tables []breakpad.SymbolTable
 	for _, moduleRequest := range requiredModules {
-		table, err := h.getTable(moduleRequest)
+		table, err := h.getTable(ctx, moduleRequest)
 		if err != nil {
 			replyError(req, rw, 404, err.Error())
 			return
@@ -196,14 +206,14 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 // getTable looks up the requested module in the server cache and returns it
 // if present. If it is not, this performs a blocking call to the Supplier and
 // caches the result.
-func (h *Handler) getTable(request breakpad.SupplierRequest) (breakpad.SymbolTable, error) {
+func (h *Handler) getTable(ctx context.Context, request breakpad.SupplierRequest) (breakpad.SymbolTable, error) {
 	table := h.loadCachedTable(request)
 	if table != nil {
 		return table, nil
 	}
 
 	// Not cached, so fetch it from the supplier.
-	resp := <-h.supplier.TableForModule(request)
+	resp := <-h.supplier.TableForModule(ctx, request)
 	if resp.Error != nil {
 		return nil, resp.Error
 	}
@@ -241,7 +251,7 @@ func (h *Handler) loadCachedTable(request breakpad.SupplierRequest) breakpad.Sym
 
 // handleFragment extracts fragment-specific input from the HTTP request and
 // returns a FragmentInputParser if successful.
-func (h *Handler) handleFragment(rw http.ResponseWriter, req *http.Request) InputParser {
+func (h *Handler) handleFragment(ctx context.Context, rw http.ResponseWriter, req *http.Request) InputParser {
 	module := req.FormValue("module")
 	ident := req.FormValue("ident")
 	if module == "" || ident == "" {
@@ -260,7 +270,7 @@ func (h *Handler) handleFragment(rw http.ResponseWriter, req *http.Request) Inpu
 
 // handleCrashKey extracts the crash-key-specific input and returns an input
 // parser if successful.
-func (h *Handler) handleCrashKey(rw http.ResponseWriter, req *http.Request) InputParser {
+func (h *Handler) handleCrashKey(ctx context.Context, rw http.ResponseWriter, req *http.Request) InputParser {
 	reportID := req.FormValue("report_id")
 	key := req.FormValue("crash_key")
 	if reportID == "" || key == "" {
@@ -268,11 +278,11 @@ func (h *Handler) handleCrashKey(rw http.ResponseWriter, req *http.Request) Inpu
 		return nil
 	}
 
-	return NewCrashKeyInputParser(h.frameService, reportID, key)
+	return NewCrashKeyInputParser(ctx, h.frameService, reportID, key)
 }
 
 // handleModuleInfo just looks up the module information for a product and version.
-func (h *Handler) handleModuleInfo(rw http.ResponseWriter, req *http.Request) InputParser {
+func (h *Handler) handleModuleInfo(ctx context.Context, rw http.ResponseWriter, req *http.Request) InputParser {
 	product := req.FormValue("product_name")
 	version := req.FormValue("product_version")
 	if product == "" || version == "" {
@@ -280,14 +290,14 @@ func (h *Handler) handleModuleInfo(rw http.ResponseWriter, req *http.Request) In
 		return nil
 	}
 
-	return NewModuleInfoInputParser(h.moduleInfoService, product, version)
+	return NewModuleInfoInputParser(ctx, h.moduleInfoService, product, version)
 }
 
 // handleAndroid parses a debug log (logcat) and outputs the stack.  Version number
 // of the android chrome build is an optional input.
-func (h *Handler) handleAndroid(rw http.ResponseWriter, req *http.Request) InputParser {
+func (h *Handler) handleAndroid(ctx context.Context, rw http.ResponseWriter, req *http.Request) InputParser {
 	version := req.FormValue("android_chrome_version")
-	return NewAndroidInputParser(h.moduleInfoService, version)
+	return NewAndroidInputParser(ctx, h.moduleInfoService, version)
 }
 
 func replyError(req *http.Request, rw http.ResponseWriter, code int, message string) {

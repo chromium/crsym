@@ -20,9 +20,11 @@ import (
 	"strings"
 
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 )
 
 type moduleInfoInputParser struct {
+	context          context.Context
 	service          breakpad.ModuleInfoService
 	product, version string
 	modules          []breakpad.SupplierRequest
@@ -31,8 +33,9 @@ type moduleInfoInputParser struct {
 // NewModuleInfoInputParser creates an input parser that takes a product name and
 // version, along with a backend service, and will look up all the modules for that
 // tuple.
-func NewModuleInfoInputParser(service breakpad.ModuleInfoService, product, version string) InputParser {
+func NewModuleInfoInputParser(ctx context.Context, service breakpad.ModuleInfoService, product, version string) InputParser {
 	return &moduleInfoInputParser{
+		context: ctx,
 		service: service,
 		product: product,
 		version: version,
@@ -40,7 +43,7 @@ func NewModuleInfoInputParser(service breakpad.ModuleInfoService, product, versi
 }
 
 func (p *moduleInfoInputParser) ParseInput(data string) (err error) {
-	p.modules, err = p.service.GetModulesForProduct(p.product, p.version)
+	p.modules, err = p.service.GetModulesForProduct(p.context, p.product, p.version)
 	return
 }
 

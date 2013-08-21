@@ -21,6 +21,7 @@ import (
 	"testing"
 
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 	"github.com/chromium/crsym/testutils"
 )
 
@@ -30,7 +31,7 @@ type testModuleInfoServiceAndroid struct {
 	version string
 }
 
-func (t *testModuleInfoServiceAndroid) GetModulesForProduct(product, version string) ([]breakpad.SupplierRequest, error) {
+func (t *testModuleInfoServiceAndroid) GetModulesForProduct(ctx context.Context, product, version string) ([]breakpad.SupplierRequest, error) {
 	t.version = version
 	return []breakpad.SupplierRequest{
 		breakpad.SupplierRequest{
@@ -58,7 +59,7 @@ func TestParseInputAndroid(t *testing.T) {
 	var testmod testModuleInfoServiceAndroid
 
 	for _, test := range goodInputs {
-		parser := NewAndroidInputParser(&testmod, "")
+		parser := NewAndroidInputParser(context.Background(), &testmod, "")
 		if err := parser.ParseInput(test.input); err != nil {
 			t.Error("Did not expect error for input: " + test.input)
 		}
@@ -79,7 +80,7 @@ func TestParseInputAndroid(t *testing.T) {
 	}
 
 	for _, test := range badInputs {
-		parser := NewAndroidInputParser(&testmod, "")
+		parser := NewAndroidInputParser(context.Background(), &testmod, "")
 		if err := parser.ParseInput(test.input); err == nil {
 			t.Error("Expected error for input: " + test.input)
 		} else {
@@ -111,7 +112,7 @@ func TestSymbolizeAndroid(t *testing.T) {
 			&testTable{name: "libchromeview.so", symbol: "Framework"},
 		}
 
-		parser := NewAndroidInputParser(&testmod, "")
+		parser := NewAndroidInputParser(context.Background(), &testmod, "")
 		err = parser.ParseInput(string(inputData))
 		if err != nil {
 			t.Errorf("%s: %s", file, err)

@@ -118,41 +118,23 @@ func TestSymbolizeAndroid(t *testing.T) {
 			continue
 		}
 
-		expectedFileName := testdata(file + ".expected")
-		outputData, err := testutils.ReadSourceFile(expectedFileName)
-		if err != nil {
-			t.Errorf("%s.expected: %s", file, err)
-		}
+		// Write the output to a .actual file, which can be used to create a new baseline
+		// .expected file by copying it into the testdata/ directory.
 
 		actual := parser.Symbolize(tables)
+		actualFileName, actualFile, err := testutils.CreateTempFile(file + ".actual")
+		if err != nil {
+			t.Errorf("Could not create actual file output: %v", err)
+			continue
+		}
+		fmt.Fprint(actualFile, actual)
+		actualFile.Close()
 
-		if actual != string(outputData) {
-			actualFileName, actualFile, err := testutils.CreateTempFile(file + ".actual")
-			if err != nil {
-				t.Errorf("Could not create actual file output: %v", err)
-				continue
-			}
-
-			fmt.Fprint(actualFile, actual)
-			actualFile.Close()
-
+		expectedFileName := testutils.GetSourceFilePath(testdata(file + ".expected"))
+		err = testutils.CheckFilesEqual(expectedFileName, actualFileName)
+		if err != nil {
 			t.Errorf("Input data for %s does not symbolize to expected output", file)
-			line := 1
-			for i := 0; i < len(actual) && i < len(outputData); i++ {
-				if actual[i] == '\n' {
-					line++
-				}
-				if actual[i] != outputData[i] {
-					t.Errorf("  First mismatch at byte %d (actual output line %d) %#x != %#x",
-						i, line, actual[i], outputData[i])
-					t.Logf("    Around [ actual ] %q", actual[max(0, i-30):min(i+30, len(actual))])
-					t.Logf("    Around [expected] %q", string(outputData[max(0, i-30):min(i+30, len(outputData))]))
-					break
-				}
-			}
-
-			t.Errorf("  Expected output: %s", testutils.GetSourceFilePath(expectedFileName))
-			t.Errorf("  Actual output: %s", actualFileName)
+			t.Error(err)
 		}
 	}
 }

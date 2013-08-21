@@ -92,11 +92,9 @@ func TestSymbolizeStackwalk(t *testing.T) {
 
 		actual := parser.Symbolize(tables)
 
-		if actual != string(outputData) {
+		if err := testutils.CheckStringsEqual(string(outputData), actual); err != nil {
 			t.Errorf("Input data for %s does not symbolize to expected output", file)
-			t.Error("===== Actual Output ======")
-			t.Errorf("\n\n%s\n\n", actual)
-			t.Error("==========================")
+			t.Error(err)
 		}
 	}
 }

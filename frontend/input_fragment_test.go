@@ -19,6 +19,7 @@ import (
 	"testing"
 
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/testutils"
 )
 
 const kFragmentTestModule = "Fragment Test Module"
@@ -105,8 +106,9 @@ func TestSymbolize(t *testing.T) {
 		}
 
 		actual := p.Symbolize([]breakpad.SymbolTable{table})
-		if actual != expected {
-			t.Errorf("Symbolization for input '%s':\nExpected:\n======\n%s\n=====\nActual:\n=====\n%s\n=====", input, expected, actual)
+		if err := testutils.CheckStringsEqual(expected, actual); err != nil {
+			t.Errorf("Symbolization for input '%s' failed", input)
+			t.Error(err)
 		}
 	}
 }

@@ -166,8 +166,6 @@ func TestParseAppleInput(t *testing.T) {
 }
 
 func TestSymbolizeApple(t *testing.T) {
-	// and it will put the .actual file on your local machine, rather than on Forge.
-	// You can then copy the file to the testdata/ directory.
 	files := []string{
 		"crash_10.8_v10.crash",
 		"crash_10.8_v10_2.crash",
@@ -196,55 +194,23 @@ func TestSymbolizeApple(t *testing.T) {
 			continue
 		}
 
-		expectedFileName := testdata(input + ".expected")
-		outputData, err := testutils.ReadSourceFile(expectedFileName)
-		if err != nil {
-			t.Errorf("%s.expected: %s", input, err)
-		}
+		// Write the output to a .actual file, which can be used to create a new baseline
+		// .expected file by copying it into the testdata/ directory.
 
 		actual := parser.Symbolize(tables)
+		actualFileName, actualFile, err := testutils.CreateTempFile(input + ".actual")
+		if err != nil {
+			t.Errorf("Could not create actual file output: %v", err)
+			continue
+		}
+		fmt.Fprint(actualFile, actual)
+		actualFile.Close()
 
-		if actual != string(outputData) {
-			actualFileName, actualFile, err := testutils.CreateTempFile(input + ".actual")
-			if err != nil {
-				t.Errorf("Could not create actual file output: %v", err)
-				continue
-			}
-
-			fmt.Fprint(actualFile, actual)
-			actualFile.Close()
-
+		expectedFileName := testutils.GetSourceFilePath(testdata(input + ".expected"))
+		err = testutils.CheckFilesEqual(expectedFileName, actualFileName)
+		if err != nil {
 			t.Errorf("Input data for %s does not symbolize to expected output", input)
-			line := 1
-			for i := 0; i < len(actual) && i < len(outputData); i++ {
-				if actual[i] == '\n' {
-					line++
-				}
-				if actual[i] != outputData[i] {
-					t.Errorf("  First mismatch at byte %d (actual output line %d) %#x != %#x",
-						i, line, actual[i], outputData[i])
-					t.Logf("    Around [ actual ] %q", actual[max(0, i-30):min(i+30, len(actual))])
-					t.Logf("    Around [expected] %q", string(outputData[max(0, i-30):min(i+30, len(outputData))]))
-					break
-				}
-			}
-
-			t.Errorf("  Expected output: %s", testutils.GetSourceFilePath(expectedFileName))
-			t.Errorf("  Actual output: %s", actualFileName)
+			t.Error(err)
 		}
 	}
-}
-
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
-}
-
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
 }

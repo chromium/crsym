@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"fmt"
@@ -26,7 +26,7 @@ import (
 )
 
 // testModuleInfoServiceAndroid is a stub class that allows us to test just the
-// parsing portion of androidInputParser.
+// parsing portion of androidParser.
 type testModuleInfoServiceAndroid struct {
 	version string
 }
@@ -59,7 +59,7 @@ func TestParseInputAndroid(t *testing.T) {
 	var testmod testModuleInfoServiceAndroid
 
 	for _, test := range goodInputs {
-		parser := NewAndroidInputParser(context.Background(), &testmod, "")
+		parser := NewAndroidParser(context.Background(), &testmod, "")
 		if err := parser.ParseInput(test.input); err != nil {
 			t.Error("Did not expect error for input: " + test.input)
 		}
@@ -80,7 +80,7 @@ func TestParseInputAndroid(t *testing.T) {
 	}
 
 	for _, test := range badInputs {
-		parser := NewAndroidInputParser(context.Background(), &testmod, "")
+		parser := NewAndroidParser(context.Background(), &testmod, "")
 		if err := parser.ParseInput(test.input); err == nil {
 			t.Error("Expected error for input: " + test.input)
 		} else {
@@ -91,7 +91,7 @@ func TestParseInputAndroid(t *testing.T) {
 	}
 }
 
-// TestSymbolizeAndroid tests the symbolize function of androidInputParser.  This function
+// TestSymbolizeAndroid tests the symbolize function of androidParser.  This function
 // is almost identical to the TestSymbolize function in input_apple_test.go.
 func TestSymbolizeAndroid(t *testing.T) {
 	files := []string{
@@ -112,7 +112,7 @@ func TestSymbolizeAndroid(t *testing.T) {
 			&testTable{name: "libchromeview.so", symbol: "Framework"},
 		}
 
-		parser := NewAndroidInputParser(context.Background(), &testmod, "")
+		parser := NewAndroidParser(context.Background(), &testmod, "")
 		err = parser.ParseInput(string(inputData))
 		if err != nil {
 			t.Errorf("%s: %s", file, err)

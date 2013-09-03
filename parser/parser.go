@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"bytes"
@@ -23,9 +23,9 @@ import (
 	"github.com/chromium/crsym/breakpad"
 )
 
-// InputParser is the interface that describes the input processing pipeline
+// Parser is the interface that describes the input processing pipeline
 // for symbolization requests.
-type InputParser interface {
+type Parser interface {
 	// ParseInput is the first step that accepts raw user input and internalizes
 	// it. If successful, returns nil, or an error if unsuccessful and
 	// processing should stop.
@@ -49,18 +49,18 @@ type InputParser interface {
 	Symbolize(tables []breakpad.SymbolTable) string
 }
 
-// GeneratorInputParser is an InputParser whose function is to extract thread
+// GeneratorParser is an Parser whose function is to extract thread
 // lists from the input string. The output is then generated in a standard
 // format that is different from the input format.
-type GeneratorInputParser struct {
+type GeneratorParser struct {
 	parseFunc  GIPParseFunc
 	threadList gipThreadList
 	modules    map[string]breakpad.SupplierRequest
 }
 
-// GIPParseFunc is called by the GeneratorInputParser, which should parse the
+// GIPParseFunc is called by the GeneratorParser, which should parse the
 // input, calling EmitStackFrame for each frame.
-type GIPParseFunc func(parser *GeneratorInputParser, input string) error
+type GIPParseFunc func(parser *GeneratorParser, input string) error
 
 type gipThreadList map[int][]GIPStackFrame
 
@@ -73,10 +73,10 @@ type GIPStackFrame struct {
 	Placeholder string                   // A string value to use in case the frame cannot be symbolized.
 }
 
-// NewGeneratorInputParser creates a new GeneratorInputParser that will process
+// NewGeneratorParser creates a new GeneratorParser that will process
 // input using the specified parseFunc.
-func NewGeneratorInputParser(parseFunc GIPParseFunc) *GeneratorInputParser {
-	return &GeneratorInputParser{
+func NewGeneratorParser(parseFunc GIPParseFunc) *GeneratorParser {
+	return &GeneratorParser{
 		parseFunc:  parseFunc,
 		threadList: make(gipThreadList),
 		modules:    make(map[string]breakpad.SupplierRequest),
@@ -89,7 +89,7 @@ func NewGeneratorInputParser(parseFunc GIPParseFunc) *GeneratorInputParser {
 //
 // Threads may be emitted in any order, however stack frames for a given thread
 // must be emitted in order.
-func (gip *GeneratorInputParser) EmitStackFrame(thread int, frame GIPStackFrame) {
+func (gip *GeneratorParser) EmitStackFrame(thread int, frame GIPStackFrame) {
 	gip.threadList[thread] = append(gip.threadList[thread], frame)
 	if frame.Placeholder == "" {
 		if _, ok := gip.modules[frame.Module.ModuleName]; !ok {
@@ -98,13 +98,13 @@ func (gip *GeneratorInputParser) EmitStackFrame(thread int, frame GIPStackFrame)
 	}
 }
 
-// InputParser implementation:
+// Parser implementation:
 
-func (gip *GeneratorInputParser) ParseInput(data string) error {
+func (gip *GeneratorParser) ParseInput(data string) error {
 	return gip.parseFunc(gip, data)
 }
 
-func (gip *GeneratorInputParser) RequiredModules() []breakpad.SupplierRequest {
+func (gip *GeneratorParser) RequiredModules() []breakpad.SupplierRequest {
 	modules := make([]breakpad.SupplierRequest, len(gip.modules))
 	i := 0
 	for _, m := range gip.modules {
@@ -114,11 +114,11 @@ func (gip *GeneratorInputParser) RequiredModules() []breakpad.SupplierRequest {
 	return modules
 }
 
-func (gip *GeneratorInputParser) FilterModules() bool {
+func (gip *GeneratorParser) FilterModules() bool {
 	return false
 }
 
-func (gip *GeneratorInputParser) Symbolize(tables []breakpad.SymbolTable) string {
+func (gip *GeneratorParser) Symbolize(tables []breakpad.SymbolTable) string {
 	showThreadHeaders := len(gip.threadList) > 1
 
 	// Threads are stored in a map so that they can be emitted out of order,

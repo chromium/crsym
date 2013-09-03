@@ -13,20 +13,20 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"github.com/chromium/crsym/breakpad"
 	"github.com/chromium/crsym/context"
 )
 
-// NewCrashKeyInputParser returns an InputParser that connects to a
+// NewCrashKeyParser returns an Parser that connects to a
 // AnnotatedFrameService backend. It retrieves the crash report with the given
 // ID, and it extracts a stack trace (a string of whitespace-separated
 // addresses) from the report. This stack trace is then symbolized using the
 // module list provided by the crash report, via the FrameService.
-func NewCrashKeyInputParser(ctx context.Context, service breakpad.AnnotatedFrameService, reportID, key string) InputParser {
-	return NewGeneratorInputParser(func(parser *GeneratorInputParser, input string) error {
+func NewCrashKeyParser(ctx context.Context, service breakpad.AnnotatedFrameService, reportID, key string) Parser {
+	return NewGeneratorParser(func(parser *GeneratorParser, input string) error {
 		frames, err := service.GetAnnotatedFrames(ctx, reportID, key)
 		if err != nil {
 			return err

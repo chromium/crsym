@@ -13,6 +13,10 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
+/*
+Package context defines an interface that can be passed between the frontend
+HTTP handler and any backend servicing the request.
+*/
 package context
 
 type Context interface{}

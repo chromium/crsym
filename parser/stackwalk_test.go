@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"strings"
@@ -37,7 +37,7 @@ func TestBadInput(t *testing.T) {
 	}
 
 	for i, input := range inputs {
-		parser := NewStackwalkInputParser()
+		parser := NewStackwalkParser()
 		err := parser.ParseInput(input.input + "\n")
 		if err == nil {
 			t.Errorf("Expected error got nil for input %d: %q", i, input.input)
@@ -59,7 +59,7 @@ func TestSymbolizeStackwalk(t *testing.T) {
 		filePath := testdata(file)
 		expectedPath := filePath + ".expected"
 
-		parser := NewStackwalkInputParser()
+		parser := NewStackwalkParser()
 		inputData, err := testutils.ReadSourceFile(filePath)
 		if err != nil {
 			t.Errorf("%s: %v", filePath, err)

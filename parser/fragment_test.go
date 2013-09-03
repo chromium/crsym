@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"testing"
@@ -25,7 +25,7 @@ import (
 const kFragmentTestModule = "Fragment Test Module"
 
 func TestRequiredModules(t *testing.T) {
-	p := NewFragmentInputParser(kFragmentTestModule, "moduleidentifier", 0xf00bad)
+	p := NewFragmentParser(kFragmentTestModule, "moduleidentifier", 0xf00bad)
 	p.ParseInput("0xabc 0x123 0xdef 0x456")
 	reqs := p.RequiredModules()
 	if len(reqs) != 1 {
@@ -99,7 +99,7 @@ func TestSymbolize(t *testing.T) {
 	}
 
 	for input, expected := range results {
-		p := NewFragmentInputParser(kFragmentTestModule, "Foobad", kBaseAddress)
+		p := NewFragmentParser(kFragmentTestModule, "Foobad", kBaseAddress)
 		err := p.ParseInput(input)
 		if err != nil {
 			t.Errorf("Error for input '%s': %v", input, err)

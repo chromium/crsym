@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"strings"
@@ -21,31 +21,31 @@ import (
 	"github.com/chromium/crsym/breakpad"
 )
 
-type fragmentInputParser struct {
+type fragmentParser struct {
 	module      breakpad.SupplierRequest
 	baseAddress uint64
 }
 
-// NewFragmentInputParser returns an InputParser that can parse a whitespace-
+// NewFragmentParser returns an Parser that can parse a whitespace-
 // separated string of addresses and will symbolize them, returning each frame
 // on a new line.
 //
 // Because the parser cannot derive code module information from the input, all
 // the necessary parameters for symbolization must be supplied here.
-func NewFragmentInputParser(moduleName, identifier string, baseAddress uint64) InputParser {
-	fip := &fragmentInputParser{
+func NewFragmentParser(moduleName, identifier string, baseAddress uint64) Parser {
+	fip := &fragmentParser{
 		module: breakpad.SupplierRequest{
 			ModuleName: moduleName,
 			Identifier: identifier,
 		},
 		baseAddress: baseAddress,
 	}
-	return NewGeneratorInputParser(func(gip *GeneratorInputParser, input string) error {
+	return NewGeneratorParser(func(gip *GeneratorParser, input string) error {
 		return fip.parseAddresses(gip, input)
 	})
 }
 
-func (p *fragmentInputParser) parseAddresses(gip *GeneratorInputParser, input string) error {
+func (p *fragmentParser) parseAddresses(gip *GeneratorParser, input string) error {
 	addresses := strings.Fields(input)
 	for _, address := range addresses {
 		absAddress, err := breakpad.ParseAddress(address)

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"fmt"
@@ -51,7 +51,7 @@ Binary Images:
 0x491e5000 - 0x491e5ff7 +com.google.Chrome 20.0.1132.42 (1132.42) <cf4d75d8804d775084d363a5cbbf7702> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 0x520ce000 - 0x520ceff7 +com.google.Chrome.canary 17.0.959.0 (959.0) <8BC87704-1B47-6F0C-70DE-17F7A99A1E45> /Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary`
 
-	parser := new(AppleInputParser)
+	parser := new(AppleParser)
 	err := parser.ParseInput(report)
 	if err != nil {
 		t.Fatalf("Unexpected error parsing input: %v", err)
@@ -93,7 +93,7 @@ func TestReportVersion(t *testing.T) {
 	}
 
 	for version, allowed := range expectations {
-		p := new(AppleInputParser)
+		p := new(AppleParser)
 		err := p.ParseInput(fmt.Sprintf("Report Version:     %s", version))
 		if (err != nil && allowed) || (err == nil && !allowed) {
 			t.Errorf("Report Version '%s' should be allowed: %t. Got error: %v", version, allowed, err)
@@ -134,7 +134,7 @@ func TestParseAppleInput(t *testing.T) {
 			continue
 		}
 
-		parser := new(AppleInputParser)
+		parser := new(AppleParser)
 		err = parser.ParseInput(string(data))
 		if err != nil {
 			t.Error(err)
@@ -187,7 +187,7 @@ func TestSymbolizeApple(t *testing.T) {
 			&testTable{name: "Google Chrome Canary", symbol: "Chrome"},
 		}
 
-		parser := new(AppleInputParser)
+		parser := new(AppleParser)
 		err = parser.ParseInput(string(inputData))
 		if err != nil {
 			t.Errorf("%s: %s", input, err)

@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"bytes"
@@ -36,24 +36,24 @@ type androidFrame struct {
 	symbol      string
 }
 
-type androidInputParser struct {
+type androidParser struct {
 	context context.Context
 
 	// The breakpad service we use to query the module info.
 	service breakpad.ModuleInfoService
 
-	// Use the GeneratorInputParser to format the output.
-	genInputParser *GeneratorInputParser
+	// Use the GeneratorParser to format the output.
+	genParser *GeneratorParser
 
 	// The version of the android chrome build.
 	version string
 }
 
-// NewAndroidInputParse creates an InputParser that symbolizes the log of the
+// NewAndroidInputParse creates an Parser that symbolizes the log of the
 // android chrome stack trace.  Only works when version number of the build is
 // included in the log (i.e. only for Official Release builds).
-func NewAndroidInputParser(ctx context.Context, service breakpad.ModuleInfoService, version string) InputParser {
-	return &androidInputParser{
+func NewAndroidParser(ctx context.Context, service breakpad.ModuleInfoService, version string) Parser {
+	return &androidParser{
 		service: service,
 		version: version,
 		context: ctx,
@@ -62,7 +62,7 @@ func NewAndroidInputParser(ctx context.Context, service breakpad.ModuleInfoServi
 
 // ParseInput parses the android debug log for frame information and for android
 // chrome module version..
-func (p *androidInputParser) ParseInput(data string) error {
+func (p *androidParser) ParseInput(data string) error {
 	buf := bytes.NewBufferString(data)
 
 	lines := make([]string, 0)
@@ -84,8 +84,8 @@ func (p *androidInputParser) ParseInput(data string) error {
 	}
 
 	var err error
-	if p.genInputParser, err = p.buildGenInputParser(lines); err == nil {
-		return p.genInputParser.ParseInput("")
+	if p.genParser, err = p.buildGenParser(lines); err == nil {
+		return p.genParser.ParseInput("")
 	} else {
 		return err
 	}
@@ -93,7 +93,7 @@ func (p *androidInputParser) ParseInput(data string) error {
 
 // retrieveChromeModule retrives the chrome module info given a version of this build
 // of android chrome.
-func (p *androidInputParser) retrieveChromeModule(version string) (breakpad.SupplierRequest, error) {
+func (p *androidParser) retrieveChromeModule(version string) (breakpad.SupplierRequest, error) {
 	modules, err := p.service.GetModulesForProduct(p.context, "Chrome_Android", version)
 	const modErrorStr = "Failed to retrieve module for Chrome_Android (%s) from the crash server: %v"
 	var retmodule breakpad.SupplierRequest
@@ -120,12 +120,12 @@ func (p *androidInputParser) retrieveChromeModule(version string) (breakpad.Supp
 	return retmodule, nil
 }
 
-// buildGenInputParser performs two steps: 1) parse stack frames from the given input;
+// buildGenParser performs two steps: 1) parse stack frames from the given input;
 // 2) parse out the build version number, which we use to locate a module n the crash
 // server.   The parser is derived from clank/tools/stack_core.py.  Once these two steps
-// have been completed, this function returns a GeneratorInputParser, which encapsultes
+// have been completed, this function returns a GeneratorParser, which encapsultes
 // the infor parsed in these two steps and help to format the output in Symbolize.
-func (p *androidInputParser) buildGenInputParser(lines []string) (*GeneratorInputParser, error) {
+func (p *androidParser) buildGenParser(lines []string) (*GeneratorParser, error) {
 	// An example of a line of logcat frame:
 	// "0I/DEBUG   ( 2636):     #23  pc 0002b5ec  /system/lib/libdvm.so (dvmInterpret(Thread*, Method const*, JValue*)+184)"
 	frameLine := regexp.MustCompile("(.*)\\#([0-9]+)[ \t]+(..)[ \t]+([0-9a-f]{8})[ \t]+([^\r\n \t]*)( \\((.*)\\))?")
@@ -181,10 +181,10 @@ func (p *androidInputParser) buildGenInputParser(lines []string) (*GeneratorInpu
 
 	// Use the version number to retrieve the chrome module (libchromeview.so).
 	if chromeViewModule, err := p.retrieveChromeModule(version); err == nil {
-		// Create a GeneratorInputParser.  For every libchromeview symbol, we emit a proper stack frame.
+		// Create a GeneratorParser.  For every libchromeview symbol, we emit a proper stack frame.
 		// For other frames, we store the given module and symbol name as the place holder; they will
 		// show up in the final output.
-		retparser := NewGeneratorInputParser(func(parser *GeneratorInputParser, input string) error {
+		retparser := NewGeneratorParser(func(parser *GeneratorParser, input string) error {
 			for _, frame := range frames {
 				if strings.HasSuffix(frame.module, "libchromeview.so") {
 					parser.EmitStackFrame(0, GIPStackFrame{
@@ -209,11 +209,11 @@ func (p *androidInputParser) buildGenInputParser(lines []string) (*GeneratorInpu
 	}
 }
 
-// RequiredModules cannot directly delegate to GeneratorInputParser because it comes
+// RequiredModules cannot directly delegate to GeneratorParser because it comes
 // back with an empty request, which crashes in http.go.  This is likely due to the
 // fact that we do not have modules for every symbol.
-func (p *androidInputParser) RequiredModules() []breakpad.SupplierRequest {
-	reqs := p.genInputParser.RequiredModules()
+func (p *androidParser) RequiredModules() []breakpad.SupplierRequest {
+	reqs := p.genParser.RequiredModules()
 	retReqs := make([]breakpad.SupplierRequest, 0)
 
 	for _, r := range reqs {
@@ -225,12 +225,12 @@ func (p *androidInputParser) RequiredModules() []breakpad.SupplierRequest {
 	return retReqs
 }
 
-// FilterModules delegates to GeneratorInputParser, which returns false.
-func (p *androidInputParser) FilterModules() bool {
-	return p.genInputParser.FilterModules()
+// FilterModules delegates to GeneratorParser, which returns false.
+func (p *androidParser) FilterModules() bool {
+	return p.genParser.FilterModules()
 }
 
-// Symbolize delegates to GeneratorInputParser.
-func (p *androidInputParser) Symbolize(tables []breakpad.SymbolTable) string {
-	return p.genInputParser.Symbolize(tables)
+// Symbolize delegates to GeneratorParser.
+func (p *androidParser) Symbolize(tables []breakpad.SymbolTable) string {
+	return p.genParser.Symbolize(tables)
 }

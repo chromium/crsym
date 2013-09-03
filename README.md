@@ -13,10 +13,12 @@ The crsym tool has parsers for the following kinds of crash reports:
 
 ## Code Organization
 
-In the initial open source release, only two libraries are provided and not a buildable server. The server component used internally by Google relies on non-public infrastructure and thus cannot be open sourced, but it is a goal of the project to reuse the libraries to create an open-source version of the server.
+In the initial open source release, only three libraries are provided and not a buildable server. The server component used internally by Google relies on non-public infrastructure and thus cannot be open sourced, but it is a goal of the project to reuse the libraries to create an open-source version of the server.
 
 The first library is the `breakpad` library, and it provides a parser for Breakpad symbol files produced by `dump_syms`. It also defines interfaces for "backends" which can vend these symbol files, from e.g. an RPC service or the file system. Currently no implementation of these interfaces exist in the open-source project.
 
-The second library is the `frontend` library, which provides the input parsers, and handlers for an HTTP server, and the actual web interface.
+The second library is `parser`, which defines an interface `parser.Parser`. It contains a collection of Parsers, one for each type listed above, along with a battery of test data.
+
+The third library is the `frontend` library, which contains handlers for an (yet unwritten) HTTP server, and the actual web interface.
 
 See the TODO file for the active tasks for the open source project.

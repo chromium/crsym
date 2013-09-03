@@ -1,5 +1,3 @@
 * Write implementation of breakpad.Supplier interface.
 * Write a server main routine for the frontend package.
-* Split the frontend module into the input parser and HTTP server.
-* Clean up the unittest code.
 * Prettify the frontend.

@@ -22,6 +22,7 @@ import (
 	"testing"
 
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 )
 
 type cacheTestSupplier struct {
@@ -37,11 +38,11 @@ func (s *cacheTestSupplier) reset() {
 	s.c = make(chan breakpad.SupplierResponse)
 }
 
-func (s *cacheTestSupplier) FilterAvailableModules(modules []breakpad.SupplierRequest) []breakpad.SupplierRequest {
+func (s *cacheTestSupplier) FilterAvailableModules(ctx context.Context, modules []breakpad.SupplierRequest) []breakpad.SupplierRequest {
 	return modules
 }
 
-func (s *cacheTestSupplier) TableForModule(breakpad.SupplierRequest) <-chan breakpad.SupplierResponse {
+func (s *cacheTestSupplier) TableForModule(context.Context, breakpad.SupplierRequest) <-chan breakpad.SupplierResponse {
 	return s.c
 }
 
@@ -96,7 +97,7 @@ func TestGetTableCache(t *testing.T) {
 		for i := 1; i <= *cacheSize; i++ {
 			ident := fmt.Sprintf(kInitialName, i)
 
-			table, err := handler.getTable(breakpad.SupplierRequest{"module", ident})
+			table, err := handler.getTable(context.Background(), breakpad.SupplierRequest{"module", ident})
 			if err != nil {
 				t.Errorf("Error getting '%s': %v", ident, err)
 				continue
@@ -124,7 +125,7 @@ func TestGetTableCache(t *testing.T) {
 	}()
 
 	// Get a different table, which will evict #1.
-	table, err := handler.getTable(breakpad.SupplierRequest{"module", kEvictFirst})
+	table, err := handler.getTable(context.Background(), breakpad.SupplierRequest{"module", kEvictFirst})
 	if err != nil {
 		t.Errorf("error getting '%s': %v", kEvictFirst, err)
 	} else {
@@ -135,7 +136,7 @@ func TestGetTableCache(t *testing.T) {
 
 	// Now get a table that should be in the cache.
 	ident := fmt.Sprintf(kInitialName, 3)
-	table, err = handler.getTable(breakpad.SupplierRequest{"module", ident})
+	table, err = handler.getTable(context.Background(), breakpad.SupplierRequest{"module", ident})
 	if err != nil {
 		t.Errorf("error getting '%s' after evicting #1: %v", ident, err)
 	} else {

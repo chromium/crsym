@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"errors"
@@ -71,10 +71,10 @@ var (
 	kHangFrameV7 = regexp.MustCompile(kFunction + kLibrary + kLoadAddress + kAddress)
 )
 
-// AppleInputParser takes an Apple-style crash report and symbolizes it. The
+// AppleParser takes an Apple-style crash report and symbolizes it. The
 // original input format will remain untouched, but the function names will be
 // replaced where symbol data is available.
-type AppleInputParser struct {
+type AppleParser struct {
 	// The reportVersion, which influences the parsing of stack frames.
 	reportVersion int
 
@@ -85,7 +85,7 @@ type AppleInputParser struct {
 	lines []string
 }
 
-func (p *AppleInputParser) ParseInput(data string) error {
+func (p *AppleParser) ParseInput(data string) error {
 	p.lines = strings.Split(data, "\n")
 	for i, line := range p.lines {
 		// "Report Version:" lines in the header.
@@ -150,7 +150,7 @@ func (i *binaryImage) breakpadUUID() string {
 	return strings.ToUpper(ident)
 }
 
-func (p *AppleInputParser) parseBinaryImages(startIndex int) error {
+func (p *AppleParser) parseBinaryImages(startIndex int) error {
 	p.modules = make(map[string]binaryImage)
 	for _, line := range p.lines[startIndex:] {
 		// Stop at the first line which is blank or starts with "Sample analysis of
@@ -179,7 +179,7 @@ func (p *AppleInputParser) parseBinaryImages(startIndex int) error {
 	return nil
 }
 
-func (p *AppleInputParser) RequiredModules() []breakpad.SupplierRequest {
+func (p *AppleParser) RequiredModules() []breakpad.SupplierRequest {
 	var modules []breakpad.SupplierRequest
 	for _, module := range p.modules {
 		modules = append(modules, breakpad.SupplierRequest{
@@ -192,11 +192,11 @@ func (p *AppleInputParser) RequiredModules() []breakpad.SupplierRequest {
 
 // RequiredModules will return a slice of all modules in the Binary Images
 // section, so let the supplier filter them.
-func (p *AppleInputParser) FilterModules() bool {
+func (p *AppleParser) FilterModules() bool {
 	return true
 }
 
-func (p *AppleInputParser) Symbolize(tables []breakpad.SymbolTable) string {
+func (p *AppleParser) Symbolize(tables []breakpad.SymbolTable) string {
 	switch p.reportVersion {
 	case 6:
 		p.symbolizeCrash(tables)
@@ -212,7 +212,7 @@ func (p *AppleInputParser) Symbolize(tables []breakpad.SymbolTable) string {
 	return strings.Join(p.lines, "\n")
 }
 
-func (p *AppleInputParser) mapTables(tables []breakpad.SymbolTable) map[string]breakpad.SymbolTable {
+func (p *AppleParser) mapTables(tables []breakpad.SymbolTable) map[string]breakpad.SymbolTable {
 	m := make(map[string]breakpad.SymbolTable)
 	for _, table := range tables {
 		m[table.ModuleName()] = table
@@ -220,7 +220,7 @@ func (p *AppleInputParser) mapTables(tables []breakpad.SymbolTable) map[string]b
 	return m
 }
 
-func (p *AppleInputParser) symbolizeCrash(tables []breakpad.SymbolTable) error {
+func (p *AppleParser) symbolizeCrash(tables []breakpad.SymbolTable) error {
 	tableMap := p.mapTables(tables)
 
 	// Go through the report, symbolizing any frames that match the pattern.
@@ -261,7 +261,7 @@ func (p *AppleInputParser) symbolizeCrash(tables []breakpad.SymbolTable) error {
 	return nil
 }
 
-func (p *AppleInputParser) symbolizeHang(tables []breakpad.SymbolTable) error {
+func (p *AppleParser) symbolizeHang(tables []breakpad.SymbolTable) error {
 	tableMap := p.mapTables(tables)
 
 	// The p.modules is mapped by bundle ID, so re-map it to be done by breakpad

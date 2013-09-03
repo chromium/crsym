@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"fmt"
@@ -23,7 +23,7 @@ import (
 )
 
 func testdata(f string) string {
-	return path.Join("frontend/testdata", f)
+	return path.Join("parser/testdata", f)
 }
 
 type testTable struct {

@@ -13,46 +13,49 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"fmt"
 	"strings"
 
 	"github.com/chromium/crsym/breakpad"
+	"github.com/chromium/crsym/context"
 )
 
-type moduleInfoInputParser struct {
+type moduleInfoParser struct {
+	context          context.Context
 	service          breakpad.ModuleInfoService
 	product, version string
 	modules          []breakpad.SupplierRequest
 }
 
-// NewModuleInfoInputParser creates an input parser that takes a product name and
+// NewModuleInfoParser creates an input parser that takes a product name and
 // version, along with a backend service, and will look up all the modules for that
 // tuple.
-func NewModuleInfoInputParser(service breakpad.ModuleInfoService, product, version string) InputParser {
-	return &moduleInfoInputParser{
+func NewModuleInfoParser(ctx context.Context, service breakpad.ModuleInfoService, product, version string) Parser {
+	return &moduleInfoParser{
+		context: ctx,
 		service: service,
 		product: product,
 		version: version,
 	}
 }
 
-func (p *moduleInfoInputParser) ParseInput(data string) (err error) {
-	p.modules, err = p.service.GetModulesForProduct(p.product, p.version)
+func (p *moduleInfoParser) ParseInput(data string) (err error) {
+	p.modules, err = p.service.GetModulesForProduct(p.context, p.product, p.version)
 	return
 }
 
-func (p *moduleInfoInputParser) RequiredModules() []breakpad.SupplierRequest {
+func (p *moduleInfoParser) RequiredModules() []breakpad.SupplierRequest {
 	return nil
 }
 
-func (p *moduleInfoInputParser) FilterModules() bool {
+func (p *moduleInfoParser) FilterModules() bool {
 	return false
 }
 
-func (p *moduleInfoInputParser) Symbolize(tables []breakpad.SymbolTable) string {
+func (p *moduleInfoParser) Symbolize(tables []breakpad.SymbolTable) string {
 	lines := make([]string, len(p.modules))
 	for i, module := range p.modules {
 		lines[i] = fmt.Sprintf("\"%s\"\t\t%s", module.ModuleName, module.Identifier)

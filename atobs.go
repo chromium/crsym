@@ -31,7 +31,7 @@ import (
 	"strings"
 
 	"github.com/chromium/crsym/breakpad"
-	"github.com/chromium/crsym/frontend"
+	"github.com/chromium/crsym/parser"
 )
 
 var (
@@ -69,7 +69,7 @@ func main() {
 
 	input := strings.Join(flag.Args(), " ")
 
-	parser := frontend.NewFragmentInputParser(table.ModuleName(), table.Identifier(), offset)
+	parser := parser.NewFragmentParser(table.ModuleName(), table.Identifier(), offset)
 	if err = parser.ParseInput(input); err != nil {
 		fatal(err)
 	}

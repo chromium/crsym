@@ -13,7 +13,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-package frontend
+package parser
 
 import (
 	"bytes"
@@ -27,7 +27,7 @@ import (
 	"github.com/chromium/crsym/breakpad"
 )
 
-type stackwalkInputParser struct {
+type stackwalkParser struct {
 	// Maps Breakpad module names to identifiers.
 	modules map[string]string
 	// Used when parsing the thread list to record which of the above modules
@@ -41,10 +41,10 @@ type stackwalkInputParser struct {
 	threads map[int][]stackwalkFrame
 }
 
-// NewStackwalkInputParser creates an InputParser that symbolizes the machine
+// NewStackwalkParser creates an Parser that symbolizes the machine
 // format output of `minidump_stackwalk` in breakpad/src/processor/.
-func NewStackwalkInputParser() InputParser {
-	return &stackwalkInputParser{
+func NewStackwalkParser() Parser {
+	return &stackwalkParser{
 		modules:     make(map[string]string),
 		usedModules: make(map[string]bool),
 		threads:     make(map[int][]stackwalkFrame),
@@ -90,9 +90,9 @@ func fieldError(field string, expected, actual int, line string) error {
 	return fmt.Errorf("wrong number of fields for a %s, should be %d, got %d, line: %q", field, expected, actual, line)
 }
 
-// InputParser implementation:
+// Parser implementation:
 
-func (p *stackwalkInputParser) ParseInput(data string) error {
+func (p *stackwalkParser) ParseInput(data string) error {
 	buf := bytes.NewBufferString(data)
 
 	parsingThreads := false
@@ -168,7 +168,7 @@ func (p *stackwalkInputParser) ParseInput(data string) error {
 	}
 }
 
-func (p *stackwalkInputParser) RequiredModules() []breakpad.SupplierRequest {
+func (p *stackwalkParser) RequiredModules() []breakpad.SupplierRequest {
 	requests := make([]breakpad.SupplierRequest, len(p.usedModules))
 	i := 0
 	for name, _ := range p.usedModules {
@@ -181,11 +181,11 @@ func (p *stackwalkInputParser) RequiredModules() []breakpad.SupplierRequest {
 	return requests
 }
 
-func (p *stackwalkInputParser) FilterModules() bool {
+func (p *stackwalkParser) FilterModules() bool {
 	return false
 }
 
-func (p *stackwalkInputParser) Symbolize(tables []breakpad.SymbolTable) string {
+func (p *stackwalkParser) Symbolize(tables []breakpad.SymbolTable) string {
 	tableMap := make(map[string]breakpad.SymbolTable, len(tables))
 	for _, table := range tables {
 		tableMap[table.ModuleName()] = table

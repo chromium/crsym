@@ -121,6 +121,7 @@ func (p *AppleParser) ParseInput(data string) error {
 		7,  // 10.7 sample/hang report.
 		9,  // 10.7 crash report.
 		10, // 10.8 crash report.
+		11, // 10.9 crash report.
 		18, // 10.9 sample report.
 	}
 	known := false
@@ -212,6 +213,8 @@ func (p *AppleParser) Symbolize(tables []breakpad.SymbolTable) string {
 	case 9:
 		p.symbolizeCrash(tables)
 	case 10:
+		p.symbolizeCrash(tables)
+	case 11:
 		p.symbolizeCrash(tables)
 	case 18:
 		p.symbolizeHangV18(tables)

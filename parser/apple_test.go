@@ -167,10 +167,11 @@ func TestParseAppleInput(t *testing.T) {
 
 func TestSymbolizeApple(t *testing.T) {
 	files := []string{
+		"crash_10.6_v6.crash",
+		"crash_10.7_v9.crash",
 		"crash_10.8_v10.crash",
 		"crash_10.8_v10_2.crash",
-		"crash_10.7_v9.crash",
-		"crash_10.6_v6.crash",
+		"crash_10.9_v11.crash",
 		"hang_10.7_v7.crash",
 		"hang_10.8_v7.crash",
 		"hang_10.9_v18.crash",

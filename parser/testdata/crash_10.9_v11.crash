@@ -1,0 +1,1020 @@
+Process:         Google Chrome Canary [67972]
+Path:            /Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary
+Identifier:      com.google.Chrome.canary
+Version:         34.0.1767.0 (1767.0)
+Code Type:       X86 (Native)
+Parent Process:  launchd [299]
+Responsible:     Google Chrome Canary [67972]
+User ID:         501
+
+Date/Time:       2014-01-01 18:30:06.856 -0500
+OS Version:      Mac OS X 10.9.1 (13B42)
+Report Version:  11
+Anonymous UUID:  852CCF98-80AC-FB41-5759-82844647EEDF
+
+Sleep/Wake UUID: 2283FFCF-18C9-485E-9B1C-830C1AA0FEC5
+
+Crashed Thread:  42  CrDumpHelper
+
+Exception Type:  EXC_BAD_ACCESS (SIGBUS)
+Exception Codes: KERN_PROTECTION_FAILURE at 0x0000000006705900
+
+VM Regions Near 0x6705900:
+    shared memory          00000000066fd000-00000000066ff000 [    8K] r-x/rwx SM=COW  
+--> VM_ALLOCATE            00000000066ff000-0000000006708000 [   36K] r--/rwx SM=COW  
+    VM_ALLOCATE            0000000006708000-0000000006709000 [    4K] r--/rwx SM=PRV  
+
+Thread 0:: CrBrowserMain  Dispatch queue: com.apple.main-thread
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.apple.CoreFoundation      	0x949b9f69 __CFRunLoopServiceMachPort + 169
+3   com.apple.CoreFoundation      	0x949b9541 __CFRunLoopRun + 1393
+4   com.apple.CoreFoundation      	0x949b8d5a CFRunLoopRunSpecific + 394
+5   com.apple.CoreFoundation      	0x949b8bbb CFRunLoopRunInMode + 123
+6   com.apple.HIToolbox           	0x96d62e2d RunCurrentEventLoopInMode + 259
+7   com.apple.HIToolbox           	0x96d62bb2 ReceiveNextEventCommon + 526
+8   com.apple.HIToolbox           	0x96d6298d _BlockUntilNextEventMatchingListInModeWithFilter + 92
+9   com.apple.AppKit              	0x9735a5a9 _DPSNextEvent + 1602
+10  com.apple.AppKit              	0x97359ad0 -[NSApplication nextEventMatchingMask:untilDate:inMode:dequeue:] + 119
+11  com.apple.AppKit              	0x9734c35c -[NSApplication run] + 727
+12  com.google.Chrome.framework   	0x008558db 0xa9000 + 8046811
+13  com.google.Chrome.framework   	0x008551fc 0xa9000 + 8045052
+14  com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+15  com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+16  com.google.Chrome.framework   	0x0020a73e 0xa9000 + 1447742
+17  com.google.Chrome.framework   	0x0120e310 0xa9000 + 18240272
+18  com.google.Chrome.framework   	0x01210413 0xa9000 + 18248723
+19  com.google.Chrome.framework   	0x0120a53e 0xa9000 + 18224446
+20  com.google.Chrome.framework   	0x00829703 0xa9000 + 7866115
+21  com.google.Chrome.framework   	0x0082a1af 0xa9000 + 7868847
+22  com.google.Chrome.framework   	0x00829570 0xa9000 + 7865712
+23  com.google.Chrome.framework   	0x000ab759 ChromeMain + 41
+24  com.google.Chrome.canary      	0x000a5f78 main + 24
+25  com.google.Chrome.canary      	0x000a5f55 0xa5000 + 3925
+
+Thread 1:: Dispatch queue: com.apple.libdispatch-manager
+0   libsystem_kernel.dylib        	0x99b06992 kevent64 + 10
+1   libdispatch.dylib             	0x95e998bd _dispatch_mgr_invoke + 238
+2   libdispatch.dylib             	0x95e99556 _dispatch_mgr_thread + 52
+
+Thread 2:
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.google.Chrome.framework   	0x0084def1 0xa9000 + 8015601
+3   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+4   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+5   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 3:: NetworkConfigWatcher
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.apple.CoreFoundation      	0x949b9f69 __CFRunLoopServiceMachPort + 169
+3   com.apple.CoreFoundation      	0x949b9541 __CFRunLoopRun + 1393
+4   com.apple.CoreFoundation      	0x949b8d5a CFRunLoopRunSpecific + 394
+5   com.apple.CoreFoundation      	0x949b8bbb CFRunLoopRunInMode + 123
+6   com.apple.Foundation          	0x9b9ea319 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 277
+7   com.google.Chrome.framework   	0x0085570f 0xa9000 + 8046351
+8   com.google.Chrome.framework   	0x008551fc 0xa9000 + 8045052
+9   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+10  com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+11  com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+12  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+13  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+14  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+15  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+16  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+17  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 4:: DnsConfigService
+0   libsystem_kernel.dylib        	0x99b06976 kevent + 10
+1   com.google.Chrome.framework   	0x008d06cb 0xa9000 + 8550091
+2   com.google.Chrome.framework   	0x008ce399 0xa9000 + 8541081
+3   com.google.Chrome.framework   	0x008543c4 0xa9000 + 8041412
+4   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+5   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+6   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+7   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+8   com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+9   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+10  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+11  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+12  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 5:: WorkerPool/22543
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008c04a1 0xa9000 + 8484001
+5   com.google.Chrome.framework   	0x008c09da 0xa9000 + 8485338
+6   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 6:: WorkerPool/22795
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008c04a1 0xa9000 + 8484001
+5   com.google.Chrome.framework   	0x008c09da 0xa9000 + 8485338
+6   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 7:: CrShutdownDetector
+0   libsystem_kernel.dylib        	0x99b06dba __read + 10
+1   com.google.Chrome.framework   	0x0020bef3 0xa9000 + 1453811
+2   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+3   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+4   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+5   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 8:: BrowserBlockingWorker1/25103
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008baf1d 0xa9000 + 8462109
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 9:: Chrome_DBThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008b6258 0xa9000 + 8442456
+5   com.google.Chrome.framework   	0x00895e03 0xa9000 + 8310275
+6   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+7   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+8   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+9   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+10  com.google.Chrome.framework   	0x0121d44f 0xa9000 + 18302031
+11  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+12  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+13  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+14  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+15  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 10:: Chrome_FileThread
+0   libsystem_kernel.dylib        	0x99b06976 kevent + 10
+1   com.google.Chrome.framework   	0x008d06cb 0xa9000 + 8550091
+2   com.google.Chrome.framework   	0x008ce399 0xa9000 + 8541081
+3   com.google.Chrome.framework   	0x008544a3 0xa9000 + 8041635
+4   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+5   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+6   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+7   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+8   com.google.Chrome.framework   	0x0121d48f 0xa9000 + 18302095
+9   com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+10  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+11  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+12  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+13  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 11:: Chrome_FileUserBlockingThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x0121d4cf 0xa9000 + 18302159
+12  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+13  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+14  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+15  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+16  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 12:: Chrome_ProcessLauncherThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x0121d50f 0xa9000 + 18302223
+12  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+13  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+14  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+15  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+16  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 13:: Chrome_CacheThread
+0   libsystem_kernel.dylib        	0x99b06976 kevent + 10
+1   com.google.Chrome.framework   	0x008d06cb 0xa9000 + 8550091
+2   com.google.Chrome.framework   	0x008ce399 0xa9000 + 8541081
+3   com.google.Chrome.framework   	0x008544a3 0xa9000 + 8041635
+4   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+5   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+6   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+7   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+8   com.google.Chrome.framework   	0x0121d54f 0xa9000 + 18302287
+9   com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+10  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+11  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+12  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+13  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 14:: Chrome_IOThread
+0   libsystem_kernel.dylib        	0x99b05b76 __semwait_signal + 10
+1   libsystem_pthread.dylib       	0x99557ab8 pthread_join$UNIX2003 + 419
+2   com.google.Chrome.framework   	0x008b9d29 0xa9000 + 8457513
+3   com.google.Chrome.framework   	0x00850faa 0xa9000 + 8028074
+4   com.google.Chrome.framework   	0x00db5a0d 0xa9000 + 13683213
+5   com.google.Chrome.framework   	0x00db3db5 0xa9000 + 13675957
+6   com.google.Chrome.framework   	0x00db5770 0xa9000 + 13682544
+7   com.google.Chrome.framework   	0x0131eb2a 0xa9000 + 19356458
+8   com.google.Chrome.framework   	0x013142ff 0xa9000 + 19313407
+9   com.google.Chrome.framework   	0x013175aa 0xa9000 + 19326378
+10  com.google.Chrome.framework   	0x01316215 0xa9000 + 19321365
+11  com.google.Chrome.framework   	0x0132134b 0xa9000 + 19366731
+12  com.google.Chrome.framework   	0x011f462a 0xa9000 + 18134570
+13  com.google.Chrome.framework   	0x00e2e37f 0xa9000 + 14177151
+14  com.google.Chrome.framework   	0x00e304a1 0xa9000 + 14185633
+15  com.google.Chrome.framework   	0x00e30140 0xa9000 + 14184768
+16  com.google.Chrome.framework   	0x00e2cebd 0xa9000 + 14171837
+17  com.google.Chrome.framework   	0x00e2cfdd 0xa9000 + 14172125
+18  com.google.Chrome.framework   	0x0085429a 0xa9000 + 8041114
+19  com.google.Chrome.framework   	0x008ce5b1 0xa9000 + 8541617
+20  com.google.Chrome.framework   	0x008544a3 0xa9000 + 8041635
+21  com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+22  com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+23  com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+24  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+25  com.google.Chrome.framework   	0x0121d58f 0xa9000 + 18302351
+26  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+27  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+28  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+29  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+30  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 15:: IndexedDB
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008b6258 0xa9000 + 8442456
+5   com.google.Chrome.framework   	0x00895e03 0xa9000 + 8310275
+6   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+7   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+8   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+9   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+10  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+11  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+12  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+13  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+14  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 16:: NetworkConfigWatcher
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.apple.CoreFoundation      	0x949b9f69 __CFRunLoopServiceMachPort + 169
+3   com.apple.CoreFoundation      	0x949b9541 __CFRunLoopRun + 1393
+4   com.apple.CoreFoundation      	0x949b8d5a CFRunLoopRunSpecific + 394
+5   com.apple.CoreFoundation      	0x949b8bbb CFRunLoopRunInMode + 123
+6   com.apple.Foundation          	0x9b9ea319 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 277
+7   com.google.Chrome.framework   	0x0085570f 0xa9000 + 8046351
+8   com.google.Chrome.framework   	0x008551fc 0xa9000 + 8045052
+9   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+10  com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+11  com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+12  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+13  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+14  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+15  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+16  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+17  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 17:: BrowserWatchdog
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008b6258 0xa9000 + 8442456
+5   com.google.Chrome.framework   	0x00895e03 0xa9000 + 8310275
+6   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+7   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+8   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+9   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+10  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+11  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+12  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+13  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+14  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 18:: Proxy resolver
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+12  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+13  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+14  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+15  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 19:: MediaStreamDeviceThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+12  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+13  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+14  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+15  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 20:
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.google.Chrome.framework   	0x01327260 0xa9000 + 19391072
+3   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+4   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+5   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+6   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 21:: BrowserBlockingWorker2/39427
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008baf1d 0xa9000 + 8462109
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 22:: NetworkConfigWatcher
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.apple.CoreFoundation      	0x949b9f69 __CFRunLoopServiceMachPort + 169
+3   com.apple.CoreFoundation      	0x949b9541 __CFRunLoopRun + 1393
+4   com.apple.CoreFoundation      	0x949b8d5a CFRunLoopRunSpecific + 394
+5   com.apple.CoreFoundation      	0x949b8bbb CFRunLoopRunInMode + 123
+6   com.apple.Foundation          	0x9b9ea319 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 277
+7   com.google.Chrome.framework   	0x0085570f 0xa9000 + 8046351
+8   com.google.Chrome.framework   	0x008551fc 0xa9000 + 8045052
+9   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+10  com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+11  com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+12  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+13  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+14  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+15  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+16  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+17  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 23:: Proxy resolver
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+12  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+13  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+14  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+15  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 24:: Chrome_SafeBrowsingThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+12  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+13  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+14  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+15  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 25:: BrowserBlockingWorker3/44803
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008baf1d 0xa9000 + 8462109
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 26:: Chrome_PasswordStore_Thread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008b627b 0xa9000 + 8442491
+5   com.google.Chrome.framework   	0x008b6106 0xa9000 + 8442118
+6   com.google.Chrome.framework   	0x00895dc7 0xa9000 + 8310215
+7   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+8   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+9   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+10  com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+11  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+12  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+13  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+14  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+15  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 27:: Chrome_HistoryThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008b6258 0xa9000 + 8442456
+5   com.google.Chrome.framework   	0x00895e03 0xa9000 + 8310275
+6   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+7   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+8   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+9   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+10  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+11  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+12  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+13  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+14  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 28:
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.apple.CoreFoundation      	0x949b9f69 __CFRunLoopServiceMachPort + 169
+3   com.apple.CoreFoundation      	0x949b9541 __CFRunLoopRun + 1393
+4   com.apple.CoreFoundation      	0x949b8d5a CFRunLoopRunSpecific + 394
+5   com.apple.CoreFoundation      	0x949b8bbb CFRunLoopRunInMode + 123
+6   com.apple.AppKit              	0x97503f18 _NSEventThread + 283
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 29:: Chrome_SyncThread
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008b6258 0xa9000 + 8442456
+5   com.google.Chrome.framework   	0x00895e03 0xa9000 + 8310275
+6   com.google.Chrome.framework   	0x00892bd1 0xa9000 + 8297425
+7   com.google.Chrome.framework   	0x008a9091 0xa9000 + 8388753
+8   com.google.Chrome.framework   	0x0089295a 0xa9000 + 8296794
+9   com.google.Chrome.framework   	0x008bdd31 0xa9000 + 8473905
+10  com.google.Chrome.framework   	0x008bde10 0xa9000 + 8474128
+11  com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+12  libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+13  libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+14  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 30:: CachePoolWorker1/61195
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008bb158 0xa9000 + 8462680
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 31:: WorkerPool/99599
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008c04a1 0xa9000 + 8484001
+5   com.google.Chrome.framework   	0x008c09da 0xa9000 + 8485338
+6   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 32:: CachePoolWorker2/8691
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008bb158 0xa9000 + 8462680
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 33:: CachePoolWorker3/14859
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008bb158 0xa9000 + 8462680
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 34:: CachePoolWorker4/53271
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008bb158 0xa9000 + 8462680
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 35:: CachePoolWorker5/101383
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d1d _pthread_cond_wait + 728
+2   libsystem_pthread.dylib       	0x99557bd9 pthread_cond_wait$UNIX2003 + 71
+3   com.google.Chrome.framework   	0x008b5d88 0xa9000 + 8441224
+4   com.google.Chrome.framework   	0x008bb158 0xa9000 + 8462680
+5   com.google.Chrome.framework   	0x008ba3fd 0xa9000 + 8459261
+6   com.google.Chrome.framework   	0x008bd4a3 0xa9000 + 8471715
+7   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 36:: WorkerPool/104475
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008c04a1 0xa9000 + 8484001
+5   com.google.Chrome.framework   	0x008c09da 0xa9000 + 8485338
+6   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 37:: WorkerPool/107887
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008c04a1 0xa9000 + 8484001
+5   com.google.Chrome.framework   	0x008c09da 0xa9000 + 8485338
+6   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 38:: WorkerPool/100759
+0   libsystem_kernel.dylib        	0x99b057ca __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	0x99555d8a _pthread_cond_wait + 837
+2   libsystem_pthread.dylib       	0x99556042 pthread_cond_timedwait_relative_np + 47
+3   com.google.Chrome.framework   	0x008b5e05 0xa9000 + 8441349
+4   com.google.Chrome.framework   	0x008c04a1 0xa9000 + 8484001
+5   com.google.Chrome.framework   	0x008c09da 0xa9000 + 8485338
+6   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+7   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+8   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+9   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 39:
+0   libsystem_kernel.dylib        	0x99b06046 __workq_kernreturn + 10
+1   libsystem_pthread.dylib       	0x99554dcf _pthread_wqthread + 372
+2   libsystem_pthread.dylib       	0x99558cce start_wqthread + 30
+
+Thread 40:
+0   libsystem_kernel.dylib        	0x99b06046 __workq_kernreturn + 10
+1   libsystem_pthread.dylib       	0x99554dcf _pthread_wqthread + 372
+2   libsystem_pthread.dylib       	0x99558cce start_wqthread + 30
+
+Thread 41:: com.apple.audio.IOThread.client
+0   libsystem_kernel.dylib        	0x99b00f7a mach_msg_trap + 10
+1   libsystem_kernel.dylib        	0x99b0016c mach_msg + 68
+2   com.apple.audio.CoreAudio     	0x99f84e9a HALB_MachPort::SendMessageWithReply(unsigned int, unsigned int, unsigned long, unsigned long, mach_msg_header_t*, bool, unsigned int) + 138
+3   com.apple.audio.CoreAudio     	0x99f7f34e HALB_MachPort::SendSimpleMessageWithSimpleReply(unsigned int, unsigned int, int, int&, bool, unsigned int) + 68
+4   com.apple.audio.CoreAudio     	0x99f7db27 HALC_ProxyIOContext::IOWorkLoop() + 1111
+5   com.apple.audio.CoreAudio     	0x99f7d5ff HALC_ProxyIOContext::IOThreadEntry(void*) + 167
+6   com.apple.audio.CoreAudio     	0x99f87f52 ___ZN19HALC_ProxyIOContextC2Emj_block_invoke + 20
+7   com.apple.audio.CoreAudio     	0x99f7d4fb HALB_IOThread::Entry(void*) + 69
+8   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+9   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+10  libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 42 Crashed:: CrDumpHelper
+0   libsystem_c.dylib             	0x94e828f6 strncpy + 198
+1   com.google.Chrome.framework   	0x0085015e 0xa9000 + 8024414
+2   com.google.Chrome.framework   	0x00851107 0xa9000 + 8028423
+3   com.google.Chrome.framework   	0x008b9df5 0xa9000 + 8457717
+4   libsystem_pthread.dylib       	0x995535fb _pthread_body + 144
+5   libsystem_pthread.dylib       	0x99553485 _pthread_start + 130
+6   libsystem_pthread.dylib       	0x99558cf2 thread_start + 34
+
+Thread 42 crashed with X86 Thread State (32-bit):
+  eax: 0x4e004f4e  ebx: 0x06705800  ecx: 0x000000fe  edx: 0x00000002
+  edi: 0x06705900  esi: 0x0399230e  ebp: 0xc18cbf28  esp: 0xc18cbef4
+   ss: 0x00000023  efl: 0x00010202  eip: 0x94e828f6   cs: 0x0000001b
+   ds: 0x00000023   es: 0x00000023   fs: 0x00000023   gs: 0x0000000f
+  cr2: 0x06705900
+  
+Logical CPU:     0
+Error Code:      0x00000007
+Trap Number:     14
+
+
+Binary Images:
+   0xa5000 -    0xa5ff3 +com.google.Chrome.canary (34.0.1767.0 - 1767.0) <C495C58D-745C-3CA0-882F-F4EC40DF5FB8> /Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary
+   0xa9000 -  0x4a84f4f +com.google.Chrome.framework (34.0.1767.0 - 1767.0) <D0DB810F-8315-37FE-9BD0-61F888BD3AD8> /Applications/Google Chrome Canary.app/Contents/Versions/34.0.1767.0/Google Chrome Framework.framework/Google Chrome Framework
+ 0x4dfc000 -  0x4e3aff2  com.apple.audio.midi.CoreMIDI (1.10 - 88) <64824C07-A240-3A16-ABFF-B38FB8EAF71E> /System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+ 0x4e61000 -  0x4e77ff8  libexpat.1.dylib (12) <B0AC9020-01C4-368F-98D6-7FFC067A1B04> /usr/lib/libexpat.1.dylib
+ 0x6978000 -  0x6987ff7 +com.google.Keystone.Registration (1.1.0 - 1.1.0.3659) <2379CBDF-65AB-246D-D5F4-3A450D457F42> /Applications/Google Chrome Canary.app/Contents/Versions/34.0.1767.0/Google Chrome Framework.framework/Frameworks/KeystoneRegistration.framework/KeystoneRegistration
+ 0x82ab000 -  0x82acff5 +cl_kernels (???) <750DD090-BA13-408B-AD8C-5A9A9CFEC4BC> cl_kernels
+ 0x82b9000 -  0x82b9fff +cl_kernels (???) <C0FA3515-296F-4A19-ABCF-E464419DA886> cl_kernels
+ 0x82c5000 -  0x82d0ffa  com.apple.CommerceCore (1.0 - 42) <E59717F2-6770-3DBC-8510-F7AA61E60F57> /System/Library/PrivateFrameworks/CommerceKit.framework/Versions/A/Frameworks/CommerceCore.framework/Versions/A/CommerceCore
+ 0x82da000 -  0x82deffd  com.apple.audio.AppleHDAHALPlugIn (2.5.3 - 2.5.3fc1) <DAF7D11D-7AC8-38EA-AE89-903A9C59E1BB> /System/Library/Extensions/AppleHDA.kext/Contents/PlugIns/AppleHDAHALPlugIn.bundle/Contents/MacOS/AppleHDAHALPlugIn
+ 0x84e2000 -  0x84e2ffd +cl_kernels (???) <D0080F82-1597-456F-97D2-F25409003EBD> cl_kernels
+ 0x9b64000 -  0x9c4fff7  unorm8_bgra.dylib (2.3.58) <44644D3C-3D0E-3CBB-9265-664D95EC791F> /System/Library/Frameworks/OpenCL.framework/Versions/A/Libraries/ImageFormats/unorm8_bgra.dylib
+ 0xad4e000 -  0xad73ff9  com.apple.framework.familycontrols (4.1 - 410) <A33A97EE-C735-38BA-9B49-5D78DAA3DEDA> /System/Library/PrivateFrameworks/FamilyControls.framework/Versions/A/FamilyControls
+ 0xade1000 -  0xadecfff  libGPUSupport.dylib (9.0.83) <DE01868A-9511-3FAD-897B-BB6BCB70B1AA> /System/Library/PrivateFrameworks/GPUSupport.framework/Versions/A/Libraries/libGPUSupport.dylib
+ 0xb502000 -  0xb702ff2  com.apple.audio.units.Components (1.9 - 1.9) <303B5E17-B3F4-3E0A-935B-E83BA0866941> /System/Library/Components/CoreAudio.component/Contents/MacOS/CoreAudio
+ 0xbb04000 -  0xbb08ffd  libFontRegistryUI.dylib (127) <C207DFF5-0C48-3831-B9F1-2363D9A7A365> /System/Library/Frameworks/ApplicationServices.framework/Frameworks/ATS.framework/Resources/libFontRegistryUI.dylib
+0x50000000 - 0x50294ff7  com.apple.ATIRadeonX2000GLDriver (8.18.28 - 8.1.8) <01DD36A4-0B68-328F-BFCE-7115980311BD> /System/Library/Extensions/ATIRadeonX2000GLDriver.bundle/Contents/MacOS/ATIRadeonX2000GLDriver
+0x8fec8000 - 0x8fefa417  dyld (239.3) <4B280BB1-55F8-313F-86A6-8ADD644ED69E> /usr/lib/dyld
+0x90008000 - 0x90008fff  com.apple.quartzframework (1.5 - 1.5) <5BB3FDD4-4727-3D1B-9582-C96F36DA1542> /System/Library/Frameworks/Quartz.framework/Versions/A/Quartz
+0x90009000 - 0x90055ff7  libcups.2.dylib (372) <9A2BE8DC-37E4-3019-B665-1036FE7868EA> /usr/lib/libcups.2.dylib
+0x90056000 - 0x90059ff9  com.apple.TCC (1.0 - 1) <A5FCF7AA-3F56-3A19-9DF1-661F1F02F79D> /System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+0x9005a000 - 0x900b0ff6  com.apple.ScalableUserInterface (1.0 - 1) <2C81641B-FA30-32FF-8B3E-3CB9BF53B2D9> /System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/ScalableUserInterface.framework/Versions/A/ScalableUserInterface
+0x900b1000 - 0x900bcfff  com.apple.CrashReporterSupport (10.9 - 538) <7A5FF845-433C-33E3-99B5-F6AA5B825734> /System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport
+0x900bd000 - 0x900e8ff7  libpcap.A.dylib (42) <66FBEAD3-FE91-3A89-8706-FB95229068AC> /usr/lib/libpcap.A.dylib
+0x90a10000 - 0x90a11fff  com.apple.AddressBook.ContactsData (8.0 - 1365) <3A9C53C8-07EC-310D-80AD-0B6E2492F021> /System/Library/PrivateFrameworks/ContactsData.framework/Versions/A/ContactsData
+0x90a12000 - 0x90ad9ff7  com.apple.DiscRecording (8.0 - 8000.4.6) <84A7EC09-3BBD-3E04-A88C-6D3B724448FF> /System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording
+0x90ada000 - 0x90b17ffb  libGLImage.dylib (9.0.83) <FA15FEB5-54E4-313B-8E78-A2D2E6C88FE1> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+0x90b18000 - 0x90b6dff7  com.apple.framework.internetaccounts (2.1 - 210) <613F079B-6D69-3B3A-84EF-3F178A55F710> /System/Library/PrivateFrameworks/InternetAccounts.framework/Versions/A/InternetAccounts
+0x90b6e000 - 0x90be1fff  com.apple.SearchKit (1.4.0 - 1.4.0) <6F607AB6-7553-37BA-BEC5-98FD7C27FAD7> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+0x90be2000 - 0x90c37ff3  com.apple.ImageCaptureCore (5.0 - 5.0) <69A007AE-4654-3C79-9AF6-5EC8F173F225> /System/Library/Frameworks/ImageCaptureCore.framework/Versions/A/ImageCaptureCore
+0x90c38000 - 0x90c3ffff  libMatch.1.dylib (19) <3B3680FC-2AC9-37CC-B262-5ACE2CF8939A> /usr/lib/libMatch.1.dylib
+0x90c40000 - 0x90d0dff7  com.apple.backup.framework (1.5.1 - 1.5.1) <91998CDF-3547-3183-A962-D9E981C14891> /System/Library/PrivateFrameworks/Backup.framework/Versions/A/Backup
+0x90d0e000 - 0x90d12fff  libheimdal-asn1.dylib (323.12) <9EA2A221-301B-3B9A-BBF2-38134145B5A8> /usr/lib/libheimdal-asn1.dylib
+0x90d13000 - 0x90dd6ff1  com.apple.CoreText (352.0 - 367.15) <746AD442-F7B4-3273-A36D-C7103D26F727> /System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+0x90dd7000 - 0x90debff9  com.apple.MultitouchSupport.framework (245.13 - 245.13) <6860A0D0-3654-3B02-B2E9-C4D2637167B8> /System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+0x90dec000 - 0x90decfff  com.apple.CoreServices (59 - 59) <06747539-5035-3307-8645-9BC4E7F89023> /System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+0x90ded000 - 0x90e98ffd  com.apple.imcore (10.0 - 1000) <90B6B340-1473-3F5C-B39D-887FFD2D01AD> /System/Library/PrivateFrameworks/IMCore.framework/Versions/A/IMCore
+0x90e99000 - 0x90ea0ff2  com.apple.NetFS (6.0 - 4.0) <915AA303-C02B-3B0C-8208-D8AAA4350DB4> /System/Library/Frameworks/NetFS.framework/Versions/A/NetFS
+0x91662000 - 0x916b7fff  libc++.1.dylib (120) <10C0A136-64F9-3CC2-9420-013247032120> /usr/lib/libc++.1.dylib
+0x916b8000 - 0x916b8fff  libkeymgr.dylib (28) <1B097DEA-011E-3B1C-86D5-6C7FAD5C765A> /usr/lib/system/libkeymgr.dylib
+0x916b9000 - 0x916effff  com.apple.IconServices (25 - 25.17) <A4B5242B-765E-3D58-B066-BBEDB5947AAD> /System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+0x916f0000 - 0x918b6ffb  libicucore.A.dylib (511.27) <653147E9-7326-337A-99E1-B42E4D801E53> /usr/lib/libicucore.A.dylib
+0x918b7000 - 0x918bfff7  libCGCMS.A.dylib (599.7) <A7404924-9A2B-3324-A934-BD08953E7098> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCGCMS.A.dylib
+0x918c0000 - 0x918cafff  com.apple.bsd.ServiceManagement (2.0 - 2.0) <B84F3916-236A-347B-9C1F-3DE571496737> /System/Library/Frameworks/ServiceManagement.framework/Versions/A/ServiceManagement
+0x918df000 - 0x91934ff7  com.apple.QuickLookFramework (5.0 - 622.3) <3C6ADC02-2C67-361B-B042-47DDCC0EDA5F> /System/Library/Frameworks/QuickLook.framework/Versions/A/QuickLook
+0x91935000 - 0x91cfaff6  libLAPACK.dylib (1094.5) <E6286E68-3501-31AC-813E-75B3B3968011> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+0x91cfb000 - 0x91d54ffa  libTIFF.dylib (1038) <691DAAFD-D72B-3BE9-AE5C-84AF86BE66CD> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+0x91d55000 - 0x91d65ff5  com.apple.LangAnalysis (1.7.0 - 1.7.0) <71DE7754-0A47-3F35-B1BF-B1FE7E1311E0> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/LangAnalysis.framework/Versions/A/LangAnalysis
+0x91dbf000 - 0x91de6fff  com.apple.CoreVideo (1.8 - 117.2) <A53FDD90-F200-3F7C-8A8E-5DE36D3DFBB0> /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+0x91de7000 - 0x9207cfff  com.apple.RawCamera.bundle (5.02 - 725) <2F8F4543-26DD-30E3-A6C8-9A9F12E63D31> /System/Library/CoreServices/RawCamera.bundle/Contents/MacOS/RawCamera
+0x920ae000 - 0x92199ff4  com.apple.DiskImagesFramework (10.9 - 371.1) <FC13BD5A-0FB7-35D5-A8DF-0510CFA996FE> /System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages
+0x9219a000 - 0x9219affe  com.apple.AOSMigrate (1.0 - 1) <E612B5AD-06AE-3BCB-BA14-F7B64714640A> /System/Library/PrivateFrameworks/AOSMigrate.framework/Versions/A/AOSMigrate
+0x9219b000 - 0x92287ff7  libxml2.2.dylib (26) <32040145-6FD6-3AD2-B98B-39F73BF9AC47> /usr/lib/libxml2.2.dylib
+0x92288000 - 0x92288ffd  libOpenScriptingUtil.dylib (157) <4D06E8ED-D312-34EA-A448-DFF45ADC3CE5> /usr/lib/libOpenScriptingUtil.dylib
+0x92289000 - 0x9231afff  com.apple.ColorSync (4.9.0 - 4.9.0) <8366AE10-0396-3100-B87A-A176E8ECE7B6> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSync.framework/Versions/A/ColorSync
+0x9231b000 - 0x92386ff9  com.apple.Heimdal (4.0 - 2.0) <E3091095-A893-3089-8DA1-8705B3BE5BF9> /System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+0x92387000 - 0x92395fff  libxar.1.dylib (202) <B73748D4-F830-3C71-98B3-7A3ABF5136FD> /usr/lib/libxar.1.dylib
+0x9249f000 - 0x924acfff  com.apple.Librarian (1.2 - 1) <F85681E3-3398-327B-829B-1D8078C38C22> /System/Library/PrivateFrameworks/Librarian.framework/Versions/A/Librarian
+0x924ad000 - 0x92501fff  com.apple.AppleVAFramework (5.0.27 - 5.0.27) <95A1E1CF-FC3E-3203-8683-34823CD70B6B> /System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+0x92502000 - 0x92828ffd  com.apple.JavaScriptCore (9537 - 9537.73.10) <B5331B86-DEBC-387A-8F3E-5B9FC28E8055> /System/Library/Frameworks/JavaScriptCore.framework/Versions/A/JavaScriptCore
+0x92829000 - 0x9282afff  liblangid.dylib (117) <F18F76C6-7E4B-34AD-AE81-C1C031BF2F7D> /usr/lib/liblangid.dylib
+0x9282b000 - 0x92906ff7  com.apple.LaunchServices (572.23 - 572.23) <7E52FB5C-9ECF-3CB9-BF18-6652B8D8CDE0> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+0x92907000 - 0x92c08ff1  com.apple.AOSKit (1.06 - 176) <E5067665-E177-37FF-AD38-0D995FB79741> /System/Library/PrivateFrameworks/AOSKit.framework/Versions/A/AOSKit
+0x92c09000 - 0x92c1eff3  com.apple.AppContainer (3.0 - 1) <B53ED2AD-9B19-316F-B7B9-80A3A94AC1D3> /System/Library/PrivateFrameworks/AppContainer.framework/Versions/A/AppContainer
+0x92c1f000 - 0x92dc74af  libobjc.A.dylib (551.1) <31CBE178-E972-30D1-ADC6-4B8345CAE326> /usr/lib/libobjc.A.dylib
+0x92dc8000 - 0x92ebcfff  libFontParser.dylib (111.1) <D8F9B2A4-41A6-3407-8D80-13A841F97BE5> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontParser.dylib
+0x92f69000 - 0x92f6dffc  com.apple.IOSurface (91 - 91) <DECEEB72-3C7E-3C21-9237-E5AD293F8B09> /System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+0x92f6e000 - 0x92fd7fff  com.apple.datadetectorscore (5.0 - 354.0) <0C6C812D-3E7A-31A4-BFDE-CD3316AA35B6> /System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+0x92fd8000 - 0x92fe3ff6  com.apple.NetAuth (5.0 - 5.0) <3B2E9615-EE12-38FC-BDCF-09529FF9464B> /System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth
+0x92fe4000 - 0x92fe7fff  libdyld.dylib (239.3) <729B32AC-EEE2-3739-8CE3-F90838D51906> /usr/lib/system/libdyld.dylib
+0x92fe8000 - 0x92ff4ffe  libkxld.dylib (2422.1.72) <F9B35FA5-C936-3286-A055-2B0780A674AC> /usr/lib/system/libkxld.dylib
+0x93950000 - 0x9396dffb  libresolv.9.dylib (54) <3EC12A7F-6BA1-3976-9F1F-6A4B76303028> /usr/lib/libresolv.9.dylib
+0x9396e000 - 0x93987fff  com.apple.Kerberos (3.0 - 1) <91F17EB2-C70C-359C-B09D-96B52D2A9C9F> /System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+0x93988000 - 0x93abfff3  com.apple.desktopservices (1.8 - 1.8) <4D853961-F911-3FE2-A7DF-3130EA1D8CEB> /System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A/DesktopServicesPriv
+0x93ac0000 - 0x93b90fef  libvDSP.dylib (423.32) <E2FA7230-A001-3F6B-9ACF-6998C51AD7DC> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+0x93b91000 - 0x93b94ff7  com.apple.help (1.3.3 - 46) <AB6292FA-D3BC-3D56-B3A5-2BE630A503E7> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Help.framework/Versions/A/Help
+0x93b95000 - 0x93c34ff7  libCoreStorage.dylib (380) <55467C87-E1A3-3057-B428-9BCEFD39E36D> /usr/lib/libCoreStorage.dylib
+0x93c35000 - 0x93c3dfee  libcldcpuengine.dylib (2.3.58) <713322D8-A643-3B9F-8194-9C4020D8A4D6> /System/Library/Frameworks/OpenCL.framework/Versions/A/Libraries/libcldcpuengine.dylib
+0x93c3e000 - 0x93c68ff7  libsandbox.1.dylib (278.10) <28813216-B652-3E4D-B0D5-BE49B385C6EC> /usr/lib/libsandbox.1.dylib
+0x93c69000 - 0x93c72fff  com.apple.DiskArbitration (2.6 - 2.6) <6379523D-3196-370C-AE4A-8EA586E36909> /System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+0x93c73000 - 0x93ed8ff7  com.apple.AddressBook.framework (8.0 - 1365) <6D80FC70-269E-3C12-A9B4-279F27C58BEF> /System/Library/Frameworks/AddressBook.framework/Versions/A/AddressBook
+0x93ed9000 - 0x93efdfff  libxpc.dylib (300.1.17) <252BC88F-A5CA-3E67-AEDB-3D7B9F4537E2> /usr/lib/system/libxpc.dylib
+0x93efe000 - 0x93f4dfff  com.apple.opencl (2.3.57 - 2.3.57) <93385E1C-00D9-31BE-9652-7F3C09484B3E> /System/Library/Frameworks/OpenCL.framework/Versions/A/OpenCL
+0x93f4e000 - 0x93f51ffb  libutil.dylib (34) <B496031E-E763-3DEB-84D2-85C0F3DF2012> /usr/lib/libutil.dylib
+0x93f52000 - 0x93fa3ff1  libstdc++.6.dylib (60) <354F284B-2343-3810-9CA2-E28038824F6E> /usr/lib/libstdc++.6.dylib
+0x93fa4000 - 0x94006ff3  com.apple.imfoundation (10.0 - 1000) <20565092-0897-3E34-A35A-E1F027D53A26> /System/Library/PrivateFrameworks/IMFoundation.framework/Versions/A/IMFoundation
+0x94007000 - 0x9406effc  com.apple.framework.CoreWLAN (4.0 - 400.45.1) <8DADD7D2-AB98-34ED-8D6F-335338502CBE> /System/Library/Frameworks/CoreWLAN.framework/Versions/A/CoreWLAN
+0x943f4000 - 0x94670ff7  com.apple.QuickTime (7.7.3 - 2826.0.1) <42542002-DCFF-3675-B919-440EC5057D56> /System/Library/Frameworks/QuickTime.framework/Versions/A/QuickTime
+0x94671000 - 0x9467fff7  libz.1.dylib (53) <858B4D9F-D87E-3D81-B07A-DF9632BD185F> /usr/lib/libz.1.dylib
+0x94680000 - 0x94766ff7  com.apple.coreui (2.1 - 231) <1C1AE894-C5C2-3F1C-BF29-B152ECD9BD88> /System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+0x947d6000 - 0x948e3fe4  com.apple.MediaControlSender (1.9 - 190.4) <DF0B5A99-046A-38C1-B68E-241CB2E622BC> /System/Library/PrivateFrameworks/MediaControlSender.framework/Versions/A/MediaControlSender
+0x948e4000 - 0x94942fff  com.apple.ViewBridge (1.0 - 46) <62450F2D-C27A-3D11-BA41-AF8C6B18BEDD> /System/Library/PrivateFrameworks/ViewBridge.framework/Versions/A/ViewBridge
+0x94943000 - 0x94b45ff7  com.apple.CoreFoundation (6.9 - 855.11) <50F70E07-043A-3A2F-87EF-A36BA6C5C9D9> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+0x94b46000 - 0x94b77ff4  com.apple.securityinterface (9.0 - 55047) <0D5ED2B8-C973-3C91-BA45-22501A043263> /System/Library/Frameworks/SecurityInterface.framework/Versions/A/SecurityInterface
+0x94b78000 - 0x94ba0ff7  libRIP.A.dylib (599.7) <461297C0-DDA9-3613-8F27-D7F1AC57208F> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libRIP.A.dylib
+0x94ba1000 - 0x94bb4ff7  com.apple.CoreBluetooth (1.0 - 1) <A9362E6E-732A-39CA-B523-CB847C92A159> /System/Library/Frameworks/IOBluetooth.framework/Versions/A/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+0x94bb5000 - 0x94bc0fff  libcsfde.dylib (380) <C9E61AFB-1A9D-324B-9827-06B182CDD7B0> /usr/lib/libcsfde.dylib
+0x94bc1000 - 0x94bedff7  com.apple.DictionaryServices (1.2 - 208) <33873336-BECD-3F62-A315-C45F24C1818C> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+0x94bee000 - 0x94bf8ff2  com.apple.AppSandbox (3.0 - 1) <085C3B38-C7D8-3A62-AFC6-CEE27F93DFD1> /System/Library/PrivateFrameworks/AppSandbox.framework/Versions/A/AppSandbox
+0x94bf9000 - 0x94e77ff7  com.apple.imageKit (2.5 - 770) <C2FE06B8-DB32-392F-9280-5C1CB148D174> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/ImageKit.framework/Versions/A/ImageKit
+0x94e78000 - 0x94e7afff  com.apple.SecCodeWrapper (3.0 - 1) <29ECC157-F444-31FE-99CC-A9289FF3AC8D> /System/Library/PrivateFrameworks/SecCodeWrapper.framework/Versions/A/SecCodeWrapper
+0x94e7b000 - 0x94e80fff  com.apple.MediaAccessibility (1.0 - 43) <1CC2B661-146A-3FF3-B843-508F611F7B4B> /System/Library/Frameworks/MediaAccessibility.framework/Versions/A/MediaAccessibility
+0x94e81000 - 0x94f13ffe  libsystem_c.dylib (997.1.1) <D06FD754-8CE3-3EB7-BE05-2EF939BBE05F> /usr/lib/system/libsystem_c.dylib
+0x94f14000 - 0x94f7aff4  com.apple.ISSupport (1.9.9 - 57) <BF22E11E-56CB-3396-A109-8C75694DDE7F> /System/Library/PrivateFrameworks/ISSupport.framework/Versions/A/ISSupport
+0x94f9e000 - 0x94fddff5  com.apple.ids (10.0 - 1000) <AEDCAD16-6626-3A0B-A9BE-3FC8A47CEB52> /System/Library/PrivateFrameworks/IDS.framework/Versions/A/IDS
+0x94fde000 - 0x9507afff  com.apple.QD (3.50 - 298) <F73FD4D4-17A4-37D6-AC06-7CA5A8BA1212> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+0x9507b000 - 0x9508dfff  libbsm.0.dylib (33) <1BE92DB5-0D2F-3BB5-BCC6-8A71EF2A3450> /usr/lib/libbsm.0.dylib
+0x95099000 - 0x950dffff  libcurl.4.dylib (78) <EC84399F-5EA8-321B-B122-99730CC557C8> /usr/lib/libcurl.4.dylib
+0x950e0000 - 0x950feff5  com.apple.frameworks.preferencepanes (16.0 - 16.0) <3E3368EE-CAD3-3096-89BC-D006A25A6294> /System/Library/Frameworks/PreferencePanes.framework/Versions/A/PreferencePanes
+0x95101000 - 0x95109fff  libsystem_dnssd.dylib (522.1.11) <1C015806-B971-34F9-B162-3DF7897351D0> /usr/lib/system/libsystem_dnssd.dylib
+0x9510a000 - 0x9511dff7  com.apple.idsfoundation (10.0 - 1000) <1C0CCF49-109E-3C34-96ED-466B7BEB8551> /System/Library/PrivateFrameworks/IDSFoundation.framework/Versions/A/IDSFoundation
+0x9511e000 - 0x95120ffe  libCVMSPluginSupport.dylib (9.0.83) <BD30BDD1-DD5B-3F31-A09B-C274EA93CD7C> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+0x95121000 - 0x95238ffb  com.apple.WebKit (9537 - 9537.73.11) <74634980-1AC4-3874-9BC2-72E1ED8FB534> /System/Library/Frameworks/WebKit.framework/Versions/A/WebKit
+0x95239000 - 0x9565efe3  com.apple.VideoToolbox (1.0 - 1273.29) <200BFEED-8948-3266-A2C4-1DC6A695EC58> /System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+0x9565f000 - 0x958c3fff  com.apple.CoreData (107 - 481) <F699EC21-57D9-3AE6-A17B-C1D1092780BD> /System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+0x958c4000 - 0x95a1aff0  libBLAS.dylib (1094.5) <74310C2F-4FDB-3995-A01A-5AFB83010A43> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+0x95a1b000 - 0x95a50ffd  libssl.0.9.8.dylib (50) <F3BEA2DF-DB84-37F0-B4C7-97C0A4DF19C9> /usr/lib/libssl.0.9.8.dylib
+0x95a51000 - 0x95ad1ff7  com.apple.CoreServices.OSServices (600.4 - 600.4) <1227DF22-E2DA-3764-A1CA-10CC0CEBE377> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+0x95ad2000 - 0x95b14fff  libGLU.dylib (9.0.83) <0D9BFE5A-435E-3C66-AF96-D3567B8FC87B> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+0x95b15000 - 0x95b3ffff  libxslt.1.dylib (13) <249D54AB-1D82-38FE-ABEC-0D575450C73B> /usr/lib/libxslt.1.dylib
+0x95b40000 - 0x95cb2ffb  com.apple.audio.toolbox.AudioToolbox (1.9 - 1.9) <E5FFD35D-18CF-333C-BECE-39F8E47BE707> /System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+0x95cb3000 - 0x95ce2fff  com.apple.framework.SystemAdministration (1.0 - 1.0) <05E81260-7DC7-3546-B45D-15B3E5DF056D> /System/Library/PrivateFrameworks/SystemAdministration.framework/Versions/A/SystemAdministration
+0x95ce3000 - 0x95d36fff  com.apple.htmlrendering (77 - 1.1.4) <408FA30F-4FE9-3162-9FFD-677E8569C1EA> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HTMLRendering.framework/Versions/A/HTMLRendering
+0x95d37000 - 0x95d75ff7  com.apple.NavigationServices (3.8 - 215) <A093AAF0-248E-313E-BA82-01F69E269895> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/NavigationServices.framework/Versions/A/NavigationServices
+0x95d76000 - 0x95d90ff7  com.apple.GenerationalStorage (2.0 - 160.2) <8755F7F1-2402-387C-A32A-2270E7D680C8> /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/GenerationalStorage
+0x95d91000 - 0x95e31ff9  com.apple.Bluetooth (4.2.0 - 4.2.0f6) <BCBF8F56-06AD-3A4B-B673-9C7BFE0EB5E4> /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+0x95e32000 - 0x95e4dff6  libPng.dylib (1038) <F39168D4-ABEB-3C2D-A763-B9D3E1EF43BC> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+0x95e4e000 - 0x95e8dff7  com.apple.bom (12.0 - 192) <50F9D23C-9C9A-38BF-B4E2-66D93BE2A174> /System/Library/PrivateFrameworks/Bom.framework/Versions/A/Bom
+0x95e8e000 - 0x95e95ff1  com.apple.phonenumbers (1.1.1 - 105) <4279F426-BD5E-3716-A23E-5A718B01F466> /System/Library/PrivateFrameworks/PhoneNumbers.framework/Versions/A/PhoneNumbers
+0x95e96000 - 0x95eaeffd  libdispatch.dylib (339.1.9) <6249BAE5-044F-3A7A-9CCC-03FF7E6B405B> /usr/lib/system/libdispatch.dylib
+0x95eaf000 - 0x95eb8fff  com.apple.AppleSRP (5.0 - 1) <6B946F4B-7DC4-3E82-BF2C-BE0930E3CF47> /System/Library/PrivateFrameworks/AppleSRP.framework/Versions/A/AppleSRP
+0x95fc0000 - 0x960d2ffc  libsqlite3.dylib (158) <B3DB0FED-FE4C-314D-8329-CF7708C8AAF4> /usr/lib/libsqlite3.dylib
+0x960d3000 - 0x9610bff7  com.apple.MediaKit (15 - 709) <82E0F8C0-313C-379C-9994-4D21587D0C0C> /System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit
+0x9610c000 - 0x9610cfff  com.apple.Accelerate (1.9 - Accelerate 1.9) <C85070A7-D942-3CFA-981F-5864480788C8> /System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+0x9610d000 - 0x96183ff3  com.apple.securityfoundation (6.0 - 55122) <25149798-A37E-316F-84AB-93029EAF33D8> /System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+0x96184000 - 0x96196fff  libsystem_asl.dylib (217.1.4) <51EB17C9-9F5B-39F3-B6CD-8EF238B05B89> /usr/lib/system/libsystem_asl.dylib
+0x96197000 - 0x961c6ff1  com.apple.frameworks.CoreDaemon (1.3 - 1.3) <2215559E-C517-3122-906F-156FD3CC10AD> /System/Library/PrivateFrameworks/CoreDaemon.framework/Versions/B/CoreDaemon
+0x961c7000 - 0x965fbff7  com.apple.vision.FaceCore (3.0.0 - 3.0.0) <5B12F3E9-84F6-3183-B85D-FD19EF800ADB> /System/Library/PrivateFrameworks/FaceCore.framework/Versions/A/FaceCore
+0x965fc000 - 0x96693ff7  com.apple.ink.framework (10.9 - 207) <EF00BCCB-B270-3F3D-9424-EF5F4BC23E25> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Ink.framework/Versions/A/Ink
+0x96694000 - 0x96b3bfe7  com.apple.CoreAUC (6.22.08 - 6.22.08) <3F9E2986-8FF9-3339-A0C8-DC1186C4A5EC> /System/Library/PrivateFrameworks/CoreAUC.framework/Versions/A/CoreAUC
+0x96b3c000 - 0x96cccff0  GLEngine (9.0.83) <1B032F5D-0D72-30E5-B4AD-D1EBAD995DAC> /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLEngine.bundle/GLEngine
+0x96ccd000 - 0x96ccefff  com.apple.marco (10.0 - 1000) <F7AD1FF7-5B1E-3D3C-AF00-FA3A43118CE5> /System/Library/PrivateFrameworks/Marco.framework/Versions/A/Marco
+0x96ccf000 - 0x96d2bffa  com.apple.print.framework.PrintCore (9.0 - 428) <3E248391-2669-328B-B84F-8763FE8E92BB> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+0x96d2c000 - 0x96d34ffe  libGFXShared.dylib (9.0.83) <35644AAA-B1E7-367C-90C0-378024F8A46A> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+0x96d35000 - 0x96d36ff7  com.apple.diagnosticlogcollection (10.0 - 1000) <B2525E0D-2BB1-3AF6-BDCA-56DCDC1F7DBF> /System/Library/PrivateFrameworks/DiagnosticLogCollection.framework/Versions/A/DiagnosticLogCollection
+0x96d37000 - 0x970acff9  com.apple.HIToolbox (2.1 - 696) <43CB31D6-4C2B-30FA-A374-DB7C5728E7AD> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+0x970ad000 - 0x970bbff7  com.apple.Sharing (132.2 - 132.2) <87DBFC7A-9689-3B8E-AD16-5A9DFF9DE625> /System/Library/PrivateFrameworks/Sharing.framework/Versions/A/Sharing
+0x970bc000 - 0x970bdffc  com.apple.TrustEvaluationAgent (2.0 - 25) <064B485D-56E0-3DD7-BBE2-E08A5BFFF8B3> /System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+0x970be000 - 0x9716affb  libvMisc.dylib (423.32) <43873EFF-FB43-3301-BEE8-F2C3A046D7A6> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+0x97333000 - 0x97f4eff3  com.apple.AppKit (6.9 - 1265) <AE258D94-0272-394F-BBB7-9B5C165A4A78> /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+0x97f4f000 - 0x97f6ffff  com.apple.facetimeservices (10.0 - 1000) <BD92DB29-AD36-3B60-A5EF-F4A68F1394A1> /System/Library/PrivateFrameworks/FTServices.framework/Versions/A/FTServices
+0x97f70000 - 0x97fd9fff  com.apple.SystemConfiguration (1.13 - 1.13) <542075CD-9085-3F30-B84B-DD0277D6A40E> /System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+0x97fda000 - 0x97fdbfff  libSystem.B.dylib (1197.1.1) <C58F0CC9-C1FD-3024-9358-D3359A6BBCAD> /usr/lib/libSystem.B.dylib
+0x97fdc000 - 0x9800dffa  libsystem_m.dylib (3047.16) <28E614E8-7802-3E84-960A-AD4721EF10F7> /usr/lib/system/libsystem_m.dylib
+0x9800e000 - 0x98061ff3  com.apple.CoreMediaIO (401.0 - 4544) <867D01AF-3326-39CB-A136-48AFE4BE9802> /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/CoreMediaIO
+0x98062000 - 0x98066ffc  libpam.2.dylib (20) <50623D44-795F-3E28-AA85-23E0E7E2AE0E> /usr/lib/libpam.2.dylib
+0x98067000 - 0x9807dff9  com.apple.aps.framework (4.0 - 4.0) <B3D5B83C-4DDF-3E8E-A701-7931AE6FAF65> /System/Library/PrivateFrameworks/ApplePushService.framework/Versions/A/ApplePushService
+0x980b1000 - 0x980ffff9  com.apple.HIServices (1.22 - 466) <30636237-408A-3552-90C1-1279348DF7CB> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+0x98100000 - 0x98129ff5  com.apple.shortcut (2.6 - 2.6) <F9F32E6F-E641-36D0-B648-058D5E146D38> /System/Library/PrivateFrameworks/Shortcut.framework/Versions/A/Shortcut
+0x9812a000 - 0x98203ff6  com.apple.QuickLookUIFramework (5.0 - 622.3) <41D10880-AD68-3DE3-94F0-4CA9F44EBD5B> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuickLookUI.framework/Versions/A/QuickLookUI
+0x98204000 - 0x98211ff7  com.apple.AppleFSCompression (56 - 1.0) <0C44B3E4-C4A7-3A65-9C1A-334CA3E35BDB> /System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+0x98212000 - 0x9821bfff  libsystem_notify.dylib (121) <623269F5-1518-3035-A916-8AF83C972154> /usr/lib/system/libsystem_notify.dylib
+0x9821c000 - 0x98225fff  com.apple.audio.SoundManager (4.1 - 4.1) <68B7CEB7-AF09-3E24-8548-6ABF065B5186> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CarbonSound.framework/Versions/A/CarbonSound
+0x98226000 - 0x983a4ff8  libGLProgrammability.dylib (9.0.83) <268638DE-5A32-3352-9068-97244D06E43F> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLProgrammability.dylib
+0x983a5000 - 0x983d1ff7  GLRendererFloat (9.0.83) <53D57A4C-3973-33ED-A0EF-1BCFE1B97A42> /System/Library/Frameworks/OpenGL.framework/Versions/A/Resources/GLRendererFloat.bundle/GLRendererFloat
+0x983d2000 - 0x98430ff7  com.apple.CoreUtils (1.9 - 190.4) <9E43FF7D-7FCD-3032-9EF9-BCF6D09E73C3> /System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+0x98431000 - 0x98481ff7  libcorecrypto.dylib (161.1) <135FD99E-2211-3DF4-825C-C9F816107F0C> /usr/lib/system/libcorecrypto.dylib
+0x98482000 - 0x98487ff3  com.apple.ServerInformation (2.0 - 1) <58A1FE2C-8669-3B93-B83F-DDA7120F206D> /System/Library/PrivateFrameworks/ServerInformation.framework/Versions/A/ServerInformation
+0x98488000 - 0x985eaff3  com.apple.CFNetwork (673.0.3 - 673.0.3) <5E0E9AE8-073B-3F2B-B0C7-A0129DE787F6> /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+0x985eb000 - 0x985f0ff6  libcompiler_rt.dylib (35) <9924DF2E-D80B-3A21-920D-544A4597203F> /usr/lib/system/libcompiler_rt.dylib
+0x985f1000 - 0x9864fffd  com.apple.AE (665.5 - 665.5) <54F2F247-160C-3A22-A6E3-5D49655A67AB> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+0x98650000 - 0x98658fff  libcopyfile.dylib (103) <1B1484BD-08B6-3BA9-94CA-A7C24B610EB3> /usr/lib/system/libcopyfile.dylib
+0x98659000 - 0x98671fff  com.apple.CFOpenDirectory (10.9 - 173.1.1) <630A5CCF-8FC3-379D-B0BD-41DCE1F0B624> /System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+0x98675000 - 0x98690ff5  com.apple.openscripting (1.4 - 157) <5C161A52-8D2F-3D56-A988-05727BED7A59> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/OpenScripting.framework/Versions/A/OpenScripting
+0x98691000 - 0x98693ffb  libRadiance.dylib (1038) <F0D3F13B-5628-3DF9-8B86-A4D914567B25> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+0x98694000 - 0x9952fffb  com.apple.WebCore (9537 - 9537.73.13) <85E27D26-9FA4-3CB0-9355-DDD7E3BBFBD7> /System/Library/Frameworks/WebKit.framework/Versions/A/Frameworks/WebCore.framework/Versions/A/WebCore
+0x99530000 - 0x99536ffb  libunwind.dylib (35.3) <099D1A6F-A1F0-3D05-BF1C-0A7BB32D39C2> /usr/lib/system/libunwind.dylib
+0x99537000 - 0x9954eff4  com.apple.CoreMediaAuthoring (2.2 - 947) <BF917B77-0935-3F56-A2B9-E62A58A713B8> /System/Library/PrivateFrameworks/CoreMediaAuthoring.framework/Versions/A/CoreMediaAuthoring
+0x9954f000 - 0x9954ffff  libodfde.dylib (20) <98FC02AE-C596-3ED5-80D1-C502FF6115ED> /usr/lib/libodfde.dylib
+0x99550000 - 0x99551ffa  libsystem_sandbox.dylib (278.10) <F3C9C427-AF9F-3CE0-95FF-DC9ACA0B5760> /usr/lib/system/libsystem_sandbox.dylib
+0x99552000 - 0x99559ffb  libsystem_pthread.dylib (53.1.4) <8B1B7B84-1B5D-32A8-AC0D-1E689E5C8A4C> /usr/lib/system/libsystem_pthread.dylib
+0x9955a000 - 0x9964affb  libiconv.2.dylib (41) <848FEBA7-2E3E-3ECB-BD59-007F32468787> /usr/lib/libiconv.2.dylib
+0x9964b000 - 0x99676ff7  libsystem_network.dylib (241.3) <71EBA489-386D-3608-ADE6-CB50EBD1AB1B> /usr/lib/system/libsystem_network.dylib
+0x99677000 - 0x9975aff7  libcrypto.0.9.8.dylib (50) <B367D3A3-FC1F-326C-92EC-CAD81666524D> /usr/lib/libcrypto.0.9.8.dylib
+0x9975b000 - 0x9978bff3  libtidy.A.dylib (15.12) <3DBE95FE-8FA7-3584-9202-E37B54B3B064> /usr/lib/libtidy.A.dylib
+0x9978c000 - 0x99a7eff8  com.apple.CoreImage (9.0.54) <D7BC3E53-EF5B-3A14-8808-8D45EE505B48> /System/Library/Frameworks/QuartzCore.framework/Versions/A/Frameworks/CoreImage.framework/Versions/A/CoreImage
+0x99a7f000 - 0x99a7ffff  com.apple.Cocoa (6.8 - 20) <407DC9E6-BBCE-3D34-9BBB-00C90584FFDF> /System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+0x99a8c000 - 0x99aedff7  com.apple.Symbolication (1.4 - 129) <E5948C08-6ADF-3D86-9134-6AE49CF1DA0F> /System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication
+0x99aee000 - 0x99b0bff4  libsystem_kernel.dylib (2422.1.72) <C5641F6C-E271-380A-A656-AE4C04345602> /usr/lib/system/libsystem_kernel.dylib
+0x99b0c000 - 0x99b17ffb  libcommonCrypto.dylib (60049) <F8E60C43-22EE-3E0B-9546-3365056901F1> /usr/lib/system/libcommonCrypto.dylib
+0x99b18000 - 0x99b25ff7  com.apple.HelpData (2.1.4 - 90) <5BACC236-5B40-33AC-B088-87EDEFAF1D3E> /System/Library/PrivateFrameworks/HelpData.framework/Versions/A/HelpData
+0x99b26000 - 0x99b39fff  com.apple.ImageCapture (9.0 - 9.0) <63D5C96F-1893-3F35-ADFB-EE451AFD87E6> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/ImageCapture.framework/Versions/A/ImageCapture
+0x99b3a000 - 0x99b43fff  com.apple.speech.recognition.framework (4.2.4 - 4.2.4) <CF8E5706-F744-3139-8A51-D52BF055D19F> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+0x99b44000 - 0x99b48fff  com.apple.CommonPanels (1.2.6 - 96) <E7CA63C6-CEE9-3F0A-93A7-C12C653FFB80> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/CommonPanels.framework/Versions/A/CommonPanels
+0x99b49000 - 0x99e4aff7  com.apple.CoreServices.CarbonCore (1077.14 - 1077.14) <42E10BD1-995B-3FB4-8A6D-5FD071FB8BD1> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+0x99e4b000 - 0x99eb5ff7  com.apple.framework.CoreWiFi (2.0 - 200.21.1) <13EE6C12-B981-3132-864A-D493B91AE37E> /System/Library/Frameworks/CoreWiFi.framework/Versions/A/CoreWiFi
+0x99eb6000 - 0x99ee1ff5  com.apple.ChunkingLibrary (2.0 - 155.1) <50BBBBF8-F30B-39EA-A512-11A47F429F2C> /System/Library/PrivateFrameworks/ChunkingLibrary.framework/Versions/A/ChunkingLibrary
+0x99ee2000 - 0x99ee2fff  com.apple.Carbon (154 - 157) <6E680560-FD53-3C00-BDF7-7AFA28747DC8> /System/Library/Frameworks/Carbon.framework/Versions/A/Carbon
+0x99f32000 - 0x99f33ffd  libunc.dylib (28) <22A126A1-DCFB-3BE5-A66B-C973F0A5D839> /usr/lib/system/libunc.dylib
+0x99f34000 - 0x99f36fff  libsystem_configuration.dylib (596.12) <1C31C3F6-568D-3854-AE03-A5DA2F39297E> /usr/lib/system/libsystem_configuration.dylib
+0x99f3f000 - 0x99f41fff  libquarantine.dylib (71) <EE3B510E-1AEC-3171-8A1A-D6A5A42CF35C> /usr/lib/system/libquarantine.dylib
+0x99f42000 - 0x99f5aff7  libsystem_malloc.dylib (23.1.10) <69F485C9-B3E7-3E36-A06C-D7DFD29D22E1> /usr/lib/system/libsystem_malloc.dylib
+0x99f5b000 - 0x99f61ff7  com.apple.AddressBook.ContactsFoundation (8.0 - 1365) <3CABD941-9D36-3FB7-BD93-11A7CDC3FB4D> /System/Library/PrivateFrameworks/ContactsFoundation.framework/Versions/A/ContactsFoundation
+0x99f62000 - 0x99f64ff2  com.apple.EFILogin (2.0 - 2) <BC558029-74C0-3A69-B376-8F4CBF8C338F> /System/Library/PrivateFrameworks/EFILogin.framework/Versions/A/EFILogin
+0x99f65000 - 0x99f6bffc  libCGXCoreImage.A.dylib (599.7) <87F9F4B2-487E-3B11-A869-D6CBDAB39055> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCGXCoreImage.A.dylib
+0x99f6c000 - 0x99fc1ff7  com.apple.audio.CoreAudio (4.2.0 - 4.2.0) <0F1C111F-1E64-33BB-A69F-14643B3037D5> /System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+0x99fc2000 - 0x99ff0ff3  com.apple.DebugSymbols (106 - 106) <FC70F4C9-B2A6-352F-9563-6C085E9DDDB8> /System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+0x99ff1000 - 0x9a001ff7  libsasl2.2.dylib (170) <CA1C07F6-8E17-315E-AE49-AB696DDE6707> /usr/lib/libsasl2.2.dylib
+0x9a002000 - 0x9a077ff1  com.apple.ApplicationServices.ATS (360 - 363.1) <5C9BC698-0CC1-3F6A-9F9D-BCC3A9C3D6DC> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+0x9a078000 - 0x9a184fff  com.apple.ImageIO.framework (3.3.0 - 1038) <0B4A6607-9FBC-3A6C-984A-0542DE8385FB> /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+0x9a185000 - 0x9a20efff  com.apple.CoreSymbolication (3.0 - 141) <178DDF5C-B6DA-39BD-84F5-FD3FA7E93BF8> /System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication
+0x9a20f000 - 0x9a213ff7  libmacho.dylib (845) <D8E93E59-1F80-3413-B9CF-78B848F6E873> /usr/lib/system/libmacho.dylib
+0x9a215000 - 0x9a21bff7  com.apple.AOSNotification (1.7.0 - 760.3) <63F7E7F8-6FA3-38D3-9907-CDF360CA9354> /System/Library/PrivateFrameworks/AOSNotification.framework/Versions/A/AOSNotification
+0x9a21c000 - 0x9a38cfff  com.apple.QTKit (7.7.3 - 2826.0.1) <2C936219-2C31-3912-8CD3-42A16844AFE2> /System/Library/Frameworks/QTKit.framework/Versions/A/QTKit
+0x9a38d000 - 0x9a4baff9  com.apple.avfoundation (2.0 - 651.12) <1AB88210-F2E6-3318-ACB2-41ED5AE6A0EF> /System/Library/Frameworks/AVFoundation.framework/Versions/A/AVFoundation
+0x9a4bb000 - 0x9a540ffc  com.apple.CorePDF (4.0 - 4) <73557F2A-B0EF-3128-90FE-8EDD7824CE73> /System/Library/PrivateFrameworks/CorePDF.framework/Versions/A/CorePDF
+0x9a541000 - 0x9a5b6ffb  com.apple.framework.IOKit (2.0.1 - 907.1.13) <86D72735-9DFB-35C8-83F7-CE0DCF17D354> /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+0x9a5b7000 - 0x9a5c6fff  libGL.dylib (9.0.83) <E76D1F2A-D98B-3464-AD0B-FC1EBBADF027> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+0x9a5c7000 - 0x9a5d1ff7  com.apple.speech.synthesis.framework (4.6.2 - 4.6.2) <16E20DCD-89F4-3C8E-9DBA-EED359807038> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+0x9a5d2000 - 0x9a5d2fff  com.apple.ApplicationServices (48 - 48) <7967F6FA-2984-3CC3-AD9A-7B9AEC562A2A> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+0x9a5d3000 - 0x9a6d1fff  libJP2.dylib (1038) <EE0B9985-625D-39E6-B425-03FB75BA2594> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+0x9a6d2000 - 0x9a6d2fff  com.apple.Accelerate.vecLib (3.9 - vecLib 3.9) <DDAC0B59-F886-3AB1-98E8-C71FFF161CD4> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+0x9a6d3000 - 0x9a87fff1  com.apple.QuartzCore (1.8 - 332.0) <07F9B77F-35A2-3D21-99FA-CD3FCE5B9C7B> /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+0x9a880000 - 0x9a8a5ff7  com.apple.quartzfilters (1.8.0 - 1.7.0) <FCF52905-85B1-375C-B0AA-B8251B614D2D> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzFilters.framework/Versions/A/QuartzFilters
+0x9a8a6000 - 0x9a8c2ff9  com.apple.Ubiquity (1.3 - 289) <1CEDC83D-7282-3B4D-8CF7-4FE045012391> /System/Library/PrivateFrameworks/Ubiquity.framework/Versions/A/Ubiquity
+0x9a8c3000 - 0x9a8c8ff3  libsystem_platform.dylib (24.1.4) <875321B9-34EF-3FCC-880C-633FA05223F5> /usr/lib/system/libsystem_platform.dylib
+0x9a8c9000 - 0x9a8cdffa  libGIF.dylib (1038) <5CEB4EDF-B0B6-33A6-BDDE-8C0D3226FA72> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+0x9a983000 - 0x9a984fff  libDiagnosticMessagesClient.dylib (100) <B936B1D4-90BB-395D-8EA9-E1237608E7D0> /usr/lib/libDiagnosticMessagesClient.dylib
+0x9a985000 - 0x9a9b7ffb  com.apple.CoreAVCHD (5.7.0 - 5700.4.3) <30CF0E7B-3511-318F-AC31-06C29EDC111E> /System/Library/PrivateFrameworks/CoreAVCHD.framework/Versions/A/CoreAVCHD
+0x9a9b8000 - 0x9adb0ff3  com.apple.CoreGraphics (1.600.0 - 599.7) <DB004990-F06F-3768-AE4C-191B3C748EFC> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+0x9adb1000 - 0x9add4ff7  libc++abi.dylib (48) <5367BE5A-D475-3FB4-972D-E1DC999A709A> /usr/lib/libc++abi.dylib
+0x9add5000 - 0x9add8ffa  libCGXType.A.dylib (599.7) <2738FF52-4B47-31AD-B7E5-412F6AFACC2A> /System/Library/Frameworks/CoreGraphics.framework/Versions/A/Resources/libCGXType.A.dylib
+0x9add9000 - 0x9ae21fff  com.apple.PerformanceAnalysis (1.47 - 47) <16935C0F-7F9F-316E-9D46-11973DE0904A> /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+0x9ae22000 - 0x9ae23fff  libremovefile.dylib (33) <ED35EA79-EB06-3B84-A6D4-B1A9D6B8648D> /usr/lib/system/libremovefile.dylib
+0x9ae24000 - 0x9ae3dfff  libAVFAudio.dylib (32.2) <C4CBDFDF-8F77-3872-B7DE-D2D7982084BA> /System/Library/Frameworks/AVFoundation.framework/Versions/A/Resources/libAVFAudio.dylib
+0x9ae3e000 - 0x9ae48ff7  com.apple.DirectoryService.Framework (10.9 - 173.1.1) <D6735614-EF4B-389F-BF99-7D8416A504BA> /System/Library/Frameworks/DirectoryService.framework/Versions/A/DirectoryService
+0x9ae49000 - 0x9ae9affb  com.apple.CoreMedia (1.0 - 1273.29) <BE08E6C7-5E6F-3B54-9C17-751CFCBD823D> /System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+0x9ae9b000 - 0x9af33ff7  com.apple.Metadata (10.7.0 - 800.12.2) <5E9EA0AC-EE9E-362E-9DAC-9B7D21A53A2A> /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+0x9af34000 - 0x9af53ff9  com.apple.framework.Apple80211 (9.0 - 900.47) <68E399FF-AB98-378D-94AC-D0869A72344F> /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Apple80211
+0x9af54000 - 0x9b1c1ff6  com.apple.security (7.0 - 55471) <5FCF76B2-92C6-3404-87D3-91B3F6E203AA> /System/Library/Frameworks/Security.framework/Versions/A/Security
+0x9b1c2000 - 0x9b208ff7  libFontRegistry.dylib (127) <A0930DB2-A6C6-3C6E-B4A2-119E0D76FD7D> /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+0x9b209000 - 0x9b2a7ff7  com.apple.PDFKit (2.9 - 2.9) <0792168D-320D-33EF-AE24-6CDCB8C1990A> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/PDFKit.framework/Versions/A/PDFKit
+0x9b2a8000 - 0x9b2a8ffd  com.apple.audio.units.AudioUnit (1.9 - 1.9) <8A37963C-DF6F-3DFF-94E9-407DC5DFEDA9> /System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+0x9b2a9000 - 0x9b2aeff7  com.apple.print.framework.Print (9.0 - 260) <A6C465F6-C5D1-353A-9F33-19B9CEDBBC2A> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/Print.framework/Versions/A/Print
+0x9b2af000 - 0x9b2b0fff  libsystem_blocks.dylib (63) <2AC67D5E-ECD4-3644-A53C-9684F9B7AA33> /usr/lib/system/libsystem_blocks.dylib
+0x9b2b1000 - 0x9b2b5ffe  libCoreVMClient.dylib (58.1) <0EB8FFD7-AFED-3A63-810E-29629831D43D> /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+0x9b2b6000 - 0x9b2b9ff3  com.apple.AppleSystemInfo (3.0 - 3.0) <99A923AE-121B-307D-AC1C-968976FBA225> /System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+0x9b2ba000 - 0x9b600ffb  com.apple.MediaToolbox (1.0 - 1273.29) <60F62850-70EC-38E8-9C7F-81204CF9C382> /System/Library/Frameworks/MediaToolbox.framework/Versions/A/MediaToolbox
+0x9b601000 - 0x9b639fff  com.apple.LDAPFramework (2.4.28 - 194.5) <0C42A932-15E8-3CD1-AC35-1DF7D41B25A2> /System/Library/Frameworks/LDAP.framework/Versions/A/LDAP
+0x9b63a000 - 0x9b643ffa  com.apple.CommonAuth (4.0 - 2.0) <6CB82D57-3C55-39E5-9036-8047DF3E6F57> /System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+0x9b644000 - 0x9b675ffd  com.apple.GSS (4.0 - 2.0) <6BA01155-4DAD-30EE-B480-D224650EA010> /System/Library/Frameworks/GSS.framework/Versions/A/GSS
+0x9b676000 - 0x9b960fd2  com.apple.vImage (7.0 - 7.0) <256972F0-3DBC-3CE1-9EE8-B48243868729> /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+0x9b961000 - 0x9b96dffc  libbz2.1.0.dylib (29) <3CEF1E92-BA42-3F8A-8E8D-9E1F7658E5C7> /usr/lib/libbz2.1.0.dylib
+0x9b96e000 - 0x9b97aff7  com.apple.OpenDirectory (10.9 - 173.1.1) <2AA24814-2DC6-3E28-B71B-186B686F0F19> /System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+0x9b97b000 - 0x9bca6ff6  com.apple.Foundation (6.9 - 1056) <C8AE9C03-3460-354A-A8B6-EF4955BE600D> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+0x9bca7000 - 0x9bce4ff7  libauto.dylib (185.5) <CD008E66-4A0C-35F5-8D72-80D76A716A03> /usr/lib/libauto.dylib
+0x9bce5000 - 0x9bd0dfff  libsystem_info.dylib (449.1.3) <BB68E8CC-422F-3121-8C86-D0F766FB696D> /usr/lib/system/libsystem_info.dylib
+0x9bd0e000 - 0x9bd3eff7  com.apple.CoreServicesInternal (184.8 - 184.8) <88528205-9452-3EEC-BB27-DAAA7EC81E04> /System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+0x9bd3f000 - 0x9bd7bff4  com.apple.RemoteViewServices (2.0 - 94) <BEEE6ADF-7DA3-3D68-BCB0-9863BE1A1F46> /System/Library/PrivateFrameworks/RemoteViewServices.framework/Versions/A/RemoteViewServices
+0x9bd7c000 - 0x9c2e9fff  com.apple.QuartzComposer (5.1 - 316) <4FC30662-E3CC-3AE5-88CE-7B271B59EFF0> /System/Library/Frameworks/Quartz.framework/Versions/A/Frameworks/QuartzComposer.framework/Versions/A/QuartzComposer
+0x9c2ea000 - 0x9c2f1ff7  com.apple.XPCService (2.0 - 1) <94783930-9E46-394F-B1B2-9CA57CBA2D25> /System/Library/PrivateFrameworks/XPCService.framework/Versions/A/XPCService
+0x9c2f2000 - 0x9c2f6ffa  libcache.dylib (62) <9730D7F2-D226-3F30-8D26-BF598CB781F6> /usr/lib/system/libcache.dylib
+0x9c2f7000 - 0x9c305ff3  com.apple.opengl (9.0.83 - 9.0.83) <16CFFD50-217E-3E18-88AF-7F2AD980628B> /System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+0x9c306000 - 0x9c30efff  liblaunch.dylib (842.1.4) <3798500D-4436-3AEB-B273-7F2428C33A4A> /usr/lib/system/liblaunch.dylib
+0x9c30f000 - 0x9c333fff  libJPEG.dylib (1038) <212B0986-9227-397C-9493-BCB190EC020E> /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+0x9c334000 - 0x9c336fff  com.apple.securityhi (9.0 - 55005) <51765C73-80D1-33E3-9589-3E88380CE007> /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SecurityHI.framework/Versions/A/SecurityHI
+0x9c337000 - 0x9c341ff3  com.apple.DisplayServicesFW (2.8 - 360.8.14) <B14B15EC-41BA-37F6-B696-8BBA0E325C0C> /System/Library/PrivateFrameworks/DisplayServices.framework/Versions/A/DisplayServices
+0x9c342000 - 0x9c35efff  libCRFSuite.dylib (34) <FFF76EBA-DF35-3A5F-857F-3F4B1C9F4C77> /usr/lib/libCRFSuite.dylib
+0x9c35f000 - 0x9c362ffe  com.apple.LoginUICore (3.0 - 3.0) <6FE961A4-3C17-3004-B50B-FD78FDC28350> /System/Library/PrivateFrameworks/LoginUIKit.framework/Versions/A/Frameworks/LoginUICore.framework/Versions/A/LoginUICore
+
+External Modification Summary:
+  Calls made by other processes targeting this process:
+    task_for_pid: 4
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by this process:
+    task_for_pid: 0
+    thread_create: 0
+    thread_set_state: 0
+  Calls made by all processes on this machine:
+    task_for_pid: 24591
+    thread_create: 1
+    thread_set_state: 0
+
+VM Region Summary:
+ReadOnly portion of Libraries: Total=283.7M resident=133.6M(47%) swapped_out_or_unallocated=150.1M(53%)
+Writable regions: Total=478.1M written=93.0M(19%) resident=143.1M(30%) swapped_out=156K(0%) unallocated=335.0M(70%)
+ 
+REGION TYPE                      VIRTUAL
+===========                      =======
+ATS (font support)                 32.0M
+ATS (font support) (reserved)         4K        reserved VM address space (unallocated)
+CG backing stores                  9528K
+CG image                             92K
+CG raster data                      216K
+CG shared images                    212K
+CoreImage                             4K
+Foundation                            4K
+IOKit                              24.9M
+IOKit (reserved)                    512K        reserved VM address space (unallocated)
+Image IO                           1296K
+Kernel Alloc Once                     4K
+MALLOC                            149.1M
+MALLOC (admin)                       48K
+Mach message                          4K
+Memory Tag 241                      112K
+Memory Tag 242                       12K
+OpenCL                               28K
+OpenGL GLSL                        3072K
+Stack                             299.6M
+VM_ALLOCATE                        17.6M
+VM_ALLOCATE (reserved)               40K        reserved VM address space (unallocated)
+__DATA                             19.7M
+__IMAGE                             528K
+__IMPORT                              4K
+__LINKEDIT                         44.9M
+__OBJC                             4152K
+__PAGEZERO                            4K
+__TEXT                            238.8M
+__UNICODE                           544K
+mapped file                       113.9M
+shared memory                        84K
+===========                      =======
+TOTAL                             960.5M
+TOTAL, minus reserved VM space    960.0M
+ 
+
+Model: iMac10,1, BootROM IM101.00CC.B00, 2 processors, Intel Core 2 Duo, 3.06 GHz, 8 GB, SMC 1.53f13
+Graphics: ATI Radeon HD 4670, ATI Radeon HD 4670, PCIe, 256 MB
+Memory Module: BANK 0/DIMM0, 2 GB, DDR3, 1067 MHz, 0x80AD, 0x484D54313235533642465238432D47372020
+Memory Module: BANK 1/DIMM0, 2 GB, DDR3, 1067 MHz, 0x80AD, 0x484D54313235533642465238432D47372020
+Memory Module: BANK 1/DIMM1, 4 GB, DDR3, 1067 MHz, 0x859B, 0x435435313236344243313036372E4D313646
+AirPort: spairport_wireless_card_type_airport_extreme (0x168C, 0x8F), Atheros 9280: 4.0.74.0-P2P
+Bluetooth: Version 4.2.0f6 12982, 3 services, 23 devices, 4 incoming serial ports
+Network Service: Ethernet, Ethernet, en0
+Network Service: Wi-Fi, AirPort, en1
+Serial ATA Device: ST31000528AS, 1 TB
+Serial ATA Device: OPTIARC DVD RW AD-5680H
+USB Device: Internal Memory Card Reader
+USB Device: USB 2.0 Hub
+USB Device: USB RECEIVER
+USB Device: Firebird USB Flash Drive
+USB Device: USB 2.0 Hub
+USB Device: Built-in iSight
+USB Device: BRCM2046 Hub
+USB Device: Bluetooth USB Host Controller
+USB Device: hp LaserJet 1012
+USB Device: IR Receiver
+FireWire Device: d2 quadra (button), LaCie, Up to 800 Mb/sec
+Thunderbolt Bus: 

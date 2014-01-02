@@ -13,35 +13,32 @@ See the License for the specific language governing permissions and
 limitations under the License.
 */
 
-* {
-  margin: 0;
-  padding: 0;
-}
-
 body {
   padding: 1em;
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 1em;
+}
+
+header {
+  line-height: 0.5em;
 }
 
 h1 {
-  margin-bottom: .3em;
+  margin: 0;
+  line-height: 0.5em;
+  display: inline;
+  vertical-align: middle;
 }
 
-h2, h3 {
-  margin: 1em 0;
+h6 {
+  display: inline;
+}
+
+h2 {
+  font-size: 1.7em;
+  line-height: 1.3em;
 }
 
 p {
   margin-bottom: .5em;
-}
-
-dd {
-  margin: .3em .5em;
-}
-
-li {
-  margin: .5em 2em;
 }
 
 form div {
@@ -50,11 +47,11 @@ form div {
 
 label {
   font-weight: bold;
+  line-height: 1.5em;
 }
 
-select {
-  display: block;
-  font-size: 1em;
+label.radio p {
+  margin-left: -20px;
 }
 
 input, textarea {
@@ -65,30 +62,20 @@ input, textarea {
   padding: .3em;
 }
 
-form div input {
-  width: 30em;
+.input-options {
+  margin-left: 3em;
 }
 
-button {
-  font-size: 1em;
-  font-weight: bold;
-  padding: .3em;
-
-  border: .1em solid #CCC;
-  border-radius: .2em;
-  background-color: #DDD;
-}
-button:active {
-  background-color: #999;
+.input-options .help {
+  padding: 0;
+  margin: 0;
 }
 
 textarea {
   width: 100%;
-  border: none;
   padding: .3em;
   margin: 0;
   height: 36em;
-  box-sizing: border-box;
   white-space: pre;
 }
 
@@ -99,70 +86,30 @@ textarea.error {
   background-color: rgb(255, 230, 230);
 }
 
-img {
-  border: .1em dashed #AAA;
-  clear: left;
+.btn {
+  margin-top: 1em;
 }
 
-#links {
-  font-size: .9em;
-  float: right;
+section {
+  margin: 1em 0;
 }
 
-.input_option {
-  display: inline-block;
-
-  width: 15em;
-  height: 9em;
-  vertical-align: top;
-  padding: .5em;
-
-  background-color: #DDD;
-  border: 1px solid gray;
+section h2 {
+  margin: 0;
 }
 
-.input_option.active {
-  background-color: #AAA;
+section.input-types p {
+  margin-bottom: 1em;
 }
 
-.input_option input[type=radio] {
-  width: auto;
+input[type=radio] {
   display: inline;
 }
 
-.input_option p {
-  margin-top: .5em;
-}
-
-#tabs {
-  margin-bottom: 0;
-}
-
-#tabs > label {
-  display: inline-block;
-
-  border: .1em solid #CCC;
-  background-color: #DDD;
-
-  padding: .3em .5em;
-}
-
-#tabs label.active {
-  background-color: #999;
-  border-bottom-color: #999;
-}
-
-#tab_contents {
-  width: 100%;
-  border: .1em solid #CCC;
-}
-
-#tab_contents > * {
-  display: none;
-}
-
-#tab_contents > .active {
-  display: block;
+p.help {
+  color: #666;
+  font-size: .8em;
+  font-weight: normal;
 }
 
 .code {

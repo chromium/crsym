@@ -69,6 +69,12 @@ var (
 	kLoadAddress = `(  load address 0x[[:xdigit:]]+ \+ 0x[[:xdigit:]]+| \+ \d+)  ` // |load address 0xbe000 + 0x5de5eb| or |+ 318|
 	kAddress     = `\[(0x[[:xdigit:]]+)\]`                                         // |[0x69c5eb]|
 	kHangFrameV7 = regexp.MustCompile(kFunction + kLibrary + kLoadAddress + kAddress)
+
+	// Pattern to match a V18 hang report stack frame.
+	// Matches:
+	// |  43 ChromeMain + 41 (Google Chrome Framework) [0x7a159]|
+	// |    43 ??? (Google Chrome Framework + 8050864) [0x8248b0]|
+	kHangFrameV18 = regexp.MustCompile(`\s+\d+ ((.+)( \+ \d+)?) \((.+) \+ \d+\) \[(0x[[:xdigit:]]+)\]`)
 )
 
 // AppleParser takes an Apple-style crash report and symbolizes it. The
@@ -103,7 +109,7 @@ func (p *AppleParser) ParseInput(data string) error {
 		}
 
 		// "Binary Images:"
-		if strings.HasPrefix(line, kBinaryImages) {
+		if strings.HasSuffix(line, kBinaryImages) {
 			if err := p.parseBinaryImages(i + 1); err != nil {
 				return err
 			}
@@ -115,6 +121,7 @@ func (p *AppleParser) ParseInput(data string) error {
 		7,  // 10.7 sample/hang report.
 		9,  // 10.7 crash report.
 		10, // 10.8 crash report.
+		18, // 10.9 sample report.
 	}
 	known := false
 	for _, version := range knownVersions {
@@ -206,6 +213,8 @@ func (p *AppleParser) Symbolize(tables []breakpad.SymbolTable) string {
 		p.symbolizeCrash(tables)
 	case 10:
 		p.symbolizeCrash(tables)
+	case 18:
+		p.symbolizeHangV18(tables)
 	default:
 		panic(fmt.Sprintf("Unknown report version %d", p.reportVersion))
 	}
@@ -284,7 +293,7 @@ func (p *AppleParser) symbolizeHang(tables []breakpad.SymbolTable) error {
 		}
 
 		// Get the breakpad name of the module to get the table.
-		breakpadName := getSubstring(3)
+		breakpadName := strings.TrimPrefix(getSubstring(3), "in ")
 		table, ok := tableMap[breakpadName]
 		if !ok {
 			continue
@@ -310,6 +319,49 @@ func (p *AppleParser) symbolizeHang(tables []breakpad.SymbolTable) error {
 		// Fix up the line. The format is such:
 		// [beginning of line to symbol] [symbolized function name] [original line until address] [symbolized file/line] [to end of line]
 		p.lines[i] = line[0:frame[4]] + symbol.Function + line[frame[5]:frame[10]] + symbol.FileLine() + line[frame[11]:]
+	}
+
+	return nil
+}
+
+func (p *AppleParser) symbolizeHangV18(tables []breakpad.SymbolTable) error {
+	tableMap := p.mapTables(tables)
+
+	// The p.modules is mapped by bundle ID, so re-map it to be done by breakpad
+	// name.
+	modules := make(map[string]binaryImage, len(p.modules))
+	for _, module := range p.modules {
+		modules[module.breakpadName()] = module
+	}
+
+	for i, line := range p.lines {
+		frame := kHangFrameV18.FindStringSubmatchIndex(line)
+		if frame == nil {
+			continue
+		}
+
+		getSubstring := func(group int) string {
+			return line[frame[2*group]:frame[2*group+1]]
+		}
+
+		breakpadName := getSubstring(4)
+		table, ok := tableMap[breakpadName]
+		if !ok {
+			continue
+		}
+
+		binaryImage, ok := modules[breakpadName]
+		if !ok {
+			continue
+		}
+
+		address, err := breakpad.ParseAddress(getSubstring(5))
+		if err != nil {
+			return err
+		}
+
+		symbol := table.SymbolForAddress(address - binaryImage.baseAddress)
+		p.lines[i] = line[0:frame[4]] + symbol.Function + line[frame[3]:frame[10]] + symbol.FileLine() + "]"
 	}
 
 	return nil

@@ -173,6 +173,7 @@ func TestSymbolizeApple(t *testing.T) {
 		"crash_10.6_v6.crash",
 		"hang_10.7_v7.crash",
 		"hang_10.8_v7.crash",
+		"hang_10.9_v18.crash",
 	}
 
 	for _, input := range files {

@@ -114,6 +114,9 @@ func (p *appleParser) ParseInput(data string) error {
 	case 18: // 10.9 sample report.
 		p.lineParser = p.symbolizeHangV18Frame
 		p.tableMapType = kModuleTypeBreakpad
+	case 104: // iOS6 or iOS7 crash report.
+		p.lineParser = p.symbolizeCrashFragment
+		p.tableMapType = kModuleTypeBundleID
 	default:
 		return fmt.Errorf("unknown Report Version: %d", p.reportVersion)
 	}

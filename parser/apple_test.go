@@ -173,6 +173,8 @@ func TestSymbolizeApple(t *testing.T) {
 		"crash_10.8_v10.crash",
 		"crash_10.8_v10_2.crash",
 		"crash_10.9_v11.crash",
+		"crash_iOS6_v104.crash",
+		"crash_iOS7_v104.crash",
 		"hang_10.7_v7.crash",
 		"hang_10.8_v7.crash",
 		"hang_10.9_v18.crash",
@@ -186,6 +188,7 @@ func TestSymbolizeApple(t *testing.T) {
 		}
 
 		tables := []breakpad.SymbolTable{
+			&testTable{name: "Chrome", symbol: "ChromeiOS"},
 			&testTable{name: "Google Chrome Framework", symbol: "Framework"},
 			&testTable{name: "Google Chrome Canary", symbol: "Chrome"},
 		}

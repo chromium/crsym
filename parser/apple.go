@@ -20,11 +20,45 @@ import (
 	"fmt"
 	"path"
 	"regexp"
+	"sort"
 	"strconv"
 	"strings"
 
 	"github.com/chromium/crsym/breakpad"
 )
+
+type frameModuleType int
+
+const (
+	kModuleTypeBundleID frameModuleType = iota
+	kModuleTypeBreakpad
+)
+
+type appleParser struct {
+	// The reportVersion, which determines the value of |lineParser|.
+	reportVersion int
+
+	// A map of module names (reverse DNS/bundle ID) to images.
+	modules map[string]binaryImage
+
+	// Line buffer array.
+	lines []string
+
+	// Function that is called for each element in |lines| to parse out a fragment.
+	lineParser func(line string) *appleReportFragment
+
+	// Some reportVersions specify that the stack frame's module name is in reverse DNS/
+	// bundle ID format. Others are in path basename/Breakpad module name format. This
+	// field stores that type information.
+	tableMapType frameModuleType
+}
+
+// NewAppleParser creates a Parser for Apple-style crash and hang reports. The
+// original input format will remain untouched, but the function names will be
+// replaced where symbol data is available.
+func NewAppleParser() Parser {
+	return &appleParser{}
+}
 
 const (
 	kReportVersion = "Report Version:"
@@ -36,62 +70,7 @@ const (
 	kSampleAnalysisWritten = "Sample analysis of process"
 )
 
-var (
-	// Pattern to match a "Binary Images" line. Groups:
-	//  1) Base address of the module
-	//  2) The module name, as reported by CFBundleName
-	//  3) The module's UUID, from LC_UUID load command
-	//  4) Path to the binary image
-	// Matches:
-	// |0x520ce000 - 0x520ceff7 +com.google.Chrome.canary 17.0.959.0 (959.0) <8BC87704-1B47-6F0C-70DE-17F7A99A1E45> /Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary|
-	kBinaryImage = regexp.MustCompile(`\s*0x([[:xdigit:]]+)\s*-\s*0x[[:xdigit:]]+\s+\+?([a-zA-Z0-9_\-+.]+) [^<]* <([[:xdigit:]\-]+)> (.*)`)
-
-	// Pattern to match a V9 crash report stack frame. Groups:
-	//  1) Portion of the frame to remain untouched
-	//  2) Module name, with trailing whitespace
-	//  3) Instruction address
-	//  4) Symbol information (typically "name + offset")
-	// Matches:
-	// |4   com.google.Chrome.framework		0x528b225b ChromeMain + 8239323|
-	kCrashFrame = regexp.MustCompile(`(\d+[ ]+(.*)\s+0x([[:xdigit:]]+)) ((.*) \+ (.*))`)
-
-	// Pattern to match a V7 hang report stack frame. Groups:
-	//	1) Depth and tree markers
-	//	2) Symbol name, to be replaced
-	//	3) The module name, as reported by the breakpadName.
-	//	4) Instruction address
-	// Matches:
-	// |    +                           ! 2207 RunCurrentEventLoopInMode  (in HIToolbox) + 318  [0x9b9a5723]|
-	// |        1069       ChromeMain  (in Google Chrome Framework) + 0  [0x93780]|
-	// |   +         1411 ???  (in Google Chrome Framework)  load address 0xbe000 + 0x5de5eb  [0x69c5eb]|
-	kFunction    = `\s+\+?\s+([!:|+]\s+)*\d+\s+(.*)  `                             // |   +         1411 ???|
-	kLibrary     = `\(in ([^)]*)\)`                                                // |(in Google Chrome Framework)|
-	kLoadAddress = `(  load address 0x[[:xdigit:]]+ \+ 0x[[:xdigit:]]+| \+ \d+)  ` // |load address 0xbe000 + 0x5de5eb| or |+ 318|
-	kAddress     = `\[(0x[[:xdigit:]]+)\]`                                         // |[0x69c5eb]|
-	kHangFrameV7 = regexp.MustCompile(kFunction + kLibrary + kLoadAddress + kAddress)
-
-	// Pattern to match a V18 hang report stack frame.
-	// Matches:
-	// |  43 ChromeMain + 41 (Google Chrome Framework) [0x7a159]|
-	// |    43 ??? (Google Chrome Framework + 8050864) [0x8248b0]|
-	kHangFrameV18 = regexp.MustCompile(`\s+\d+ ((.+)( \+ \d+)?) \((.+) \+ \d+\) \[(0x[[:xdigit:]]+)\]`)
-)
-
-// AppleParser takes an Apple-style crash report and symbolizes it. The
-// original input format will remain untouched, but the function names will be
-// replaced where symbol data is available.
-type AppleParser struct {
-	// The reportVersion, which influences the parsing of stack frames.
-	reportVersion int
-
-	// A map of module names to images.
-	modules map[string]binaryImage
-
-	// Input lines.
-	lines []string
-}
-
-func (p *AppleParser) ParseInput(data string) error {
+func (p *appleParser) ParseInput(data string) error {
 	p.lines = strings.Split(data, "\n")
 	for i, line := range p.lines {
 		// "Report Version:" lines in the header.
@@ -116,22 +95,26 @@ func (p *AppleParser) ParseInput(data string) error {
 		}
 	}
 
-	knownVersions := []int{
-		6,  // 10.5 and 10.6 crash report.
-		7,  // 10.7 sample/hang report.
-		9,  // 10.7 crash report.
-		10, // 10.8 crash report.
-		11, // 10.9 crash report.
-		18, // 10.9 sample report.
-	}
-	known := false
-	for _, version := range knownVersions {
-		if version == p.reportVersion {
-			known = true
-			break
-		}
-	}
-	if !known {
+	switch p.reportVersion {
+	case 6: // 10.5 and 10.6 crash report.
+		p.lineParser = p.symbolizeCrashFragment
+		p.tableMapType = kModuleTypeBundleID
+	case 7: // 10.7 sample/hang report.
+		p.lineParser = p.symbolizeHangFrame
+		p.tableMapType = kModuleTypeBreakpad
+	case 9: // 10.7 crash report.
+		p.lineParser = p.symbolizeCrashFragment
+		p.tableMapType = kModuleTypeBundleID
+	case 10: // 10.8 crash report.
+		p.lineParser = p.symbolizeCrashFragment
+		p.tableMapType = kModuleTypeBundleID
+	case 11: // 10.9 crash report.
+		p.lineParser = p.symbolizeCrashFragment
+		p.tableMapType = kModuleTypeBundleID
+	case 18: // 10.9 sample report.
+		p.lineParser = p.symbolizeHangV18Frame
+		p.tableMapType = kModuleTypeBreakpad
+	default:
 		return fmt.Errorf("unknown Report Version: %d", p.reportVersion)
 	}
 
@@ -158,7 +141,18 @@ func (i *binaryImage) breakpadUUID() string {
 	return strings.ToUpper(ident)
 }
 
-func (p *AppleParser) parseBinaryImages(startIndex int) error {
+var (
+	// Pattern to match a "Binary Images" line. Groups:
+	//  1) Base address of the module
+	//  2) The module name, as reported by CFBundleName
+	//  3) The module's UUID, from LC_UUID load command
+	//  4) Path to the binary image
+	// Matches:
+	// |0x520ce000 - 0x520ceff7 +com.google.Chrome.canary 17.0.959.0 (959.0) <8BC87704-1B47-6F0C-70DE-17F7A99A1E45> /Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary|
+	kBinaryImage = regexp.MustCompile(`\s*0x([[:xdigit:]]+)\s*-\s*0x[[:xdigit:]]+\s+\+?([a-zA-Z0-9_\-+.]+) [^<]* <([[:xdigit:]\-]+)> (.*)`)
+)
+
+func (p *appleParser) parseBinaryImages(startIndex int) error {
 	p.modules = make(map[string]binaryImage)
 	for _, line := range p.lines[startIndex:] {
 		// Stop at the first line which is blank or starts with "Sample analysis of
@@ -187,7 +181,7 @@ func (p *AppleParser) parseBinaryImages(startIndex int) error {
 	return nil
 }
 
-func (p *AppleParser) RequiredModules() []breakpad.SupplierRequest {
+func (p *appleParser) RequiredModules() []breakpad.SupplierRequest {
 	var modules []breakpad.SupplierRequest
 	for _, module := range p.modules {
 		modules = append(modules, breakpad.SupplierRequest{
@@ -200,31 +194,110 @@ func (p *AppleParser) RequiredModules() []breakpad.SupplierRequest {
 
 // RequiredModules will return a slice of all modules in the Binary Images
 // section, so let the supplier filter them.
-func (p *AppleParser) FilterModules() bool {
+func (p *appleParser) FilterModules() bool {
 	return true
 }
 
-func (p *AppleParser) Symbolize(tables []breakpad.SymbolTable) string {
-	switch p.reportVersion {
-	case 6:
-		p.symbolizeCrash(tables)
-	case 7:
-		p.symbolizeHang(tables)
-	case 9:
-		p.symbolizeCrash(tables)
-	case 10:
-		p.symbolizeCrash(tables)
-	case 11:
-		p.symbolizeCrash(tables)
-	case 18:
-		p.symbolizeHangV18(tables)
-	default:
-		panic(fmt.Sprintf("Unknown report version %d", p.reportVersion))
+type pair [2]int
+
+// appleReportFragment contains information needed to symbolize a stack frame
+// from an Apple report. Each member is a pair of indices which should be
+// substringed from the line to get the value.
+type appleReportFragment struct {
+	// The absolute address of the instruction pointer.
+	address pair
+	// The module name as interpreted by appleParser.tableMapType.
+	module pair
+	// The unsymbolized function name.
+	functionName pair
+	// The location to place the file/line information.
+	fileNameLocation pair
+}
+
+// replacement holds a location (start, end) pair and a string to splice
+// into that location.
+type replacement struct {
+	loc   pair
+	value string
+}
+
+type replacementList []replacement
+
+// sort.Interface implementation:
+
+func (rl replacementList) Len() int {
+	return len(rl)
+}
+func (rl replacementList) Less(i, j int) bool {
+	return rl[i].loc[0] < rl[j].loc[0]
+}
+func (rl replacementList) Swap(i, j int) {
+	rl[i], rl[j] = rl[j], rl[i]
+}
+
+func (p *appleParser) Symbolize(tables []breakpad.SymbolTable) string {
+	if p.lineParser == nil {
+		panic(fmt.Sprintf("Cannot handle report version %d", p.reportVersion))
 	}
+
+	tableMap := p.mapTables(tables)
+
+	// The p.modules is mapped by bundle ID, so re-map it to be done by breakpad
+	// name.
+	var modules map[string]binaryImage
+	if p.tableMapType == kModuleTypeBreakpad {
+		modules = make(map[string]binaryImage, len(p.modules))
+		for _, module := range p.modules {
+			modules[module.breakpadName()] = module
+		}
+	}
+
+	for i, line := range p.lines {
+		frag := p.lineParser(line)
+		if frag == nil {
+			continue
+		}
+
+		address, err := breakpad.ParseAddress(line[frag.address[0]:frag.address[1]])
+		if err != nil {
+			continue
+		}
+
+		var binaryImage binaryImage
+		moduleName := line[frag.module[0]:frag.module[1]]
+		if p.tableMapType == kModuleTypeBreakpad {
+			var ok bool
+			binaryImage, ok = modules[moduleName]
+			if !ok {
+				continue
+			}
+		} else {
+			binaryImage = p.modules[moduleName]
+		}
+
+		table, ok := tableMap[binaryImage.breakpadName()]
+		if !ok {
+			continue
+		}
+		symbol := table.SymbolForAddress(address - binaryImage.baseAddress)
+
+		rl := replacementList{
+			{loc: frag.functionName, value: symbol.Function},
+			{loc: frag.fileNameLocation, value: symbol.FileLine()},
+		}
+		sort.Sort(sort.Reverse(rl))
+		for _, r := range rl {
+			start, end := r.loc[0], r.loc[1]
+			p.lines[i] = p.lines[i][:start] + r.value + p.lines[i][end:]
+		}
+	}
+
 	return strings.Join(p.lines, "\n")
 }
 
-func (p *AppleParser) mapTables(tables []breakpad.SymbolTable) map[string]breakpad.SymbolTable {
+// mapTables takes a slice of SymbolTable and transforms it to a map, keyed
+// by module name.
+func (p *appleParser) mapTables(tables []breakpad.SymbolTable) map[string]breakpad.SymbolTable {
 	m := make(map[string]breakpad.SymbolTable)
 	for _, table := range tables {
 		m[table.ModuleName()] = table
@@ -232,140 +305,81 @@ func (p *AppleParser) mapTables(tables []breakpad.SymbolTable) map[string]breakp
 	return m
 }
 
-func (p *AppleParser) symbolizeCrash(tables []breakpad.SymbolTable) error {
-	tableMap := p.mapTables(tables)
+var (
+	// Pattern to match a V9 crash report stack frame. Groups:
+	//  1) Portion of the frame to remain untouched
+	//  2) Module name, with trailing whitespace
+	//  3) Instruction address
+	//  4) Symbol information (typically "name + offset")
+	// Matches:
+	// |4   com.google.Chrome.framework		0x528b225b ChromeMain + 8239323|
+	kCrashFrame = regexp.MustCompile(`(\d+[ ]+([^\s]+)\s+0x([[:xdigit:]]+)) ((.*) \+ (.*))`)
+)
 
-	// Go through the report, symbolizing any frames that match the pattern.
-	for i, line := range p.lines {
-		frame := kCrashFrame.FindStringSubmatch(line)
-		if frame == nil {
-			// Skip over lines that aren't stack frames.
-			continue
-		}
-
-		// Get the module based on the name present in the Binary Images
-		// section.
-		moduleName := strings.TrimSpace(frame[2])
-		binaryImage, ok := p.modules[moduleName]
-		if !ok {
-			continue
-		}
-
-		// From the binaryImage, get the SymbolTable.
-		table, ok := tableMap[binaryImage.breakpadName()]
-		if !ok {
-			continue
-		}
-
-		address, err := breakpad.ParseAddress(frame[3])
-		if err != nil {
-			return err
-		}
-
-		symbol := table.SymbolForAddress(address - binaryImage.baseAddress)
-		if symbol == nil {
-			continue
-		}
-
-		// Overwrite the input lines.
-		p.lines[i] = fmt.Sprintf("%s %s (%s)", frame[1], symbol.Function, symbol.FileLine())
+func (p *appleParser) symbolizeCrashFragment(line string) *appleReportFragment {
+	frame := kCrashFrame.FindStringSubmatchIndex(line)
+	if frame == nil {
+		return nil
 	}
-	return nil
+
+	return &appleReportFragment{
+		module:           pair{frame[4], frame[5]},
+		address:          pair{frame[6], frame[7]},
+		functionName:     pair{frame[10], frame[11]},
+		fileNameLocation: pair{frame[12], frame[13]},
+	}
 }
 
-func (p *AppleParser) symbolizeHang(tables []breakpad.SymbolTable) error {
-	tableMap := p.mapTables(tables)
+var (
+	// Pattern to match a V7 hang report stack frame. Groups:
+	//	1) Depth and tree markers
+	//	2) Symbol name, to be replaced
+	//	3) The module name, as reported by the breakpadName.
+	//	4) Instruction address
+	// Matches:
+	// |    +                           ! 2207 RunCurrentEventLoopInMode  (in HIToolbox) + 318  [0x9b9a5723]|
+	// |        1069       ChromeMain  (in Google Chrome Framework) + 0  [0x93780]|
+	// |   +         1411 ???  (in Google Chrome Framework)  load address 0xbe000 + 0x5de5eb  [0x69c5eb]|
+	kFunction    = `\s+\+?\s+([!:|+]\s+)*\d+\s+(.*)  `                             // |   +         1411 ???|
+	kLibrary     = `\(in ([^)]*)\)`                                                // |(in Google Chrome Framework)|
+	kLoadAddress = `(  load address 0x[[:xdigit:]]+ \+ 0x[[:xdigit:]]+| \+ \d+)  ` // |load address 0xbe000 + 0x5de5eb| or |+ 318|
+	kAddress     = `\[(0x[[:xdigit:]]+)\]`                                         // |[0x69c5eb]|
+	kHangFrameV7 = regexp.MustCompile(kFunction + kLibrary + kLoadAddress + kAddress)
+)
 
-	// The p.modules is mapped by bundle ID, so re-map it to be done by breakpad
-	// name.
-	modules := make(map[string]binaryImage, len(p.modules))
-	for _, module := range p.modules {
-		modules[module.breakpadName()] = module
+func (p *appleParser) symbolizeHangFrame(line string) *appleReportFragment {
+	frame := kHangFrameV7.FindStringSubmatchIndex(line)
+	if frame == nil {
+		return nil
 	}
 
-	// Iterate over the lines, symbolizing them in-place.
-	for i, line := range p.lines {
-		frame := kHangFrameV7.FindStringSubmatchIndex(line)
-		if frame == nil {
-			// Skip over non-frame lines.
-			continue
-		}
-
-		getSubstring := func(group int) string {
-			return line[frame[2*group]:frame[2*group+1]]
-		}
-
-		// Get the breakpad name of the module to get the table.
-		breakpadName := strings.TrimPrefix(getSubstring(3), "in ")
-		table, ok := tableMap[breakpadName]
-		if !ok {
-			continue
-		}
-
-		// Look up the binary image to get its load address.
-		binaryImage, ok := modules[breakpadName]
-		if !ok {
-			continue
-		}
-
-		// Get the instruction address to symbolize.
-		address, err := breakpad.ParseAddress(getSubstring(5))
-		if err != nil {
-			return err
-		}
-
-		symbol := table.SymbolForAddress(address - binaryImage.baseAddress)
-		if symbol == nil {
-			continue
-		}
-
-		// Fix up the line. The format is such:
-		// [beginning of line to symbol] [symbolized function name] [original line until address] [symbolized file/line] [to end of line]
-		p.lines[i] = line[0:frame[4]] + symbol.Function + line[frame[5]:frame[10]] + symbol.FileLine() + line[frame[11]:]
+	fragment := &appleReportFragment{
+		address:          pair{frame[10], frame[11]},
+		module:           pair{frame[6], frame[7]},
+		functionName:     pair{frame[4], frame[5]},
+		fileNameLocation: pair{frame[10], frame[11]},
 	}
-
-	return nil
+	return fragment
 }
 
-func (p *AppleParser) symbolizeHangV18(tables []breakpad.SymbolTable) error {
-	tableMap := p.mapTables(tables)
+var (
+	// Pattern to match a V18 hang report stack frame.
+	// Matches:
+	// |  43 ChromeMain + 41 (Google Chrome Framework) [0x7a159]|
+	// |    43 ??? (Google Chrome Framework + 8050864) [0x8248b0]|
+	kHangFrameV18 = regexp.MustCompile(`\s+\d+ ((.+)( \+ \d+)?) \((.+) \+ \d+\) \[(0x[[:xdigit:]]+)\]`)
+)
 
-	// The p.modules is mapped by bundle ID, so re-map it to be done by breakpad
-	// name.
-	modules := make(map[string]binaryImage, len(p.modules))
-	for _, module := range p.modules {
-		modules[module.breakpadName()] = module
+func (p *appleParser) symbolizeHangV18Frame(line string) *appleReportFragment {
+	frame := kHangFrameV18.FindStringSubmatchIndex(line)
+	if frame == nil {
+		return nil
 	}
 
-	for i, line := range p.lines {
-		frame := kHangFrameV18.FindStringSubmatchIndex(line)
-		if frame == nil {
-			continue
-		}
-
-		getSubstring := func(group int) string {
-			return line[frame[2*group]:frame[2*group+1]]
-		}
-
-		breakpadName := getSubstring(4)
-		table, ok := tableMap[breakpadName]
-		if !ok {
-			continue
-		}
-
-		binaryImage, ok := modules[breakpadName]
-		if !ok {
-			continue
-		}
-
-		address, err := breakpad.ParseAddress(getSubstring(5))
-		if err != nil {
-			return err
-		}
-
-		symbol := table.SymbolForAddress(address - binaryImage.baseAddress)
-		p.lines[i] = line[0:frame[4]] + symbol.Function + line[frame[3]:frame[10]] + symbol.FileLine() + "]"
+	return &appleReportFragment{
+		address:          pair{frame[10], frame[11]},
+		module:           pair{frame[8], frame[9]},
+		functionName:     pair{frame[4], frame[5]},
+		fileNameLocation: pair{frame[10], frame[11]},
 	}
-
-	return nil
 }

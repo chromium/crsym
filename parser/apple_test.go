@@ -18,6 +18,7 @@ package parser
 import (
 	"fmt"
 	"path"
+	"sort"
 	"testing"
 
 	"github.com/chromium/crsym/breakpad"
@@ -51,7 +52,7 @@ Binary Images:
 0x491e5000 - 0x491e5ff7 +com.google.Chrome 20.0.1132.42 (1132.42) <cf4d75d8804d775084d363a5cbbf7702> /Applications/Google Chrome.app/Contents/MacOS/Google Chrome
 0x520ce000 - 0x520ceff7 +com.google.Chrome.canary 17.0.959.0 (959.0) <8BC87704-1B47-6F0C-70DE-17F7A99A1E45> /Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary`
 
-	parser := new(AppleParser)
+	parser := NewAppleParser().(*appleParser)
 	err := parser.ParseInput(report)
 	if err != nil {
 		t.Fatalf("Unexpected error parsing input: %v", err)
@@ -93,7 +94,7 @@ func TestReportVersion(t *testing.T) {
 	}
 
 	for version, allowed := range expectations {
-		p := new(AppleParser)
+		p := NewAppleParser()
 		err := p.ParseInput(fmt.Sprintf("Report Version:     %s", version))
 		if (err != nil && allowed) || (err == nil && !allowed) {
 			t.Errorf("Report Version '%s' should be allowed: %t. Got error: %v", version, allowed, err)
@@ -134,7 +135,7 @@ func TestParseAppleInput(t *testing.T) {
 			continue
 		}
 
-		parser := new(AppleParser)
+		parser := NewAppleParser().(*appleParser)
 		err = parser.ParseInput(string(data))
 		if err != nil {
 			t.Error(err)
@@ -189,7 +190,7 @@ func TestSymbolizeApple(t *testing.T) {
 			&testTable{name: "Google Chrome Canary", symbol: "Chrome"},
 		}
 
-		parser := new(AppleParser)
+		parser := NewAppleParser()
 		err = parser.ParseInput(string(inputData))
 		if err != nil {
 			t.Errorf("%s: %s", input, err)
@@ -214,5 +215,29 @@ func TestSymbolizeApple(t *testing.T) {
 			t.Errorf("Input data for %s does not symbolize to expected output", input)
 			t.Error(err)
 		}
+	}
+}
+
+func TestReplacementList(t *testing.T) {
+	rl := replacementList{
+		{pair{10, 20}, "A"},
+		{pair{40, 50}, "C"},
+		{pair{25, 30}, "B"},
+	}
+	sort.Sort(rl)
+	actual := []string{rl[0].value, rl[1].value, rl[2].value}
+	if actual[0] != "A" || actual[1] != "B" || actual[2] != "C" {
+		t.Errorf("Sorted should be ABC, is %v", actual)
+	}
+
+	rl = replacementList{
+		{pair{12, 24}, "A"},
+		{pair{44, 50}, "B"},
+		{pair{90, 100}, "C"},
+	}
+	sort.Sort(sort.Reverse(rl))
+	actual = []string{rl[0].value, rl[1].value, rl[2].value}
+	if actual[0] != "C" || actual[1] != "B" || actual[2] != "A" {
+		t.Errorf("Reversed should be CBA, is %v", actual)
 	}
 }

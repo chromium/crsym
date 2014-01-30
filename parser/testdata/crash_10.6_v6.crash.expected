@@ -14,13 +14,13 @@ Exception Codes: KERN_PROTECTION_FAILURE at 0x0000000000000098
 Crashed Thread:  0  CrBrowserMain  Dispatch queue: com.apple.main-thread
 
 Thread 0 Crashed:  CrBrowserMain  Dispatch queue: com.apple.main-thread
-0   com.google.Chrome.framework   	0x52240029 Framework::Symbol_1() (Google Chrome Framework:1490985)
-1   com.google.Chrome.framework   	0x53ea4dbe Framework::Symbol_2() (Google Chrome Framework:31264190)
-2   com.google.Chrome.framework   	0x53ea5670 Framework::Symbol_3() (Google Chrome Framework:31266416)
-3   com.google.Chrome.framework   	0x528988b6 Framework::Symbol_4() (Google Chrome Framework:8145078)
-4   com.google.Chrome.framework   	0x52898a2c Framework::Symbol_5() (Google Chrome Framework:8145452)
-5   com.google.Chrome.framework   	0x52898cfd Framework::Symbol_6() (Google Chrome Framework:8146173)
-6   com.google.Chrome.framework   	0x5286ea0c Framework::Symbol_7() (Google Chrome Framework:7973388)
+0   com.google.Chrome.framework   	0x52240029 Framework::Symbol_1() + Google Chrome Framework:1490985
+1   com.google.Chrome.framework   	0x53ea4dbe Framework::Symbol_2() + Google Chrome Framework:31264190
+2   com.google.Chrome.framework   	0x53ea5670 Framework::Symbol_3() + Google Chrome Framework:31266416
+3   com.google.Chrome.framework   	0x528988b6 Framework::Symbol_4() + Google Chrome Framework:8145078
+4   com.google.Chrome.framework   	0x52898a2c Framework::Symbol_5() + Google Chrome Framework:8145452
+5   com.google.Chrome.framework   	0x52898cfd Framework::Symbol_6() + Google Chrome Framework:8146173
+6   com.google.Chrome.framework   	0x5286ea0c Framework::Symbol_7() + Google Chrome Framework:7973388
 7   com.apple.CoreFoundation      	0x905a642b __CFRunLoopDoSources0 + 1563
 8   com.apple.CoreFoundation      	0x905a3eef __CFRunLoopRun + 1071
 9   com.apple.CoreFoundation      	0x905a33c4 CFRunLoopRunSpecific + 452
@@ -31,16 +31,16 @@ Thread 0 Crashed:  CrBrowserMain  Dispatch queue: com.apple.main-thread
 14  com.apple.AppKit              	0x9378c595 _DPSNextEvent + 847
 15  com.apple.AppKit              	0x9378bdd6 -[NSApplication nextEventMatchingMask:untilDate:inMode:dequeue:] + 156
 16  com.apple.AppKit              	0x9374e1f3 -[NSApplication run] + 821
-17  com.google.Chrome.framework   	0x5286ed7d Framework::Symbol_8() (Google Chrome Framework:7974269)
-18  com.google.Chrome.framework   	0x5286e87c Framework::Symbol_9() (Google Chrome Framework:7972988)
-19  com.google.Chrome.framework   	0x528983cd Framework::Symbol_10() (Google Chrome Framework:8143821)
-20  com.google.Chrome.framework   	0x5223cd79 Framework::Symbol_11() (Google Chrome Framework:1478009)
-21  com.google.Chrome.framework   	0x53db39e1 Framework::Symbol_12() (Google Chrome Framework:30276065)
-22  com.google.Chrome.framework   	0x53db314f Framework::Symbol_13() (Google Chrome Framework:30273871)
-23  com.google.Chrome.framework   	0x52852edd Framework::Symbol_14() (Google Chrome Framework:7859933)
-24  com.google.Chrome.framework   	0x520d69a9 Framework::Symbol_15() (Google Chrome Framework:10665)
-25  com.google.Chrome.canary      	0x520cef58 Chrome::Symbol_1() (Google Chrome Canary:3928)
-26  com.google.Chrome.canary      	0x520cef16 Chrome::Symbol_2() (Google Chrome Canary:3862)
+17  com.google.Chrome.framework   	0x5286ed7d Framework::Symbol_8() + Google Chrome Framework:7974269
+18  com.google.Chrome.framework   	0x5286e87c Framework::Symbol_9() + Google Chrome Framework:7972988
+19  com.google.Chrome.framework   	0x528983cd Framework::Symbol_10() + Google Chrome Framework:8143821
+20  com.google.Chrome.framework   	0x5223cd79 Framework::Symbol_11() + Google Chrome Framework:1478009
+21  com.google.Chrome.framework   	0x53db39e1 Framework::Symbol_12() + Google Chrome Framework:30276065
+22  com.google.Chrome.framework   	0x53db314f Framework::Symbol_13() + Google Chrome Framework:30273871
+23  com.google.Chrome.framework   	0x52852edd Framework::Symbol_14() + Google Chrome Framework:7859933
+24  com.google.Chrome.framework   	0x520d69a9 Framework::Symbol_15() + Google Chrome Framework:10665
+25  com.google.Chrome.canary      	0x520cef58 Chrome::Symbol_1() + Google Chrome Canary:3928
+26  com.google.Chrome.canary      	0x520cef16 Chrome::Symbol_2() + Google Chrome Canary:3862
 
 Thread 1:  Dispatch queue: com.apple.libdispatch-manager
 0   libSystem.B.dylib             	0x98a57382 kevent + 10
@@ -58,7 +58,7 @@ Thread 2:
 Thread 3:
 0   libSystem.B.dylib             	0x98a30afa mach_msg_trap + 10
 1   libSystem.B.dylib             	0x98a31267 mach_msg + 68
-2   com.google.Chrome.framework   	0x528685b6 Framework::Symbol_16() (Google Chrome Framework:7947702)
+2   com.google.Chrome.framework   	0x528685b6 Framework::Symbol_16() + Google Chrome Framework:7947702
 3   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 4   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -69,19 +69,19 @@ Thread 4:  NetworkConfigWatcher
 3   com.apple.CoreFoundation      	0x905a33c4 CFRunLoopRunSpecific + 452
 4   com.apple.CoreFoundation      	0x905a31f1 CFRunLoopRunInMode + 97
 5   com.apple.Foundation          	0x9a2ad1b3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 279
-6   com.google.Chrome.framework   	0x5286eccf Framework::Symbol_17() (Google Chrome Framework:7974095)
-7   com.google.Chrome.framework   	0x5286e87c Framework::Symbol_18() (Google Chrome Framework:7972988)
-8   com.google.Chrome.framework   	0x528983cd Framework::Symbol_19() (Google Chrome Framework:8143821)
-9   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_20() (Google Chrome Framework:8273281)
-10  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_21() (Google Chrome Framework:8273415)
-11  com.google.Chrome.framework   	0x528b707a Framework::Symbol_22() (Google Chrome Framework:8269946)
+6   com.google.Chrome.framework   	0x5286eccf Framework::Symbol_17() + Google Chrome Framework:7974095
+7   com.google.Chrome.framework   	0x5286e87c Framework::Symbol_18() + Google Chrome Framework:7972988
+8   com.google.Chrome.framework   	0x528983cd Framework::Symbol_19() + Google Chrome Framework:8143821
+9   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_20() + Google Chrome Framework:8273281
+10  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_21() + Google Chrome Framework:8273415
+11  com.google.Chrome.framework   	0x528b707a Framework::Symbol_22() + Google Chrome Framework:8269946
 12  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 13  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
 Thread 5:  CrShutdownDetector
 0   libSystem.B.dylib             	0x98a3be5e read$UNIX2003 + 10
-1   com.google.Chrome.framework   	0x5223db84 Framework::Symbol_23() (Google Chrome Framework:1481604)
-2   com.google.Chrome.framework   	0x528b707a Framework::Symbol_24() (Google Chrome Framework:8269946)
+1   com.google.Chrome.framework   	0x5223db84 Framework::Symbol_23() + Google Chrome Framework:1481604
+2   com.google.Chrome.framework   	0x528b707a Framework::Symbol_24() + Google Chrome Framework:8269946
 3   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 4   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -89,13 +89,13 @@ Thread 6:  Chrome_DBThread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_25() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_26() (Google Chrome Framework:8249919)
-5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_27() (Google Chrome Framework:8156896)
-6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_28() (Google Chrome Framework:8143821)
-7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_29() (Google Chrome Framework:8273281)
-8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_30() (Google Chrome Framework:8273415)
-9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_31() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_25() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_26() + Google Chrome Framework:8249919
+5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_27() + Google Chrome Framework:8156896
+6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_28() + Google Chrome Framework:8143821
+7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_29() + Google Chrome Framework:8273281
+8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_30() + Google Chrome Framework:8273415
+9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_31() + Google Chrome Framework:8269946
 10  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 11  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -103,26 +103,26 @@ Thread 7:  Chrome_WebKitThread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a603f8 pthread_cond_wait$UNIX2003 + 73
-3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_32() (Google Chrome Framework:8248712)
-4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_33() (Google Chrome Framework:8249947)
-5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_34() (Google Chrome Framework:8249622)
-6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_35() (Google Chrome Framework:8156838)
-7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_36() (Google Chrome Framework:8143821)
-8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_37() (Google Chrome Framework:8273281)
-9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_38() (Google Chrome Framework:8273415)
-10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_39() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_32() + Google Chrome Framework:8248712
+4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_33() + Google Chrome Framework:8249947
+5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_34() + Google Chrome Framework:8249622
+6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_35() + Google Chrome Framework:8156838
+7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_36() + Google Chrome Framework:8143821
+8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_37() + Google Chrome Framework:8273281
+9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_38() + Google Chrome Framework:8273415
+10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_39() + Google Chrome Framework:8269946
 11  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 12  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
 Thread 8:  Chrome_FileThread
 0   libSystem.B.dylib             	0x98a57382 kevent + 10
-1   com.google.Chrome.framework   	0x528c4659 Framework::Symbol_40() (Google Chrome Framework:8324697)
-2   com.google.Chrome.framework   	0x528c2554 Framework::Symbol_41() (Google Chrome Framework:8316244)
-3   com.google.Chrome.framework   	0x5286df52 Framework::Symbol_42() (Google Chrome Framework:7970642)
-4   com.google.Chrome.framework   	0x528983cd Framework::Symbol_43() (Google Chrome Framework:8143821)
-5   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_44() (Google Chrome Framework:8273281)
-6   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_45() (Google Chrome Framework:8273415)
-7   com.google.Chrome.framework   	0x528b707a Framework::Symbol_46() (Google Chrome Framework:8269946)
+1   com.google.Chrome.framework   	0x528c4659 Framework::Symbol_40() + Google Chrome Framework:8324697
+2   com.google.Chrome.framework   	0x528c2554 Framework::Symbol_41() + Google Chrome Framework:8316244
+3   com.google.Chrome.framework   	0x5286df52 Framework::Symbol_42() + Google Chrome Framework:7970642
+4   com.google.Chrome.framework   	0x528983cd Framework::Symbol_43() + Google Chrome Framework:8143821
+5   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_44() + Google Chrome Framework:8273281
+6   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_45() + Google Chrome Framework:8273415
+7   com.google.Chrome.framework   	0x528b707a Framework::Symbol_46() + Google Chrome Framework:8269946
 8   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 9   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -130,44 +130,44 @@ Thread 9:  Chrome_ProcessLauncherThread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a603f8 pthread_cond_wait$UNIX2003 + 73
-3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_47() (Google Chrome Framework:8248712)
-4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_48() (Google Chrome Framework:8249947)
-5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_49() (Google Chrome Framework:8249622)
-6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_50() (Google Chrome Framework:8156838)
-7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_51() (Google Chrome Framework:8143821)
-8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_52() (Google Chrome Framework:8273281)
-9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_53() (Google Chrome Framework:8273415)
-10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_54() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_47() + Google Chrome Framework:8248712
+4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_48() + Google Chrome Framework:8249947
+5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_49() + Google Chrome Framework:8249622
+6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_50() + Google Chrome Framework:8156838
+7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_51() + Google Chrome Framework:8143821
+8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_52() + Google Chrome Framework:8273281
+9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_53() + Google Chrome Framework:8273415
+10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_54() + Google Chrome Framework:8269946
 11  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 12  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
 Thread 10:  Chrome_CacheThread
 0   libSystem.B.dylib             	0x98a57382 kevent + 10
-1   com.google.Chrome.framework   	0x528c4659 Framework::Symbol_55() (Google Chrome Framework:8324697)
-2   com.google.Chrome.framework   	0x528c2554 Framework::Symbol_56() (Google Chrome Framework:8316244)
-3   com.google.Chrome.framework   	0x5286df52 Framework::Symbol_57() (Google Chrome Framework:7970642)
-4   com.google.Chrome.framework   	0x528983cd Framework::Symbol_58() (Google Chrome Framework:8143821)
-5   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_59() (Google Chrome Framework:8273281)
-6   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_60() (Google Chrome Framework:8273415)
-7   com.google.Chrome.framework   	0x528b707a Framework::Symbol_61() (Google Chrome Framework:8269946)
+1   com.google.Chrome.framework   	0x528c4659 Framework::Symbol_55() + Google Chrome Framework:8324697
+2   com.google.Chrome.framework   	0x528c2554 Framework::Symbol_56() + Google Chrome Framework:8316244
+3   com.google.Chrome.framework   	0x5286df52 Framework::Symbol_57() + Google Chrome Framework:7970642
+4   com.google.Chrome.framework   	0x528983cd Framework::Symbol_58() + Google Chrome Framework:8143821
+5   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_59() + Google Chrome Framework:8273281
+6   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_60() + Google Chrome Framework:8273415
+7   com.google.Chrome.framework   	0x528b707a Framework::Symbol_61() + Google Chrome Framework:8269946
 8   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 9   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
 Thread 11:  Chrome_IOThread
 0   libSystem.B.dylib             	0x98af7392 sendmsg$UNIX2003 + 10
-1   com.google.Chrome.framework   	0x5309c48a Framework::Symbol_62() (Google Chrome Framework:16549002)
-2   com.google.Chrome.framework   	0x5309c707 Framework::Symbol_63() (Google Chrome Framework:16549639)
-3   com.google.Chrome.framework   	0x5309d26b Framework::Symbol_64() (Google Chrome Framework:16552555)
-4   com.google.Chrome.framework   	0x5309eba0 Framework::Symbol_65() (Google Chrome Framework:16559008)
-5   com.google.Chrome.framework   	0x5309ed01 Framework::Symbol_66() (Google Chrome Framework:16559361)
-6   com.google.Chrome.framework   	0x528988b6 Framework::Symbol_67() (Google Chrome Framework:8145078)
-7   com.google.Chrome.framework   	0x52898a2c Framework::Symbol_68() (Google Chrome Framework:8145452)
-8   com.google.Chrome.framework   	0x52898cfd Framework::Symbol_69() (Google Chrome Framework:8146173)
-9   com.google.Chrome.framework   	0x5286de00 Framework::Symbol_70() (Google Chrome Framework:7970304)
-10  com.google.Chrome.framework   	0x528983cd Framework::Symbol_71() (Google Chrome Framework:8143821)
-11  com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_72() (Google Chrome Framework:8273281)
-12  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_73() (Google Chrome Framework:8273415)
-13  com.google.Chrome.framework   	0x528b707a Framework::Symbol_74() (Google Chrome Framework:8269946)
+1   com.google.Chrome.framework   	0x5309c48a Framework::Symbol_62() + Google Chrome Framework:16549002
+2   com.google.Chrome.framework   	0x5309c707 Framework::Symbol_63() + Google Chrome Framework:16549639
+3   com.google.Chrome.framework   	0x5309d26b Framework::Symbol_64() + Google Chrome Framework:16552555
+4   com.google.Chrome.framework   	0x5309eba0 Framework::Symbol_65() + Google Chrome Framework:16559008
+5   com.google.Chrome.framework   	0x5309ed01 Framework::Symbol_66() + Google Chrome Framework:16559361
+6   com.google.Chrome.framework   	0x528988b6 Framework::Symbol_67() + Google Chrome Framework:8145078
+7   com.google.Chrome.framework   	0x52898a2c Framework::Symbol_68() + Google Chrome Framework:8145452
+8   com.google.Chrome.framework   	0x52898cfd Framework::Symbol_69() + Google Chrome Framework:8146173
+9   com.google.Chrome.framework   	0x5286de00 Framework::Symbol_70() + Google Chrome Framework:7970304
+10  com.google.Chrome.framework   	0x528983cd Framework::Symbol_71() + Google Chrome Framework:8143821
+11  com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_72() + Google Chrome Framework:8273281
+12  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_73() + Google Chrome Framework:8273415
+13  com.google.Chrome.framework   	0x528b707a Framework::Symbol_74() + Google Chrome Framework:8269946
 14  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 15  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -175,13 +175,13 @@ Thread 12:  BrowserWatchdog
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_75() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_76() (Google Chrome Framework:8249919)
-5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_77() (Google Chrome Framework:8156896)
-6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_78() (Google Chrome Framework:8143821)
-7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_79() (Google Chrome Framework:8273281)
-8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_80() (Google Chrome Framework:8273415)
-9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_81() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_75() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_76() + Google Chrome Framework:8249919
+5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_77() + Google Chrome Framework:8156896
+6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_78() + Google Chrome Framework:8143821
+7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_79() + Google Chrome Framework:8273281
+8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_80() + Google Chrome Framework:8273415
+9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_81() + Google Chrome Framework:8269946
 10  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 11  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -192,12 +192,12 @@ Thread 13:  NetworkConfigWatcher
 3   com.apple.CoreFoundation      	0x905a33c4 CFRunLoopRunSpecific + 452
 4   com.apple.CoreFoundation      	0x905a31f1 CFRunLoopRunInMode + 97
 5   com.apple.Foundation          	0x9a2ad1b3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 279
-6   com.google.Chrome.framework   	0x5286eccf Framework::Symbol_82() (Google Chrome Framework:7974095)
-7   com.google.Chrome.framework   	0x5286e87c Framework::Symbol_83() (Google Chrome Framework:7972988)
-8   com.google.Chrome.framework   	0x528983cd Framework::Symbol_84() (Google Chrome Framework:8143821)
-9   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_85() (Google Chrome Framework:8273281)
-10  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_86() (Google Chrome Framework:8273415)
-11  com.google.Chrome.framework   	0x528b707a Framework::Symbol_87() (Google Chrome Framework:8269946)
+6   com.google.Chrome.framework   	0x5286eccf Framework::Symbol_82() + Google Chrome Framework:7974095
+7   com.google.Chrome.framework   	0x5286e87c Framework::Symbol_83() + Google Chrome Framework:7972988
+8   com.google.Chrome.framework   	0x528983cd Framework::Symbol_84() + Google Chrome Framework:8143821
+9   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_85() + Google Chrome Framework:8273281
+10  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_86() + Google Chrome Framework:8273415
+11  com.google.Chrome.framework   	0x528b707a Framework::Symbol_87() + Google Chrome Framework:8269946
 12  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 13  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -208,12 +208,12 @@ Thread 14:  NetworkConfigWatcher
 3   com.apple.CoreFoundation      	0x905a33c4 CFRunLoopRunSpecific + 452
 4   com.apple.CoreFoundation      	0x905a31f1 CFRunLoopRunInMode + 97
 5   com.apple.Foundation          	0x9a2ad1b3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 279
-6   com.google.Chrome.framework   	0x5286eccf Framework::Symbol_88() (Google Chrome Framework:7974095)
-7   com.google.Chrome.framework   	0x5286e87c Framework::Symbol_89() (Google Chrome Framework:7972988)
-8   com.google.Chrome.framework   	0x528983cd Framework::Symbol_90() (Google Chrome Framework:8143821)
-9   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_91() (Google Chrome Framework:8273281)
-10  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_92() (Google Chrome Framework:8273415)
-11  com.google.Chrome.framework   	0x528b707a Framework::Symbol_93() (Google Chrome Framework:8269946)
+6   com.google.Chrome.framework   	0x5286eccf Framework::Symbol_88() + Google Chrome Framework:7974095
+7   com.google.Chrome.framework   	0x5286e87c Framework::Symbol_89() + Google Chrome Framework:7972988
+8   com.google.Chrome.framework   	0x528983cd Framework::Symbol_90() + Google Chrome Framework:8143821
+9   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_91() + Google Chrome Framework:8273281
+10  com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_92() + Google Chrome Framework:8273415
+11  com.google.Chrome.framework   	0x528b707a Framework::Symbol_93() + Google Chrome Framework:8269946
 12  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 13  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -221,14 +221,14 @@ Thread 15:  Chrome_SafeBrowsingThread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a603f8 pthread_cond_wait$UNIX2003 + 73
-3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_94() (Google Chrome Framework:8248712)
-4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_95() (Google Chrome Framework:8249947)
-5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_96() (Google Chrome Framework:8249622)
-6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_97() (Google Chrome Framework:8156838)
-7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_98() (Google Chrome Framework:8143821)
-8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_99() (Google Chrome Framework:8273281)
-9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_100() (Google Chrome Framework:8273415)
-10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_101() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_94() + Google Chrome Framework:8248712
+4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_95() + Google Chrome Framework:8249947
+5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_96() + Google Chrome Framework:8249622
+6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_97() + Google Chrome Framework:8156838
+7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_98() + Google Chrome Framework:8143821
+8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_99() + Google Chrome Framework:8273281
+9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_100() + Google Chrome Framework:8273415
+10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_101() + Google Chrome Framework:8269946
 11  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 12  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -236,13 +236,13 @@ Thread 16:  Chrome_HistoryThread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_102() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_103() (Google Chrome Framework:8249919)
-5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_104() (Google Chrome Framework:8156896)
-6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_105() (Google Chrome Framework:8143821)
-7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_106() (Google Chrome Framework:8273281)
-8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_107() (Google Chrome Framework:8273415)
-9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_108() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_102() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_103() + Google Chrome Framework:8249919
+5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_104() + Google Chrome Framework:8156896
+6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_105() + Google Chrome Framework:8143821
+7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_106() + Google Chrome Framework:8273281
+8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_107() + Google Chrome Framework:8273415
+9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_108() + Google Chrome Framework:8269946
 10  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 11  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -250,9 +250,9 @@ Thread 17:  Startup watchdog thread Watchdog
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_109() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b8423 Framework::Symbol_110() (Google Chrome Framework:8274979)
-5   com.google.Chrome.framework   	0x528b707a Framework::Symbol_111() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_109() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b8423 Framework::Symbol_110() + Google Chrome Framework:8274979
+5   com.google.Chrome.framework   	0x528b707a Framework::Symbol_111() + Google Chrome Framework:8269946
 6   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 7   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -264,9 +264,9 @@ Thread 18:
 Thread 19:
 0   libSystem.B.dylib             	0x98a30afa mach_msg_trap + 10
 1   libSystem.B.dylib             	0x98a31267 mach_msg + 68
-2   com.google.Chrome.framework   	0x5289669f Framework::Symbol_112() (Google Chrome Framework:8136351)
-3   com.google.Chrome.framework   	0x53e2ee5e Framework::Symbol_113() (Google Chrome Framework:30781022)
-4   com.google.Chrome.framework   	0x528b707a Framework::Symbol_114() (Google Chrome Framework:8269946)
+2   com.google.Chrome.framework   	0x5289669f Framework::Symbol_112() + Google Chrome Framework:8136351
+3   com.google.Chrome.framework   	0x53e2ee5e Framework::Symbol_113() + Google Chrome Framework:30781022
+4   com.google.Chrome.framework   	0x528b707a Framework::Symbol_114() + Google Chrome Framework:8269946
 5   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 6   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -274,13 +274,13 @@ Thread 20:  Chrome_SyncThread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_115() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_116() (Google Chrome Framework:8249919)
-5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_117() (Google Chrome Framework:8156896)
-6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_118() (Google Chrome Framework:8143821)
-7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_119() (Google Chrome Framework:8273281)
-8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_120() (Google Chrome Framework:8273415)
-9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_121() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_115() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b223f Framework::Symbol_116() + Google Chrome Framework:8249919
+5   com.google.Chrome.framework   	0x5289b6e0 Framework::Symbol_117() + Google Chrome Framework:8156896
+6   com.google.Chrome.framework   	0x528983cd Framework::Symbol_118() + Google Chrome Framework:8143821
+7   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_119() + Google Chrome Framework:8273281
+8   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_120() + Google Chrome Framework:8273415
+9   com.google.Chrome.framework   	0x528b707a Framework::Symbol_121() + Google Chrome Framework:8269946
 10  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 11  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -288,14 +288,14 @@ Thread 21:  Chrome_PasswordStore_Thread
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a603f8 pthread_cond_wait$UNIX2003 + 73
-3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_122() (Google Chrome Framework:8248712)
-4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_123() (Google Chrome Framework:8249947)
-5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_124() (Google Chrome Framework:8249622)
-6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_125() (Google Chrome Framework:8156838)
-7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_126() (Google Chrome Framework:8143821)
-8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_127() (Google Chrome Framework:8273281)
-9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_128() (Google Chrome Framework:8273415)
-10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_129() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_122() + Google Chrome Framework:8248712
+4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_123() + Google Chrome Framework:8249947
+5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_124() + Google Chrome Framework:8249622
+6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_125() + Google Chrome Framework:8156838
+7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_126() + Google Chrome Framework:8143821
+8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_127() + Google Chrome Framework:8273281
+9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_128() + Google Chrome Framework:8273415
+10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_129() + Google Chrome Framework:8269946
 11  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 12  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -303,23 +303,23 @@ Thread 22:  PAC thread #0
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a603f8 pthread_cond_wait$UNIX2003 + 73
-3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_130() (Google Chrome Framework:8248712)
-4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_131() (Google Chrome Framework:8249947)
-5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_132() (Google Chrome Framework:8249622)
-6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_133() (Google Chrome Framework:8156838)
-7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_134() (Google Chrome Framework:8143821)
-8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_135() (Google Chrome Framework:8273281)
-9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_136() (Google Chrome Framework:8273415)
-10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_137() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_130() + Google Chrome Framework:8248712
+4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_131() + Google Chrome Framework:8249947
+5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_132() + Google Chrome Framework:8249622
+6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_133() + Google Chrome Framework:8156838
+7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_134() + Google Chrome Framework:8143821
+8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_135() + Google Chrome Framework:8273281
+9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_136() + Google Chrome Framework:8273415
+10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_137() + Google Chrome Framework:8269946
 11  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 12  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
 Thread 23:  SamplerThread
 0   libSystem.B.dylib             	0x98a30b36 semaphore_wait_trap + 10
-1   com.google.Chrome.framework   	0x52fbbcf4 Framework::Symbol_138() (Google Chrome Framework:15629556)
-2   com.google.Chrome.framework   	0x52efb1e8 Framework::Symbol_139() (Google Chrome Framework:14840296)
-3   com.google.Chrome.framework   	0x52fbbdab Framework::Symbol_140() (Google Chrome Framework:15629739)
-4   com.google.Chrome.framework   	0x52fbb685 Framework::Symbol_141() (Google Chrome Framework:15627909)
+1   com.google.Chrome.framework   	0x52fbbcf4 Framework::Symbol_138() + Google Chrome Framework:15629556
+2   com.google.Chrome.framework   	0x52efb1e8 Framework::Symbol_139() + Google Chrome Framework:14840296
+3   com.google.Chrome.framework   	0x52fbbdab Framework::Symbol_140() + Google Chrome Framework:15629739
+4   com.google.Chrome.framework   	0x52fbb685 Framework::Symbol_141() + Google Chrome Framework:15627909
 5   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 6   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -327,14 +327,14 @@ Thread 24:  PAC thread #1
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a603f8 pthread_cond_wait$UNIX2003 + 73
-3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_142() (Google Chrome Framework:8248712)
-4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_143() (Google Chrome Framework:8249947)
-5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_144() (Google Chrome Framework:8249622)
-6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_145() (Google Chrome Framework:8156838)
-7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_146() (Google Chrome Framework:8143821)
-8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_147() (Google Chrome Framework:8273281)
-9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_148() (Google Chrome Framework:8273415)
-10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_149() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1d88 Framework::Symbol_142() + Google Chrome Framework:8248712
+4   com.google.Chrome.framework   	0x528b225b Framework::Symbol_143() + Google Chrome Framework:8249947
+5   com.google.Chrome.framework   	0x528b2116 Framework::Symbol_144() + Google Chrome Framework:8249622
+6   com.google.Chrome.framework   	0x5289b6a6 Framework::Symbol_145() + Google Chrome Framework:8156838
+7   com.google.Chrome.framework   	0x528983cd Framework::Symbol_146() + Google Chrome Framework:8143821
+8   com.google.Chrome.framework   	0x528b7d81 Framework::Symbol_147() + Google Chrome Framework:8273281
+9   com.google.Chrome.framework   	0x528b7e07 Framework::Symbol_148() + Google Chrome Framework:8273415
+10  com.google.Chrome.framework   	0x528b707a Framework::Symbol_149() + Google Chrome Framework:8269946
 11  libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 12  libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -342,10 +342,10 @@ Thread 25:  WorkerPool/70659
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_150() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b8bab Framework::Symbol_151() (Google Chrome Framework:8276907)
-5   com.google.Chrome.framework   	0x528b8f83 Framework::Symbol_152() (Google Chrome Framework:8277891)
-6   com.google.Chrome.framework   	0x528b707a Framework::Symbol_153() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_150() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b8bab Framework::Symbol_151() + Google Chrome Framework:8276907
+5   com.google.Chrome.framework   	0x528b8f83 Framework::Symbol_152() + Google Chrome Framework:8277891
+6   com.google.Chrome.framework   	0x528b707a Framework::Symbol_153() + Google Chrome Framework:8269946
 7   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 8   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 
@@ -353,10 +353,10 @@ Thread 26:  WorkerPool/69639
 0   libSystem.B.dylib             	0x98a5eaa2 __semwait_signal + 10
 1   libSystem.B.dylib             	0x98a5e75e _pthread_cond_wait + 1191
 2   libSystem.B.dylib             	0x98a5e2b1 pthread_cond_timedwait$UNIX2003 + 72
-3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_154() (Google Chrome Framework:8248935)
-4   com.google.Chrome.framework   	0x528b8bab Framework::Symbol_155() (Google Chrome Framework:8276907)
-5   com.google.Chrome.framework   	0x528b8f83 Framework::Symbol_156() (Google Chrome Framework:8277891)
-6   com.google.Chrome.framework   	0x528b707a Framework::Symbol_157() (Google Chrome Framework:8269946)
+3   com.google.Chrome.framework   	0x528b1e67 Framework::Symbol_154() + Google Chrome Framework:8248935
+4   com.google.Chrome.framework   	0x528b8bab Framework::Symbol_155() + Google Chrome Framework:8276907
+5   com.google.Chrome.framework   	0x528b8f83 Framework::Symbol_156() + Google Chrome Framework:8277891
+6   com.google.Chrome.framework   	0x528b707a Framework::Symbol_157() + Google Chrome Framework:8269946
 7   libSystem.B.dylib             	0x98a5e259 _pthread_start + 345
 8   libSystem.B.dylib             	0x98a5e0de thread_start + 34
 

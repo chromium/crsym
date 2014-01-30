@@ -157,7 +157,7 @@ func (h *Handler) ServeHTTP(rw http.ResponseWriter, req *http.Request) {
 	case "fragment":
 		p = h.handleFragment(ctx, rw, req)
 	case "apple":
-		p = new(parser.AppleParser)
+		p = parser.NewAppleParser()
 	case "stackwalk":
 		p = parser.NewStackwalkParser()
 	case "crash_key":

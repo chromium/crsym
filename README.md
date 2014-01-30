@@ -6,7 +6,7 @@ crsym is a tool that can parse crash report data and symbolize it using [Google 
 
 The crsym tool has parsers for the following kinds of crash reports:
 
-* Apple crash and hang reports (typically found in ~/Library/Logs/DiagnosticReports).
+* Apple crash and hang reports for Mac OS X and iOS (typically found in ~/Library/Logs/DiagnosticReports).
 * Breakpad minidumps formatted using mimidump_stackwalk.
 * Android crash reports written to logcat.
 * Arbitrary addresses, where the module load address is specified by the user.

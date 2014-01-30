@@ -34,13 +34,13 @@ Thread 0 Crashed:: Dispatch queue: com.apple.main-thread
 4   com.apple.AppKit              	0x93ca815f -[NSIBObjectData nibInstantiateWithOwner:topLevelObjects:] + 1002
 5   com.apple.AppKit              	0x93ebf7d0 -[NSNib _instantiateNibWithExternalNameTable:] + 634
 6   com.apple.AppKit              	0x93ebf4a2 -[NSNib instantiateNibWithOwner:topLevelObjects:] + 166
-7   com.google.Chrome.framework   	0x00340118 Framework::Symbol_1() (Google Chrome Framework:3227928)
-8   com.google.Chrome.framework   	0x0239e16b Framework::Symbol_2() (Google Chrome Framework:37167467)
-9   com.google.Chrome.framework   	0x0239edc2 Framework::Symbol_3() (Google Chrome Framework:37170626)
-10  com.google.Chrome.framework   	0x0239da1d Framework::Symbol_4() (Google Chrome Framework:37165597)
-11  com.google.Chrome.framework   	0x008fe67b Framework::Symbol_5() (Google Chrome Framework:9250427)
-12  com.google.Chrome.framework   	0x008fd840 Framework::Symbol_6() (Google Chrome Framework:9246784)
-13  com.google.Chrome.framework   	0x0002e9a9 Framework::Symbol_7() (Google Chrome Framework:10665)
+7   com.google.Chrome.framework   	0x00340118 Framework::Symbol_1() + Google Chrome Framework:3227928
+8   com.google.Chrome.framework   	0x0239e16b Framework::Symbol_2() + Google Chrome Framework:37167467
+9   com.google.Chrome.framework   	0x0239edc2 Framework::Symbol_3() + Google Chrome Framework:37170626
+10  com.google.Chrome.framework   	0x0239da1d Framework::Symbol_4() + Google Chrome Framework:37165597
+11  com.google.Chrome.framework   	0x008fe67b Framework::Symbol_5() + Google Chrome Framework:9250427
+12  com.google.Chrome.framework   	0x008fd840 Framework::Symbol_6() + Google Chrome Framework:9246784
+13  com.google.Chrome.framework   	0x0002e9a9 Framework::Symbol_7() + Google Chrome Framework:10665
 14  com.google.Chrome             	0x00025f58 main + 24
 15  com.google.Chrome             	0x00025f16 0x25000 + 3862
 

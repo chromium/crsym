@@ -1,141 +1,167 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="crsym">
   <head>
-    <title>Chrome Symbolizer</title>
-    <meta charset="utf-8" />
-    <link rel="stylesheet" media="screen" href="/static/style.css" />
+    <title>crsym: The Chrome Symbolizer</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" media="screen" href="/static/static/css/bootstrap.min.css">
+    <link rel="stylesheet" media="screen" href="/static/style.css">
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.4/angular.min.js"></script>
   </head>
-  <body>
-    <div id="links">
-      <a href="/static/docs.html">Documentation</a>
-      {{range .StatusData}}
-      | {{.}}
-      {{end}}
-    </div>
+  <body ng-controller="CrsymController">
 
-    <h1>Chrome Symbolizer</h1>
+    <header>
+      <h1>CRSYM</h1>
+      <h6>&mdash; Out-of-band crash processing</h6>
+    </header>
 
-    <form id="form">
-      <div>
-        <div class="input_option" data-input-type="crash_key">
-          <input type="radio" name="input_type" id="input_type_crash_key" />
-          <label for="input_type_crash_key">Crash Key</label>
-          <p>
-            Symbolize the value of a Breakpad upload "product data" key. These
-            appear on the crash server in the blue metadata at the top of the report.
-            Example: <code>zombie_dealloc_bt</code>.
-          </p>
-        </div>
+    <section class="input-types well">
+      <label class="radio">
+        Apple Crash/Hang/Sample
+        <input type="radio" name="input_type" ng-model="inputType" value="apple">
 
-        <div class="input_option" data-input-type="apple">
-          <input type="radio" name="input_type" id="input_type_apple" />
-          <label for="input_type_apple">Apple Crash/Hang/Sample</label>
-          <p>
-            Symbolize an Apple crash or hang report from
-            <code>~/Library/Diagnostic Reports</code>, or the output from running
-            the Sample command in Activity Monitor or at the command line.
-          </p>
-        </div>
+        <p class="help">
+          Symbolize an Apple crash or hang report from
+          <code>~/Library/Diagnostic Reports</code>, or the output from running
+          the Sample command in Activity Monitor or at the command line.
+        </p>
+      </label>
 
-        <div class="input_option" data-input-type="stackwalk">
-          <input type="radio" name="input_type" id="input_type_stackwalk" />
-          <label for="input_type_stackwalk">Minidump Stackwalk</label>
-          <p>
-            Symbolize the machine-format output of Breakpad's
-            <code>minidump_stackwalk&nbsp;-m</code> command.
-          </p>
-        </div>
+      <label class="radio">
+        Crash Key
+        <input type="radio" name="input_type" ng-model="inputType" value="crash_key">
 
-        <div class="input_option" data-input-type="module_info">
-          <input type="radio" name="input_type" id="input_type_module_info" />
-          <label for="input_type_module_info">Look Up Module Info</label>
-          <p>
-            Look up the Breakpad module names and identifiers for a product and
-            version. Product names are the crash reporting ones, e.g. <code>Chrome_Mac</code>.
-          </p>
-        </div>
-
-        <div class="input_option" data-input-type="fragment">
-          <input type="radio" name="input_type" id="input_type_fragment" />
-          <label for="input_type_fragment">Stack Fragment</label>
-          <p>
-            Symbolize arbitrary addresses of a stack fragment. It is often useful
-            to get the Module Name and Module Identifier from the
-            "Look Up Module Info" option.
-          </p>
-        </div>
-
-        <div class="input_option" data-input-type="android">
-          <input type="radio" name="input_type" id="input_type_android" />
-          <label for="input_type_android">Android Log</label>
-          <p>
-	    Symbolize the crash from an android log.  The log is obtained with the command 
-	    <code>adb logcat</code>.
-          </p>
-        </div>
-      </div>
-
-      <div id="fragment_data">
-        <div>
-          <label for="module">Module Name <a href="/static/docs.html#fragment_name">[?]</a></label>
-          <input type="text" name="module" id="module" />
-        </div>
-
-        <div>
-          <label for="ident">Module Identifier <a href="/static/docs.html#fragment_identifier">[?]</a></label>
-          <input type="text" name="ident" id="ident" />
-        </div>
-
-        <div>
-          <label for="load_address">Load Address/Module Base Address <a href="/static/docs.html#fragment_load_address">[?]</a></label>
-          <input type="text" name="load_address" id="load_address" />
-        </div>
-      </div>
-
-      <div id="crash_key_data">
+        <p class="help">
+          Symbolize the value of a Breakpad upload "product data" key. These
+          appear on the crash server in the blue metadata at the top of the report.
+          Example: <code>zombie_dealloc_bt</code>.
+        </p>
+      </label>
+      <div class="input-options" ng-show="inputType == 'crash_key'">
         <div>
           <label for="report_id">Crash Report ID</label>
-          <input type="text" name="report_id" id="report_id" />
+          <input type="text" ng-model="typeData.crash_key.report_id" id="report_id">
         </div>
 
         <div>
           <label for="crash_key">Crash Key Name</label>
-          <input type="text" name="crash_key" id="crash_key" />
+          <input type="text" ng-model="typeData.crash_key.crash_key" id="crash_key">
         </div>
       </div>
 
-      <div id="module_info_data">
+      <label class="radio">
+        Minidump Stackwalk
+        <input type="radio" name="input_type" ng-model="inputType" value="stackwalk">
+
+        <p class="help">
+          Symbolize the machine-format output of Breakpad's
+          <code>minidump_stackwalk&nbsp;-m</code> command.
+        </p>
+      </label>
+
+      <label class="radio">
+        Look Up Module Info
+        <input type="radio" name="input_type" ng-model="inputType" value="module_info">
+
+        <p class="help">
+          Look up the Breakpad module names and identifiers for a product and
+          version. Product names are the crash reporting ones, e.g. <code>Chrome_Mac</code>.
+        </p>
+      </label>
+      <div class="input-options" ng-show="inputType == 'module_info'">
         <div>
           <label for="product_name">Product Name</label>
-          <input type="text" name="product_name" id="product_name" />
+          <input type="text" ng-model="typeData.module_info.product_name" id="product_name">
         </div>
 
         <div>
           <label for="product_version">Product Version</label>
-          <input type="text" name="product_version" id="product_version" />
+          <input type="text" ng-model="typeData.module_info.product_version" id="product_version">
         </div>
       </div>
 
-      <div id="android_data">
+      <label class="radio">
+        Stack Fragment
+        <input type="radio" name="input_type" ng-model="inputType" value="fragment">
+
+        <p class="help">
+          Symbolize arbitrary addresses of a stack fragment. It is often useful
+          to get the Module Name and Module Identifier from the
+          "Look Up Module Info" option.
+        </p>
+      </label>
+      <div class="input-options" ng-show="inputType == 'fragment'">
+        <div>
+          <label for="module">
+            Module Name
+            <p class="help">
+              The code module name, which is often the last path component of an
+              archive, for example &ldquo;chrome.dll&rdquo; or &ldquo;Google Chrome
+              Framework&rdquo;.
+            </p>
+          </label>
+          <input type="text" ng-model="typeData.fragment.module" id="module">
+        </div>
+
+        <div>
+          <label for="ident">
+            Module Identifier
+            <p class="help">
+              A unique identifier for the module. Rather than using version numbers,
+              which are not guaranteed to be unique, the Breakpad crash servers use
+              a 33-character long identifier, based on the UUID of the symbol file
+              for the module.
+            </p>
+          </label>
+          <input type="text" ng-model="typeData.fragment.ident" id="ident">
+        </div>
+
+        <div>
+          <label for="load_address">
+            Load Address/Module Base Address
+            <p class="help">
+              The base address where the code module was mapped into memory. The
+              symbolizer will subtract this from each of the addresses to find
+              the function in the module. If the addresses being symbolized are
+              absolute within the module, <code>0x0</code> is an acceptable value.
+            </p>
+          </label>
+          <input type="text" ng-model="typeData.fragment.load_address" id="load_address">
+        </div>
+      </div>
+
+      <label class="radio">
+        Android Log
+        <input type="radio" name="input_type" id="input_type_android" ng-model="inputType" value="android">
+
+        <p class="help">
+          Symbolize the crash from an android log. The log is obtained with the
+          command <code>adb logcat</code>.
+        </p>
+      </label>
+      <div class="input-options" ng-show="inputType == 'android'">
         <div>
           <label for="android_chrome_version">Android Chrome Version (Optional)</label>
-          <input type="text" name="android_chrome_version" id="android_chrome_version" />
+          <input type="text" ng-model="typeData.android.android_chrome_version" id="android_chrome_version">
         </div>
       </div>
 
-      <div id="tabs">
-        <label for="input">Input</label>
-        <label for="output">Output</label>
-        <label for="scratch">Scratch</label>
-      </div>
-      <div id="tab_contents">
-        <textarea name="input" id="input" wrap="off"></textarea>
-        <textarea id="output" wrap="off"></textarea>
-        <textarea id="scratch" wrap="off"></textarea>
-      </div>
+      <textarea ng-model="input" id="input" wrap="off" ng-hide="hideInputArea()"></textarea>
 
-      <button type="button" id="symbolize">Symbolize</button>
-    </form>
+      <div><button class="btn btn-primary" ng-click="symbolize()">Symbolize</button></div>
+    </section>  <!-- / Input Crash Data -->
+
+    <section class="well">
+      <h2>Symbolized Output</h2>
+
+      <textarea id="output" wrap="off" ng-class="{in_progress: processing, error: error}">{@ output @}</textarea>
+    </section>  <!-- / Output -->
+
+    <footer>
+      crsym
+      {{range .StatusData}}
+       [ {{.}} ]
+      {{end}}
+    </footer>
 
     <script src="/static/symbolizer.js"></script>
   </body>

@@ -30,11 +30,6 @@ type cacheTestSupplier struct {
 }
 
 func (s *cacheTestSupplier) reset() {
-	// Receive pending messages until the channel gets closed.
-	open := false
-	for open {
-		_, open = <-s.c
-	}
 	s.c = make(chan breakpad.SupplierResponse)
 }
 
@@ -109,6 +104,9 @@ func TestGetTableCache(t *testing.T) {
 		}
 	}
 
+	// Receive pending messages until the channel gets closed.
+	for _ = range supplier.c {
+	}
 	supplier.reset()
 
 	// After iterating through the cache twice, initial #5 is MRU, so #1 will
